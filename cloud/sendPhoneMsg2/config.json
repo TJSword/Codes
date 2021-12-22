@@ -1,0 +1,9 @@
+{
+  "triggers": [
+    {
+      "name": "timeingTaskExecutor",
+      "type": "timer",
+      "config": "0 */1 * * * * *"
+    }
+  ]
+}

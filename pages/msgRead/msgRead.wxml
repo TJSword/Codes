@@ -1,0 +1,31 @@
+<view class="write">
+  <image src="../../image/login_bg.png" class="bg"></image>
+  <view class="base">
+      <view class="left_title" style="top:{{statusBarHeight}}px" bindtap = "goBack">
+      <image src="../../image/left.png" class="left" ></image>
+      <view class="title">时光与信</view>
+    </view>
+    <view class="write_box">
+    <button open-type="share" class="shareButton"></button>
+      <image src="../../image/share_wrong.png" class="share_wrong"></image>
+      <view class="writeTime">来自：{{createDate}}</view>
+      <view class="writer">{{msgDetail.contentTitle}}</view>
+      <text class="content {{case===1?'content_case1':''}} {{case ===2?'.content_case2':''}} {{case === 3?'content_case3':''}}">{{msgDetail.contentDetail}}</text>
+    </view>
+    <view class="pic_voice" >
+      <view class="opacityBg {{case ===1?'opacityBg_case1':''}} {{case === 2?'opacityBg_case2':''}} {{case === 3?'opacityBg_case3':''}}" ></view>
+      <view class="voice {{case ===2?'voice_case2':''}}" bindlongpress = "voiceRemove" animation="{{voiceAni}}" wx:if="{{case===1 || case===3?false:true}}"> 
+        <view class="play" bindtap="playVoice">
+          <image src = "{{isPlaying?'../../image/stop.png':'../../image/play.png'}}" class="playIcon"></image>
+          <button class="playButton"></button>
+        </view>
+        <view class="row_box">
+          <view class="row {{isPlaying?item.cls:''}}" wx:for="{{line}}" style="height:{{item.height}}rpx" wx:key="index"></view>
+        </view> 
+      </view>
+       <view class="images_box">
+        <image src="{{item}}" class="image_item" mode="aspectFill" wx:for="{{imagePaths}}"  bindtap="previewImage" data-url = "{{item}}"  wx:key="index"></image>
+      </view>
+    </view>
+  </view>
+</view>

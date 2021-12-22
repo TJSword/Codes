@@ -1,0 +1,36 @@
+<!-- <view class="write" wx:if="{{!isTester}}"> -->
+<view class="write">
+  <image src="../../image/login_bg.png" class="bg"></image>
+  <view class="base">
+      <view class="left_title" style="top:{{statusBarHeight}}px" bindtap = "goBack">
+      <image src="../../image/left.png" class="left" ></image>
+      <view class="title">时光与信</view>
+    </view>
+    <view class="write_box">
+      <input class="title" placeholder="写一个标题吧…" bindinput="canSend"></input>
+      <image src = "{{title && content?'../../image/send_active.png':'../../image/send.png'}}" class="send" catchtap="{{title && content?'send':''}}"></image>
+      <view class="line"></view>
+      <textarea class="content {{voice?'':'contentnoneVoice'}}" placeholder="你想对青葱岁月说点什么…" bindinput="textarea"  maxlength="3000" cursor-spacing="62rpx"></textarea>
+      <view class="wordsNumber" style="{{content.length === 3000?'color:red':''}}">{{content.length}}/3000</view>
+      <view class="voice {{voiceRemoving?'shaky':''}}" wx:if="{{voice}}" bindlongpress = "voiceRemove" animation="{{voiceAni}}">
+        <view class="play" bindtap="playVoice">
+          <image src = "{{isPlaying?'../../image/stop.png':'../../image/play.png'}}" class="playIcon"></image>
+          <button class="playButton"></button>
+        </view>
+        <view class="row_box">
+          <view class="row {{isPlaying?item.cls:''}}" wx:for="{{line}}" style="height:{{item.height}}rpx" wx:key="index"></view>
+        </view> 
+      </view>
+      <view class="images_box">
+        <image src="{{item}}" class="image_item {{index === imageRemoveIndex?'image_active':''}} " mode="aspectFill" wx:for="{{imagePaths}}" wx:key="index" data-url="{{item}}" bindtap="previewImage" bindlongpress="imageRemove" data-index = "{{index}}" ></image>
+        <image src="../../image/chooseImage.png" wx:if="{{imagePaths.length===3?false:true}}" class="chooseImage" bindtap="chooseImage"></image>
+      </view>
+      <button class="recordVoice" bindtap="recordVoiceStart">
+        <image src= "{{recording?'../../image/stop.png':'../../image/mic.png'}}" class="recordVoice_icon"></image>
+        <text class="recordVoice_text">{{recording?"结束录制":"开始录音"}} <text wx:if="{{recording}}">({{second}}s)</text></text></button>
+    </view>
+  </view>
+</view>
+<!-- <view wx-else class="test_box">
+  <image src="../../image/test_bg_1.jpg" class="test_img"></image>
+</view> -->

@@ -1,0 +1,196 @@
+Page {
+  height: 100%;
+  width: 100%;
+}
+Page .admin {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .admin .left_title {
+  position: absolute;
+  z-index: 20;
+  left: 32rpx;
+  height: 45px;
+  width: 202rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+Page .admin .left_title .left {
+  height: 44rpx;
+  width: 24rpx;
+}
+Page .admin .left_title .title {
+  font-size: 40rpx;
+  color: #2b3e43;
+  font-family: pingfang;
+  font-weight: 400;
+}
+Page .admin .header {
+  height: 16%;
+  width: 100%;
+  background: #27D4A0;
+  position: absolute;
+  top: 0;
+}
+Page .admin .header .tab_box {
+  height: 64rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #ffffff;
+}
+Page .admin .header .tab_box .unsent {
+  height: 66rpx;
+  position: absolute;
+  z-index: 10;
+  left: 116rpx;
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+Page .admin .header .tab_box .unsent .line {
+  position: absolute;
+  height: 8rpx;
+  width: 32rpx;
+  background: white;
+  left: 64rpx;
+  bottom: 8rpx;
+  border-radius: 4rpx;
+}
+Page .admin .header .tab_box .unsent_active {
+  height: 66rpx;
+  font-size: 32rpx;
+  position: absolute;
+  z-index: 10;
+  left: 108rpx;
+  opacity: 1;
+  transition: all 0.3s;
+}
+Page .admin .header .tab_box .sent {
+  height: 66rpx;
+  position: absolute;
+  z-index: 10;
+  right: 116rpx;
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+Page .admin .header .tab_box .sent .line {
+  position: absolute;
+  height: 8rpx;
+  width: 32rpx;
+  background: white;
+  left: 64rpx;
+  bottom: 8rpx;
+  border-radius: 4rpx;
+}
+Page .admin .header .tab_box .sent_active {
+  height: 66rpx;
+  font-size: 32rpx;
+  position: absolute;
+  z-index: 10;
+  right: 108rpx;
+  opacity: 1;
+  transition: all 0.3s;
+}
+Page .admin .swiper {
+  height: 84%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+Page .admin .swiper .swiper_item {
+  overflow-y: scroll;
+}
+Page .admin .swiper .swiper_item .sentletter {
+  height: 272rpx;
+  width: 686rpx;
+  background: white;
+  margin-left: 32rpx;
+  border-radius: 32rpx;
+  position: relative;
+  box-shadow: 0px 4rpx 40rpx 0px rgba(0, 0, 0, 0.1);
+  margin-top: 44rpx;
+}
+Page .admin .swiper .swiper_item .sentletter .pin {
+  width: 70rpx;
+  height: 64rpx;
+  position: absolute;
+  left: -6rpx;
+  top: -6rpx;
+}
+Page .admin .swiper .swiper_item .sentletter .letter_toWho {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #4d717b;
+  position: absolute;
+  top: 48rpx;
+  left: 48rpx;
+}
+Page .admin .swiper .swiper_item .sentletter .letter_receiveTime {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #4d717b;
+  position: absolute;
+  top: 112rpx;
+  left: 48rpx;
+}
+Page .admin .swiper .swiper_item .sentletter .letter_address {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #4d717b;
+  position: absolute;
+  bottom: 52rpx;
+  left: 48rpx;
+  white-space: nowrap;
+  width: 540rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+Page .admin .swiper .swiper_item .sentletter .letter_postcode {
+  width: 264rpx;
+  height: 72rpx;
+  background: #f2f3f5;
+  border-radius: 36rpx 0rpx 0rpx 36rpx;
+  position: absolute;
+  top: 34rpx;
+  right: 0rpx;
+}
+Page .admin .swiper .swiper_item .sentletter .letter_postcode .postal {
+  height: 40rpx;
+  width: 40rpx;
+  position: absolute;
+  top: 16rpx;
+  left: 16rpx;
+}
+Page .admin .swiper .swiper_item .sentletter .letter_postcode .postal_input {
+  height: 34rpx;
+  width: 200rpx;
+  position: absolute;
+  top: 18rpx;
+  left: 64rpx;
+  font-size: 24rpx;
+}
+Page .admin .swiper .swiper_item .sentletter .letter_send {
+  width: 80rpx;
+  height: 80rpx;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  right: 24rpx;
+  bottom: 24rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .admin .swiper .swiper_item .sentletter .letter_send .send_icon {
+  height: 48rpx;
+  width: 48rpx;
+}
+Page .admin .swiper .swiper_item .sentletter .letter_bg {
+  height: 100%;
+  width: 100%;
+  border-radius: 32rpx;
+}

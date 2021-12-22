@@ -1,0 +1,49 @@
+<view class="admin">
+  <view class="left_title" style="top:{{statusBarHeight}}px" bindtap = "goBack">
+    <image src="../../image/left.png" class="left" ></image>
+    <view class="title">管理后台</view>
+  </view>
+  <view class="header">
+    <view class="tab_box">
+      <view class="unsent {{current === 0?'unsent_active':''}}" data-current='0' bindtap="currentChange">
+        <text>待发送信件</text>
+        <view class="line" wx:if="{{current === 0?true:false}}"></view>
+      </view>
+      <view class="sent {{current === 1?'sent_active':''}}" data-current='1' bindtap="currentChange">
+        <text>已发送信件</text>
+        <view class="line" wx:if="{{current === 1?true:false}}"></view>
+      </view>
+    </view>
+  </view>
+  <swiper class="swiper" current="{{current}}" bindchange="swiperChanged">
+    <swiper-item class="swiper_item">
+      <view class="sentletter" wx:for="{{unsentLetters}}" wx:key="_id" catchtap="openUnsent" data-secret="{{item.secret}}" catchlongpress="showUnsentAddress" data-index="{{index}}">
+        <image class="pin" src="../../image/pin.png"></image>
+        <view class="letter_toWho">收信人：{{item.toWho}}</view>
+        <view class="letter_receiveTime">收信时间：{{item.sendDateYMD.year}}年{{item.sendDateYMD.month}}月{{item.sendDateYMD.day}}日</view>
+        <view class="letter_address">寄送地址：{{item.site}}</view>
+        <view class="letter_postcode" catchtap="notouch">
+          <image src="../../image/postal.png" class="postal"></image>
+          <input class="postal_input" placeholder="输入邮政单号..." type="number" catchinput="postalInput"  data-index="{{index}}"></input>
+        </view>
+        <view class="letter_send" catchtap="sent" data-index="{{index}}">
+          <image src="../../image/send_active.png" class="send_icon" catchtap="sent" data-index="{{index}}"></image>
+        </view>
+        <image src="../../image/admin_letter_bg.png" class="letter_bg"></image>
+      </view>
+
+
+      
+    </swiper-item>
+      <swiper-item class="swiper_item">
+      <view class="sentletter"  wx:for="{{sentLetters}}" wx:key="_id" catchtap="open" data-secret="{{item.secret}}" catchlongpress="showSentAddress" data-index="{{index}}">
+        <image class="pin" src="../../image/pin.png"></image>
+        <view class="letter_toWho">收信人：{{item.toWho}}</view>
+        <view class="letter_receiveTime">收信时间：{{item.sendDateYMD.year}}年{{item.sendDateYMD.month}}月{{item.sendDateYMD.day}}日</view>
+        <view class="letter_address">寄送地址：{{item.site}}</view>
+        <image src="../../image/admin_letter_bg.png" class="letter_bg"></image>
+      </view>
+      
+    </swiper-item>
+  </swiper>
+</view>

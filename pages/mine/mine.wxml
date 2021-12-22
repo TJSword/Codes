@@ -1,0 +1,113 @@
+<view class="mine">
+  <image src="../../image/login_bg.png" class="bg"></image>
+  <view class="base">
+    <view class="left_title" style="top:{{statusBarHeight}}px" bindtap = "goBack">
+      <image src="../../image/left.png" class="left" ></image>
+      <view class="title">时光与信</view>
+    </view>
+    <image src="../../image/setting.png" class="setting" bindtap = "toAbout"></image>
+    <button  bindtap="update" class="updatebutton"></button>
+    <image src= "../../image/update.png" class="update {{isUpdate?'updataActive':''}}"></image>
+    <view class="info_box">
+      <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
+      <view class="name">{{userInfo.nickName}}</view>
+      <view class="days">与时光与信相遇的第{{apart}}天...</view>
+    </view>
+    <view class="tab_box" bindtap="tabChanged">
+      <view class="sent {{current == 0 ?'active':''}}" data-current='0'>我发出的({{(sentMsg===undefined?0:sentMsg.length) + (unsentMsg===undefined?0:unsentMsg.length) + (sentLetter===undefined?0:sentLetter.length) + (unsentLetter===undefined?0:unsentLetter.length)}})</view>
+      <view class="received {{current == 1 ?'active':''}}"  data-current="1" >我收到的({{(receivedMsg===undefined?0:receivedMsg.length) + (receivedLetter===undefined?0:receivedLetter.length)}})</view>
+      <button class="getPhoneNumber" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!havePhone}}"></button>
+    </view>
+    <swiper class="swiper" current="{{current}}" bindchange="swiperChanged">
+      <swiper-item class="sent_box">
+          <block wx:if="{{sentMsg === undefined && unsentMsg === undefined && sentLetter === undefined && unsentLetter === undefined}}">
+            <view class="text">你还没有写下一封信，快去试试吧…</view>
+            <image src="../../image/guidance.png" class="guidance"></image>
+            <view class="toWrite" bindtap = "toWrite">
+              <image src="../../image/feather.png" class="feather"></image>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="sentletter" wx:for="{{sentMsg}}" wx:key="_id" bindtap = "showDetail" data-secret="{{item.secret}}">
+                <image class="pin" src="../../image/pin.png"></image>
+                <view class="letter_title">{{item.contentTitle}}</view>
+                <view class="letter_toWho">收信人：{{item.toWho}}</view>
+                <view class="letter_creatTime">创建时间：{{item.createTime.year}}年{{item.createTime.month}}月{{item.createTime.day}}日</view>
+                <view class="examine">立即查看 </view>
+                <image src="../../image/right_green.png" class="right_green"></image>
+                <image src="{{item.imageFileID.tempFilePath?item.imageFileID.tempFilePath:bgUrl}}" class="letter_pic"  mode="aspectFill"></image>
+                <view class="opacity"></view>
+            </view>
+
+            <view class="sentletter" wx:for="{{unsentMsg}}"  wx:key="_id">
+                <image class="pin" src="../../image/pin.png"></image>
+                <view class="letter_title">{{item.contentTitle}}</view>
+                <view class="letter_toWho">收信人：{{item.toWho}}</view>
+                <view class="letter_creatTime">创建时间：{{item.createTime.year}}年{{item.createTime.month}}月{{item.createTime.day}}日</view>
+                <view class="remaining">距离开启时间:
+                  <text class="second">{{item.distance<=0?'0':item.distance}}秒</text> 
+                </view>
+                <image src="{{item.imageFileID.tempFilePath?item.imageFileID.tempFilePath:bgUrl}}" class="letter_pic"  mode="aspectFill"></image>
+            </view>
+
+            <view class="sentletter" wx:for="{{sentLetter}}" wx:key="_id" data-secret="{{item.secret}}" bindtap = "showLetterDetail">
+                <image class="pin" src="../../image/pin.png"></image>
+                <view class="letter_title">{{item.contentTitle}}</view>
+                <view class="letter_toWho">收信人：{{item.toWho}}</view>
+                <view class="letter_creatTime">创建时间：{{item.createTime.year}}年{{item.createTime.month}}月{{item.createTime.day}}日</view>
+                <view class="examine">立即查看 </view>
+                <image src="../../image/right_green.png" class="right_green"></image>
+                <image src="../../image/letter_bg.png" class="letter_bg"></image>
+            </view>
+
+            <view class="sentletter" wx:for="{{unsentLetter}}" wx:key="_id" data-secret="{{item.secret}}">
+                <image class="pin" src="../../image/pin.png"></image>
+                <view class="letter_title">{{item.contentTitle}}</view>
+                <view class="letter_toWho">收信人：{{item.toWho}}</view>
+                <view class="letter_creatTime">创建时间：{{item.createTime.year}}年{{item.createTime.month}}月{{item.createTime.day}}日</view>
+                <view class="remaining">距离开启时间:
+                  <text class="second">{{item.distance}}秒</text> 
+                </view>
+                <image src="../../image/letter_bg.png" class="letter_bg"></image>
+            </view>
+
+          </block>
+      </swiper-item>
+      <swiper-item class="received_box">
+        <block wx:if="{{receivedMsg.length === undefined && receivedLetter === undefined}}">
+          <view class="text">还没有人给你写信呢，分享给朋友试试吧…</view>
+        <image src="../../image/guidance.png" class="guidance"></image>
+        <view class="toWrite">
+          <image src="../../image/share_green.png" class="feather"></image>
+          <button class="share_button" open-type="share"></button>
+        </view>
+        </block>
+         <block wx:else>
+            <view class="sentletter" wx:for="{{receivedMsg}}" wx:key="_id" bindtap = "showDetail" data-secret="{{item.secret}}">
+               <image class="pin" src="../../image/pin.png"></image>
+                <view class="letter_title">{{item.contentTitle}}</view>
+                <view class="letter_toWho">寄信人：{{item.writer}}</view>
+                <view class="letter_creatTime">创建时间：{{item.createTime.year}}年{{item.createTime.month}}月{{item.createTime.day}}日</view>
+                <view class="examine">立即查看 </view>
+                <image src="../../image/right_green.png" class="right_green"></image>
+               <image src="{{item.imageFileID.tempFilePath?item.imageFileID.tempFilePath:bgUrl}}" class="letter_pic"  mode="aspectFill"></image>
+                <view class="opacity"></view>
+            </view>
+
+
+            <view class="sentletter" wx:for="{{receivedLetter}}" wx:key="_id" data-secret="{{item.secret}}" bindtap = "showLetterDetail">
+               <image class="pin" src="../../image/pin.png"></image>
+                <view class="letter_title">{{item.contentTitle}}</view>
+                <view class="letter_toWho">寄信人：{{item.writer}}</view>
+                <view class="letter_creatTime">创建时间：{{item.createTime.year}}年{{item.createTime.month}}月{{item.createTime.day}}日</view>
+                <view class="examine">立即查看 </view>
+                <image src="../../image/right_green.png" class="right_green"></image>
+                <image src="../../image/letter_bg.png" class="letter_bg"></image>
+            </view>
+
+          </block>
+
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

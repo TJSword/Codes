@@ -1,0 +1,41 @@
+<view class="msgAddress">
+  <view class="left_title" style="top:{{statusBarHeight}}px" bindtap = "goBack">
+    <image src="../../image/left.png" class="left" ></image>
+    <view class="title">编写准备</view>
+  </view>
+  <view class="tab_box" >
+    <picker mode="date" value="{{date}}" start="{{now}}" bindchange="showDate" class="picker">
+      <view class="picker_box" bindtap="rotateDate">
+        <text class="tab_title" style="{{date?'color:#27D4A0':''}}"> {{date?date:'您希望在哪天收到'}}</text>
+        <image src="../../image/right.png" class="right {{isRotateDate?'right_active':''}}" ></image>
+      </view>
+    </picker>
+
+    <view class="tab_item">
+      <input class="tab_title" placeholder="您想要寄给谁" placeholder-style="color:#597B84;" style="{{isRotateAddress?'':'color:#27D4A0'}}" bindfocus="rotateAddress" bindblur="addressBlur"></input>
+      <image src="../../image/right.png" class="right {{isRotateAddress?'right_active':''}}"></image>
+    </view>
+        <picker mode="region" value="{{site}}"  bindchange="showSite" class="picker">
+      <view class="picker_box"  bindtap="rotateTime">
+        <text class="tab_title"  style="{{site.length ===0 ?'':'color:#27D4A0'}}"> {{site.length === 0?'您要寄往的地址':site}}</text>
+        <image src="../../image/right.png" class="right {{isRotateTime?'right_active':''}}"></image>
+      </view>
+    </picker>
+        <view class="tab_item">
+      <input class="tab_title elips" placeholder="详细地址" placeholder-style="color:#597B84;" style="{{isRotateSite?'':'color:#27D4A0'}}" bindfocus="rotateSite" bindblur="siteBlur"></input>
+      <image src="../../image/right.png" class="right {{isRotateSite?'right_active':''}}"></image>
+    </view>
+    <view class="tab_item">
+       <input class="tab_title" placeholder="接收人的电话"  placeholder-style="color:#597B84;"  style="{{isPhoneNumber?'color:#27D4A0':''}} {{notPhone?'color:red':''}}" bindfocus="rotatePhone" bindblur="phoneBlur"></input>
+      <image src="../../image/right.png" class="right {{isRotatePhone?'right_active':''}}"></image>
+    </view>
+    <view class="remind">以上信息很重要，要仔细填写哦^ - ^</view>
+  </view>
+  <!-- <image src="../../image/blocks.png" class="blocks"></image> -->
+  <image src="../../image/letterAddress_bg.png" class="bg">
+  </image>
+  <view class="allReady" bindtap="toWrite">
+    <image src="../../image/rightHand.png" class="rightHand"></image>
+    <text class="allReady_text">一切就绪</text>
+  </view>
+</view>

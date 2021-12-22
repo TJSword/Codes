@@ -1,0 +1,83 @@
+Page{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    .index{
+        height:100%;
+        width:100%;
+        .bg{
+            height:100%;
+            width:100%;
+            position: fixed;
+            z-index:-50
+        }
+        .left_box{
+            height:44px;
+            width:24rpx;
+            position: absolute;
+            left:32rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .left{
+                height:44rpx;
+                width:24rpx;
+            }
+        }
+        .title{
+            font-size:72rpx;
+            font-family: pingfang;
+            color:#2B3E43;
+            position: absolute;
+            top:15%;
+            left:74rpx;
+            font-weight:549;
+        }
+        .content{
+            position: absolute;
+            top:23%;
+            height:88rpx;
+            width:644rpx;
+            left:74rpx;
+            color:#4D717B;
+            line-height:44rpx;
+            font-size:32rpx;
+        }
+        .bottom{
+            height:46%;
+            width:100%;
+            background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+            position: absolute;
+            bottom:0;
+            .login{
+                width:560rpx;
+                height:96rpx;
+                background:rgba(39,212,160,1);
+                box-shadow:0px 8px 20px 0px rgba(39,212,160,0.4);
+                border-radius:48px;
+                position: absolute;
+                bottom:24%;
+                left:13%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .wechat{
+                    height:44rpx;
+                    width:50rpx;
+                    flex-shrink:0;
+                }
+                .wechat_text{
+                    height:48rpx;
+                    width:144rpx;
+                    font-size:36rpx;
+                    font-family:pingfang;
+                    font-weight:400;
+                    color:rgba(255,255,255,1);
+                    line-height:48rpx;
+                    margin-left:20rpx;
+                }
+            }
+            
+        }
+    }
+}

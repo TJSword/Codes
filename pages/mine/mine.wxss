@@ -1,0 +1,401 @@
+Page {
+  height: 100%;
+  width: 100%;
+}
+Page .mine {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .mine .bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -10;
+}
+Page .mine .base {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 50%);
+}
+Page .mine .base .left_title {
+  position: absolute;
+  left: 32rpx;
+  height: 45px;
+  width: 202rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+Page .mine .base .left_title .left {
+  height: 44rpx;
+  width: 24rpx;
+}
+Page .mine .base .left_title .title {
+  font-size: 40rpx;
+  color: #2b3e43;
+  font-family: pingfang;
+  font-weight: 400;
+}
+Page .mine .base .updatebutton {
+  height: 64rpx;
+  width: 64rpx;
+  position: absolute;
+  top: 13.4%;
+  right: 144rpx;
+  z-index: 10;
+  opacity: 0;
+}
+Page .mine .base .update {
+  height: 64rpx;
+  width: 64rpx;
+  position: absolute;
+  top: 13.4%;
+  right: 144rpx;
+}
+Page .mine .base .updataActive {
+  transform: rotate(-3600deg);
+  transition: 10s;
+}
+Page .mine .base .setting {
+  height: 64rpx;
+  width: 64rpx;
+  position: absolute;
+  top: 13.4%;
+  right: 32rpx;
+}
+Page .mine .base .info_box {
+  height: 10%;
+  width: 654rpx;
+  position: absolute;
+  top: 17%;
+  left: 32rpx;
+}
+Page .mine .base .info_box .avatar {
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 50%;
+}
+Page .mine .base .info_box .name {
+  position: absolute;
+  top: 14rpx;
+  left: 192rpx;
+  font-size: 48rpx;
+  font-weight: 500;
+  color: #2b3e43;
+}
+Page .mine .base .info_box .days {
+  position: absolute;
+  top: 96rpx;
+  left: 192rpx;
+  font-size: 36rpx;
+  font-weight: 400;
+  color: #4d717b;
+}
+Page .mine .base .tab_box {
+  height: 6%;
+  width: 686rpx;
+  position: absolute;
+  top: 31%;
+  left: 32rpx;
+  display: flex;
+}
+Page .mine .base .tab_box .sent {
+  height: 96rpx;
+  width: 344rpx;
+  background: #ffffff;
+  border-radius: 48rpx 0 0 48rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2b3e43;
+  font-size: 36rpx;
+}
+Page .mine .base .tab_box .received {
+  height: 96rpx;
+  width: 344rpx;
+  background: #ffffff;
+  border-radius: 0  48rpx 48rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2b3e43;
+  font-size: 36rpx;
+}
+Page .mine .base .tab_box .active {
+  background: #2b3e43;
+  color: #ffffff;
+  transition: 1.2s;
+}
+Page .mine .base .tab_box .getPhoneNumber {
+  position: absolute;
+  background: pink;
+  height: 96rpx;
+  width: 344rpx;
+  right: 0;
+  border-radius: 0  48rpx 48rpx 0;
+  opacity: 0;
+}
+Page .mine .base .swiper {
+  height: 61%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+Page .mine .base .swiper .sent_box {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+Page .mine .base .swiper .sent_box .text {
+  width: 100%;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #cccccc;
+  text-align: center;
+  position: absolute;
+  bottom: 83%;
+}
+Page .mine .base .swiper .sent_box .guidance {
+  height: 40%;
+  width: 228rpx;
+  position: absolute;
+  bottom: 35%;
+  left: 261rpx;
+}
+Page .mine .base .swiper .sent_box .toWrite {
+  height: 128rpx;
+  width: 128rpx;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 4rpx 20rpx 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 19%;
+  right: 32rpx;
+}
+Page .mine .base .swiper .sent_box .toWrite .feather {
+  height: 48rpx;
+  width: 48rpx;
+}
+Page .mine .base .swiper .sent_box .sentletter {
+  height: 272rpx;
+  width: 686rpx;
+  background: white;
+  margin-left: 32rpx;
+  border-radius: 32rpx;
+  position: relative;
+  box-shadow: 0px 4rpx 40rpx 0px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32rpx;
+}
+Page .mine .base .swiper .sent_box .sentletter .pin {
+  width: 70rpx;
+  height: 64rpx;
+  position: absolute;
+  left: -6rpx;
+  top: -6rpx;
+}
+Page .mine .base .swiper .sent_box .sentletter .letter_title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #2b3e43;
+  position: absolute;
+  top: 12%;
+  left: 48rpx;
+}
+Page .mine .base .swiper .sent_box .sentletter .letter_toWho {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #4d717b;
+  position: absolute;
+  top: 36%;
+  left: 48rpx;
+}
+Page .mine .base .swiper .sent_box .sentletter .examine {
+  height: 46rpx;
+  width: 128rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #27d4a0;
+  position: absolute;
+  left: 48rpx;
+  bottom: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .mine .base .swiper .sent_box .sentletter .right_green {
+  height: 36rpx;
+  width: 20rpx;
+  position: absolute;
+  bottom: 29rpx;
+  left: 194rpx;
+}
+Page .mine .base .swiper .sent_box .sentletter .letter_creatTime {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #4d717b;
+  position: absolute;
+  bottom: 34.5%;
+  left: 48rpx;
+}
+Page .mine .base .swiper .sent_box .sentletter .remaining {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #4d717b;
+  position: absolute;
+  bottom: 9%;
+  left: 48rpx;
+}
+Page .mine .base .swiper .sent_box .sentletter .remaining .second {
+  margin-top: 3rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #27d4a0;
+}
+Page .mine .base .swiper .sent_box .sentletter .letter_pic {
+  height: 240rpx;
+  width: 240rpx;
+  top: 16rpx;
+  right: 16rpx;
+  position: absolute;
+  border-radius: 16rpx;
+}
+Page .mine .base .swiper .sent_box .sentletter .letter_bg {
+  height: 100%;
+  width: 100%;
+}
+Page .mine .base .swiper .received_box {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+Page .mine .base .swiper .received_box .text {
+  width: 100%;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #cccccc;
+  text-align: center;
+  position: absolute;
+  bottom: 83%;
+}
+Page .mine .base .swiper .received_box .guidance {
+  height: 40%;
+  width: 228rpx;
+  position: absolute;
+  bottom: 35%;
+  left: 261rpx;
+}
+Page .mine .base .swiper .received_box .toWrite {
+  height: 128rpx;
+  width: 128rpx;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 4rpx 20rpx 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 19%;
+  right: 32rpx;
+}
+Page .mine .base .swiper .received_box .toWrite .feather {
+  height: 48rpx;
+  width: 48rpx;
+}
+Page .mine .base .swiper .received_box .toWrite .share_button {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  position: absolute;
+}
+Page .mine .base .swiper .received_box .sentletter {
+  height: 272rpx;
+  width: 686rpx;
+  background: white;
+  margin-left: 32rpx;
+  border-radius: 32rpx;
+  position: relative;
+  box-shadow: 0px 4rpx 40rpx 0px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32rpx;
+}
+Page .mine .base .swiper .received_box .sentletter .pin {
+  width: 70rpx;
+  height: 64rpx;
+  position: absolute;
+  left: -6rpx;
+  top: -6rpx;
+}
+Page .mine .base .swiper .received_box .sentletter .letter_title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #2b3e43;
+  position: absolute;
+  top: 12%;
+  left: 48rpx;
+}
+Page .mine .base .swiper .received_box .sentletter .letter_toWho {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #4d717b;
+  position: absolute;
+  top: 36%;
+  left: 48rpx;
+}
+Page .mine .base .swiper .received_box .sentletter .examine {
+  height: 46rpx;
+  width: 128rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #27d4a0;
+  position: absolute;
+  left: 48rpx;
+  bottom: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .mine .base .swiper .received_box .sentletter .right_green {
+  height: 36rpx;
+  width: 20rpx;
+  position: absolute;
+  bottom: 28rpx;
+  left: 194rpx;
+}
+Page .mine .base .swiper .received_box .sentletter .letter_creatTime {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #4d717b;
+  position: absolute;
+  bottom: 34.5%;
+  left: 48rpx;
+}
+Page .mine .base .swiper .received_box .sentletter .remaining {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #4d717b;
+  position: absolute;
+  bottom: 9%;
+  left: 48rpx;
+}
+Page .mine .base .swiper .received_box .sentletter .remaining .second {
+  margin-top: 3rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #27d4a0;
+}
+Page .mine .base .swiper .received_box .sentletter .letter_pic {
+  height: 240rpx;
+  width: 240rpx;
+  top: 16rpx;
+  right: 16rpx;
+  position: absolute;
+  border-radius: 16rpx;
+}
+Page .mine .base .swiper .received_box .sentletter .letter_bg {
+  height: 100%;
+  width: 100%;
+}

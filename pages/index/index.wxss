@@ -1,0 +1,466 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .index {
+  height: 100%;
+  width: 100%;
+}
+Page .index .bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -50;
+}
+Page .index .title {
+  position: absolute;
+  left: 32rpx;
+  font-family: pingfang;
+  font-size: 36rpx;
+  font-weight: 400;
+  width: 144rpx;
+  height: 50rpx;
+  color: white;
+  height: 45px;
+  line-height: 45px;
+}
+Page .index .welcomeBack {
+  font-size: 72rpx;
+  font-weight: 500;
+  color: #ffffff;
+  position: absolute;
+  top: 12%;
+  left: 32rpx;
+}
+Page .index .logo {
+  height: 80rpx;
+  width: 80rpx;
+  position: absolute;
+  right: 32rpx;
+  top: 14%;
+  border-radius: 50%;
+}
+Page .index .time_box {
+  color: #ffffff;
+  font-family: pingfang;
+  position: absolute;
+  top: 60%;
+  left: 32rpx;
+}
+Page .index .time_box .day {
+  font-size: 70rpx;
+  height: 98rpx;
+  width: 86rpx;
+  line-height: 86rpx;
+}
+Page .index .time_box .month_year {
+  display: flex;
+  font-size: 28rpx;
+}
+Page .index .time_box .month_year .year {
+  margin-left: 20rpx;
+}
+Page .index .content {
+  position: absolute;
+  top: 72%;
+  padding: 0 32rpx;
+  font-size: 40rpx;
+  color: white;
+}
+Page .index .content .wenzi {
+  font-family: pingfang;
+  line-height: 56rpx;
+  letter-spacing: 12rpx;
+  font-weight: 500;
+}
+Page .index .content .line {
+  height: 4rpx;
+  width: 88rpx;
+  background: #ffffff;
+  margin-top: 48rpx;
+  opacity: 0.7;
+}
+Page .index .content .writer {
+  margin-top: 32rpx;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-family: pingfang;
+}
+Page .index .explain {
+  height: 44rpx;
+  width: 44rpx;
+  position: absolute;
+  top: 85%;
+  right: 21%;
+}
+Page .index .share {
+  height: 44rpx;
+  width: 44rpx;
+  position: absolute;
+  top: 85%;
+  right: 32rpx;
+}
+Page .index .shareButton {
+  height: 44rpx;
+  width: 44rpx;
+  position: absolute;
+  top: 85%;
+  right: 32rpx;
+  opacity: 0;
+}
+Page .index .down_box {
+  height: 60rpx;
+  width: 120rpx;
+  position: absolute;
+  top: 92%;
+  left: 42%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 10s;
+}
+Page .index .down_box .down {
+  width: 39rpx;
+  height: 15rpx;
+}
+Page .index .after {
+  height: 46%;
+  width: 100%;
+  background: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0));
+  position: fixed;
+  bottom: 0;
+  opacity: 0;
+}
+Page .index .after .startWrite {
+  width: 296rpx;
+  height: 136rpx;
+  position: absolute;
+  bottom: 484rpx;
+  left: 44rpx;
+  transition: all 0.1s;
+}
+Page .index .after .startWrite:active {
+  opacity: 0.6;
+  transition: all 0.1s;
+}
+Page .index .after .exchange {
+  height: 316rpx;
+  width: 654rpx;
+  position: absolute;
+  bottom: 144rpx;
+  left: 64rpx;
+  border-radius: 32rpx;
+  box-shadow: 0rpx 4rpx 40rpx 0rpx rgba(0, 0, 0, 0.1);
+}
+Page .index .after .exchange .exchange_bg {
+  height: 100%;
+  width: 100%;
+  border-radius: 32rpx;
+  position: absolute;
+}
+Page .index .after .exchange .base {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.96) 60%, #ffffff 100%);
+  box-shadow: 0rpx 4rpx 40rpx 0rpx rgba(0, 0, 0, 0.1);
+  border-radius: 32rpx;
+}
+Page .index .after .exchange .pin {
+  height: 64rpx;
+  width: 70rpx;
+  position: absolute;
+  top: -6rpx;
+  left: -6rpx;
+}
+Page .index .after .exchange .exchange_title {
+  font-size: 42rpx;
+  font-weight: 550;
+  color: #2b3e43;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 15%;
+  left: 48rpx;
+}
+Page .index .after .exchange .title_english {
+  width: 150rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  position: absolute;
+  top: 37%;
+  left: 48rpx;
+  color: #597b84;
+}
+Page .index .after .exchange .password_box {
+  height: 72rpx;
+  width: 312rpx;
+  background: #f2f3f5;
+  border-radius: 36rpx;
+  position: absolute;
+  bottom: 14%;
+  left: 48rpx;
+  transition: all 0.3s;
+}
+Page .index .after .exchange .password_box .lock {
+  height: 40rpx;
+  width: 40rpx;
+  position: absolute;
+  z-index: 20;
+  top: 16rpx;
+  left: 16rpx;
+}
+Page .index .after .exchange .password_box .input_holder {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #597b84;
+  position: absolute;
+  top: 20rpx;
+  left: 64rpx;
+}
+Page .index .after .exchange .password_box .input {
+  height: 100%;
+  width: 290rpx;
+  position: absolute;
+  left: 16rpx;
+  z-index: 30;
+  text-indent: 16rpx;
+  font-size: 36rpx;
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+  color: #333333;
+  transition: all 0.3s;
+}
+Page .index .mark_layer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0);
+  z-index: 55;
+  transition: 3s;
+}
+Page .index .mark_layer .explain_content {
+  position: absolute;
+  top: 30%;
+  left: 64rpx;
+  width: 83%;
+  height: 902rpx;
+  opacity: 0;
+}
+Page .index .mark_layer .explain_content .content_bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -10;
+}
+Page .index .mark_layer .explain_content .content_title {
+  margin-top: 5%;
+  margin-left: 8%;
+  font-size: 48rpx;
+  color: #2b3e43;
+  font-family: pingfang;
+}
+Page .index .mark_layer .explain_content .content_annotation {
+  margin-top: 2%;
+  margin-left: 8%;
+  font-family: pingfang;
+  color: #78949c;
+  font-size: 32rpx;
+}
+Page .index .mark_layer .explain_content .paragraph_1,
+Page .index .mark_layer .explain_content .paragraph_2,
+Page .index .mark_layer .explain_content .paragraph_3,
+Page .index .mark_layer .explain_content .paragraph_4 {
+  width: 87%;
+  margin-top: 2%;
+  margin-left: 8%;
+  font-family: pingfang;
+  color: #2b3e43;
+  font-size: 32rpx;
+}
+Page .index .mark_layer .explain_content .paragraph_3 {
+  width: 70%;
+}
+Page .index .mark_layer .explain_content .paragraph_4 {
+  font-size: 30rpx;
+  color: gray;
+}
+Page .index .mark_layer .explain_content .i_see {
+  width: 272rpx;
+  height: 96rpx;
+  border-radius: 48rpx;
+  background: #27d4a0;
+  box-shadow: 0px 8px 20px 0px rgba(39, 212, 160, 0.4);
+  font-size: 36rpx;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 4%;
+  left: 8%;
+}
+Page .index .shaky {
+  font-size: 12px;
+  transform-origin: center center;
+  animation-name: shaky-slow;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-play-state: running;
+}
+@keyframes shaky-slow {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  2% {
+    transform: translate(-1px, 1.5px) rotate(1.5deg);
+  }
+  4% {
+    transform: translate(1.3px, 0px) rotate(-0.5deg);
+  }
+  6% {
+    transform: translate(1.4px, 1.4px) rotate(-2deg);
+  }
+  8% {
+    transform: translate(-1.3px, -1px) rotate(-1.5deg);
+  }
+  10% {
+    transform: translate(1.4px, 0px) rotate(-2deg);
+  }
+  12% {
+    transform: translate(-1.3px, -1px) rotate(-2deg);
+  }
+  14% {
+    transform: translate(1.5px, 1.3px) rotate(1.5deg);
+  }
+  16% {
+    transform: translate(1.5px, -1.5px) rotate(-1.5deg);
+  }
+  18% {
+    transform: translate(1.3px, -1.3px) rotate(-2deg);
+  }
+  20% {
+    transform: translate(1px, 1px) rotate(-0.5deg);
+  }
+  22% {
+    transform: translate(1.3px, 1.5px) rotate(-2deg);
+  }
+  24% {
+    transform: translate(-1.4px, -1px) rotate(2deg);
+  }
+  26% {
+    transform: translate(1.3px, -1.3px) rotate(0.5deg);
+  }
+  28% {
+    transform: translate(1.6px, -1.6px) rotate(-1.5deg);
+  }
+  30% {
+    transform: translate(-1.3px, -1.3px) rotate(-1.5deg);
+  }
+  32% {
+    transform: translate(-1px, 0px) rotate(2deg);
+  }
+  34% {
+    transform: translate(1.3px, 1.3px) rotate(-0.5deg);
+  }
+  36% {
+    transform: translate(1.3px, 1.6px) rotate(1.5deg);
+  }
+  38% {
+    transform: translate(1.3px, -1.6px) rotate(1.5deg);
+  }
+  40% {
+    transform: translate(-1.4px, -1px) rotate(-0.5deg);
+  }
+  42% {
+    transform: translate(-1.4px, 1.3px) rotate(-0.5deg);
+  }
+  44% {
+    transform: translate(-1.6px, 1.4px) rotate(0.5deg);
+  }
+  46% {
+    transform: translate(-2.1px, -1.3px) rotate(-0.5deg);
+  }
+  48% {
+    transform: translate(1px, 1.6px) rotate(1.5deg);
+  }
+  50% {
+    transform: translate(1.6px, 1.6px) rotate(1.5deg);
+  }
+  52% {
+    transform: translate(-1.4px, 1.6px) rotate(0.5deg);
+  }
+  54% {
+    transform: translate(1.6px, -1px) rotate(-2deg);
+  }
+  56% {
+    transform: translate(1.3px, -1.6px) rotate(-2deg);
+  }
+  58% {
+    transform: translate(-1.3px, -1.6px) rotate(0.5deg);
+  }
+  60% {
+    transform: translate(1.3px, 1.6px) rotate(-0.5deg);
+  }
+  62% {
+    transform: translate(0px, 0px) rotate(-1.5deg);
+  }
+  64% {
+    transform: translate(-1.6px, -1.6px) rotate(-2deg);
+  }
+  66% {
+    transform: translate(1.6px, -1.6px) rotate(0.5deg);
+  }
+  68% {
+    transform: translate(0px, -1.6px) rotate(-2deg);
+  }
+  70% {
+    transform: translate(-1.6px, 1px) rotate(1.5deg);
+  }
+  72% {
+    transform: translate(-1.6px, 1.6px) rotate(2deg);
+  }
+  74% {
+    transform: translate(1.3px, -1.6px) rotate(-0.5deg);
+  }
+  76% {
+    transform: translate(1.4px, 1px) rotate(-0.5deg);
+  }
+  78% {
+    transform: translate(-1px, 1.4px) rotate(2deg);
+  }
+  80% {
+    transform: translate(1.4px, 1.6px) rotate(2deg);
+  }
+  82% {
+    transform: translate(-1.6px, -1.6px) rotate(-0.5deg);
+  }
+  84% {
+    transform: translate(-1.4px, 1.4px) rotate(-2deg);
+  }
+  86% {
+    transform: translate(1px, 1.4px) rotate(-2deg);
+  }
+  88% {
+    transform: translate(-1.4px, 1.4px) rotate(-1.5deg);
+  }
+  90% {
+    transform: translate(-1.6px, -1.6px) rotate(-2deg);
+  }
+  92% {
+    transform: translate(-1.4px, 1.6px) rotate(2deg);
+  }
+  94% {
+    transform: translate(-1.6px, -1.6px) rotate(-2deg);
+  }
+  96% {
+    transform: translate(-1.4px, 1.3px) rotate(-2deg);
+  }
+  98% {
+    transform: translate(1.3px, 1px) rotate(-0.5deg);
+  }
+}

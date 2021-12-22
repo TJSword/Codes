@@ -1,0 +1,34 @@
+<view class="msgAddress">
+    <view class="left_title" style="top:{{statusBarHeight}}px" bindtap = "goBack">
+    <image src="../../image/left.png" class="left" ></image>
+    <view class="title">编写准备</view>
+  </view>
+  <view class="tab_box" >
+    <picker mode="date" value="{{date}}" start="{{now}}" bindchange="showDate" class="picker">
+      <view class="picker_box" bindtap="rotateDate">
+        <text class="tab_title" style="{{date?'color:#27D4A0':''}}"> {{date?date:'您希望何时收到呢'}}</text>
+        <image src="../../image/right.png" class="right {{isRotateDate?'right_active':''}}" ></image>
+      </view>
+    </picker>
+    <picker mode="time" value="{{timeNow}}"  bindchange="showTime" class="picker">
+      <view class="picker_box"  bindtap="rotateTime">
+        <text class="tab_title" style="{{time?'color:#27D4A0':''}}"> {{time?time:'确定下具体时间吧'}}</text>
+        <image src="../../image/right.png" class="right {{isRotateTime?'right_active':''}}"></image>
+      </view>
+    </picker>
+     <view class="tab_item">
+      <input class="tab_title" placeholder="这里输入接收者的昵称" placeholder-style="color:#597B84;" style="{{isRotateAddress?'':'color:#27D4A0'}}" bindfocus="rotateAddress" bindblur="addressBlur"></input>
+      <image src="../../image/right.png" class="right {{isRotateAddress?'right_active':''}}"></image>
+    </view>
+    <view class="tab_item">
+       <input class="tab_title" placeholder="务必填上TA的电话哦"  placeholder-style="color:#597B84;" type="number"  style="{{isPhoneNumber?'color:#27D4A0':''}} {{notPhone?'color:red':''}}" bindfocus="rotatePhone" bindblur="phoneBlur"></input>
+      <image src="../../image/right.png" class="right {{isRotatePhone?'right_active':''}}"></image>
+    </view>
+  </view>
+  <image src="../../image/mesgAddress_bg.png" class="bg">
+  </image>
+  <view class="allReady" bindtap="allReady">
+    <image src="../../image/rightHand.png" class="rightHand"></image>
+    <text class="allReady_text">一切就绪</text>
+  </view>
+</view>

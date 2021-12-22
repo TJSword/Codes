@@ -1,0 +1,82 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .index {
+  height: 100%;
+  width: 100%;
+}
+Page .index .bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -50;
+}
+Page .index .left_box {
+  height: 44px;
+  width: 24rpx;
+  position: absolute;
+  left: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .index .left_box .left {
+  height: 44rpx;
+  width: 24rpx;
+}
+Page .index .title {
+  font-size: 72rpx;
+  font-family: pingfang;
+  color: #2B3E43;
+  position: absolute;
+  top: 15%;
+  left: 74rpx;
+  font-weight: 549;
+}
+Page .index .content {
+  position: absolute;
+  top: 23%;
+  height: 88rpx;
+  width: 644rpx;
+  left: 74rpx;
+  color: #4D717B;
+  line-height: 44rpx;
+  font-size: 32rpx;
+}
+Page .index .bottom {
+  height: 46%;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+  position: absolute;
+  bottom: 0;
+}
+Page .index .bottom .login {
+  width: 560rpx;
+  height: 96rpx;
+  background: #27d4a0;
+  box-shadow: 0px 8px 20px 0px rgba(39, 212, 160, 0.4);
+  border-radius: 48px;
+  position: absolute;
+  bottom: 24%;
+  left: 13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .index .bottom .login .wechat {
+  height: 44rpx;
+  width: 50rpx;
+  flex-shrink: 0;
+}
+Page .index .bottom .login .wechat_text {
+  height: 48rpx;
+  width: 144rpx;
+  font-size: 36rpx;
+  font-family: pingfang;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 48rpx;
+  margin-left: 20rpx;
+}

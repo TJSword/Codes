@@ -1,0 +1,22 @@
+<view class="write">
+  <image src="../../image/login_bg.png" class="bg"></image>
+  <view class="base">
+    
+    <view class="left_title" style="top:{{statusBarHeight}}px" bindtap = "goBack">
+      <image src="../../image/left.png" class="left" ></image>
+      <view class="title">时光与信</view>
+    </view>
+    <view class="write_box">
+      <image src="../../image/letterWrite_bg.png" class="base_bg"></image>
+      <button open-type="share" class="shareButton"></button>
+      <image src="../../image/share_wrong.png" class="share_wrong"></image>
+      <view class="writeTime">来自：{{createDate}}</view>
+      <view class="writer">{{letterDetail.writer}}</view>
+      <text class="title">{{letterDetail.contentTitle}}</text>
+      <text class="textarea">{{letterDetail.contentDetail}}
+  </text>
+    </view>
+    <image src="../../image/blackCat.png" class="blackCat"></image>
+  </view>
+</view>
+

@@ -1,0 +1,135 @@
+{
+  "description": "项目配置文件",
+  "cloudfunctionRoot": "cloud/",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "bundle": false,
+    "useApiHostProcess": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.16.0",
+  "appid": "wx2821fa1c996beffa",
+  "projectname": "Time%26letter",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/msgRead/msgRead",
+          "pathName": "pages/msgRead/msgRead",
+          "query": "secret: \"J910WJK6\"",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/msgRead/msgRead",
+          "pathName": "pages/msgRead/msgRead",
+          "query": "secret=\"J910WJK6\"",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/msgRead/msgRead",
+          "pathName": "pages/msgRead/msgRead",
+          "query": "secret=J910WJK6",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/msgRead/msgRead",
+          "pathName": "pages/msgRead/msgRead",
+          "query": "secret= D69VB9WT",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/msgRead/msgRead",
+          "pathName": "pages/msgRead/msgRead",
+          "query": "secret=D69VB9WT",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/letterWrite/letterWrite",
+          "pathName": "pages/letterWrite/letterWrite",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/msgWrite/msgWrite",
+          "pathName": "pages/msgWrite/msgWrite",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/about/about",
+          "pathName": "pages/about/about",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/admin/admin",
+          "pathName": "pages/admin/admin",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

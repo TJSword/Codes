@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="index">
+  <image src="../../image/login_bg.png" class="bg"></image>
+  <view class="left_box"  style="top:{{statusBarHeight}}px" bindtap = "goBack">
+    <image src="../../image/left.png" class="left"></image>
+  </view>
+  <view class="title">时光与信</view>
+  <view class="content">一生或许只是几封，不断在修改和誊抄着的书信，从青丝到白发，有人还在灯下</view>
+  <view class="bottom">
+    <button class="login"  bindtap="getUserInfo" disabled="{{isLogining}}">
+      <image src="../../image/wechat.png" class="wechat"></image>
+      <text class="wechat_text" >微信登录</text>
+    </button>
+  </view>
+</view>
+ 

@@ -1,0 +1,307 @@
+Page .write {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .write .bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -10;
+}
+Page .write .base {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 50%);
+  position: absolute;
+}
+Page .write .base .left_title {
+  position: absolute;
+  left: 32rpx;
+  height: 45px;
+  width: 202rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+Page .write .base .left_title .left {
+  height: 44rpx;
+  width: 24rpx;
+}
+Page .write .base .left_title .title {
+  font-size: 40rpx;
+  color: #2b3e43;
+  font-family: pingfang;
+  font-weight: 400;
+}
+Page .write .base .write_box {
+  height: 83%;
+  width: 718rpx;
+  background: linear-gradient(180deg, #fffbf3 0%, #ffffff 100%);
+  border-radius: 30rpx 30rpx 0px 0px;
+  position: absolute;
+  top: 12%;
+  left: 16rpx;
+}
+Page .write .base .write_box .shareButton {
+  height: 44rpx;
+  width: 44rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 24rpx;
+  opacity: 0;
+  background: pink;
+  z-index: 10;
+}
+Page .write .base .write_box .share_wrong {
+  height: 44rpx;
+  width: 44rpx;
+  position: absolute;
+  top: 28rpx;
+  right: 32rpx;
+}
+Page .write .base .write_box .writeTime {
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #78949c;
+  position: absolute;
+  left: 48rpx;
+  top: 2%;
+}
+Page .write .base .write_box .writer {
+  font-size: 36rpx;
+  font-weight: 550;
+  color: #2b3e43;
+  position: absolute;
+  left: 48rpx;
+  top: 5.5%;
+}
+Page .write .base .write_box .content {
+  width: 654rpx;
+  height: 60%;
+  position: absolute;
+  top: 11%;
+  left: 48rpx;
+  overflow-y: scroll;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #4d717b;
+  line-height: 44rpx;
+}
+Page .write .base .write_box .content_case1 {
+  height: 70%;
+}
+Page .write .base .write_box .content_case2 {
+  height: 80%;
+}
+Page .write .base .write_box .content_case3 {
+  height: 90%;
+}
+Page .write .base .pic_voice {
+  height: 34%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+}
+Page .write .base .pic_voice .opacityBg {
+  height: 20%;
+  width: 100%;
+  position: absolute;
+  z-index: -10;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+}
+Page .write .base .pic_voice .opacityBg_case1 {
+  top: 20%;
+}
+Page .write .base .pic_voice .opacityBg_case2 {
+  top: 48%;
+}
+Page .write .base .pic_voice .opacityBg_case3 {
+  top: 70%;
+}
+Page .write .base .pic_voice .voice {
+  height: 19%;
+  width: 594rpx;
+  position: absolute;
+  left: 32rpx;
+  background: #fdf6e4;
+  display: flex;
+  align-items: center;
+  border-radius: 52rpx 52rpx 52rpx 0rpx;
+}
+Page .write .base .pic_voice .voice .unplayed {
+  position: absolute;
+  right: 0;
+  border-radius: 0rpx 52rpx 52rpx 0rpx;
+  height: 100%;
+  width: 100%;
+  background: white;
+  opacity: 0.5;
+}
+Page .write .base .pic_voice .voice .play {
+  background: #FFC53E;
+  height: 72rpx;
+  width: 72rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+Page .write .base .pic_voice .voice .play .playIcon {
+  height: 38rpx;
+  width: 38rpx;
+  position: absolute;
+  z-index: 10;
+}
+Page .write .base .pic_voice .voice .play .playButton {
+  height: 100%;
+  width: 100%;
+  background: pink;
+  opacity: 0;
+}
+Page .write .base .pic_voice .voice .row_box {
+  height: 100%;
+  width: 100%;
+  background: #FFEDC9;
+  border-radius: 52rpx 52rpx 52rpx 0rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 32rpx;
+}
+Page .write .base .pic_voice .voice .row_box .row {
+  width: 5rpx;
+  background: #fab922;
+  border-radius: 2.5rpx;
+  margin-right: 13rpx;
+}
+Page .write .base .pic_voice .voice .row_box .row1 {
+  animation: equalize 5s 0s infinite;
+  animation-delay: -1.9s;
+}
+Page .write .base .pic_voice .voice .row_box .row2 {
+  animation: equalize 5s 0s infinite;
+  animation-delay: -2s;
+}
+Page .write .base .pic_voice .voice .row_box .row3 {
+  animation: equalize 5s 0s infinite;
+  animation-delay: -2.1s;
+}
+Page .write .base .pic_voice .voice .row_box .row4 {
+  animation: equalize 5s 0s infinite;
+  animation-delay: -2.3s;
+}
+Page .write .base .pic_voice .voice .row_box .row5 {
+  animation: equalize 5s 0s infinite;
+  animation-delay: -2.4s;
+}
+Page .write .base .pic_voice .voice .row_box .row6 {
+  animation: equalize 5s 0s infinite;
+  animation-delay: -2.1s;
+}
+Page .write .base .pic_voice .voice .row_box .row7 {
+  animation: equalize 5s 0s infinite;
+  animation-delay: -2.7s;
+}
+Page .write .base .pic_voice .voice .row_box .row8 {
+  animation: equalize 5s 0s infinite;
+  animation-delay: -1.8s;
+}
+Page .write .base .pic_voice .voice_case2 {
+  top: 63%;
+}
+Page .write .base .pic_voice .images_box {
+  height: 218rpx;
+  position: absolute;
+  left: 32rpx;
+  bottom: 16%;
+}
+Page .write .base .pic_voice .images_box .image_item {
+  height: 216rpx;
+  width: 216rpx;
+  margin-right: 18rpx;
+  border-radius: 16rpx;
+}
+@keyframes equalize {
+  0% {
+    height: 45rpx;
+  }
+  4% {
+    height: 37.5rpx;
+  }
+  8% {
+    height: 30rpx;
+  }
+  12% {
+    height: 22.5rpx;
+  }
+  16% {
+    height: 15rpx;
+  }
+  20% {
+    height: 22.5rpx;
+  }
+  24% {
+    height: 30rpx;
+  }
+  28% {
+    height: 7.5rpx;
+  }
+  32% {
+    height: 30rpx;
+  }
+  36% {
+    height: 45rpx;
+  }
+  40% {
+    height: 15rpx;
+  }
+  44% {
+    height: 30rpx;
+  }
+  48% {
+    height: 52.5rpx;
+  }
+  52% {
+    height: 22.5rpx;
+  }
+  56% {
+    height: 7.5rpx;
+  }
+  60% {
+    height: 22.5rpx;
+  }
+  64% {
+    height: 37.5rpx;
+  }
+  68% {
+    height: 45rpx;
+  }
+  72% {
+    height: 52.5rpx;
+  }
+  76% {
+    height: 60rpx;
+  }
+  80% {
+    height: 52.5rpx;
+  }
+  84% {
+    height: 45rpx;
+  }
+  88% {
+    height: 37.5rpx;
+  }
+  92% {
+    height: 45rpx;
+  }
+  96% {
+    height: 52.5rpx;
+  }
+  100% {
+    height: 60rpx;
+  }
+}

@@ -1,0 +1,52 @@
+<view class="index" bindtouchstart="touchStart" bindtouchend="touchEnd">
+  <image src="{{bgUrl}}" class="bg"></image>
+  <view class="title" style="top:{{statusBarHeight}}px" bindlongpress="toAdmin">时光与信</view>
+  <!-- <view class="welcomeBack">欢迎回来</view> -->
+  <image src="{{isFirst?'../../image/logo.jpg':userInfo.avatarUrl}}" class="logo" wx:if="{{isDone}}" bindtap="toLogin"></image>
+  <view class="time_box" wx:if="{{isBefore}}">
+    <view class="day">{{now.day}}</view>
+    <view class="month_year">
+      <view class="month">{{now.month}}</view>
+      <view class="year">{{now.year}}</view>
+    </view>
+  </view>
+  <view class="content" wx:if="{{isBefore}}">
+    <text class="wenzi">{{indexText}}</text>
+    <view class="line"></view>
+    <view class="writer">{{indexTextWriter}}</view>
+  </view>
+  <image src="../../image/explain.png" class="explain" wx:if="{{isBefore}}" bindtap="aniMarkStart"></image>
+  <image src="../../image/share.png" class="share" wx:if="{{isBefore}}" > </image>
+  <button open-type="share" class="shareButton"></button>
+  <view class="down_box" animation="{{ani}}"  bindtap="after"  wx:if="{{isBefore}}">
+      <image src="../../image/down.png" class="down" ></image>
+  </view>
+  <view class="after" wx:if="{{!isBefore}}" bindtap="before" animation="{{fogani}}">
+    <image src="../../image/startWrite.png" class="startWrite" catchtap="toWrite"></image>
+    <view class="exchange" catchtap="notouch">
+      <image src="{{bgUrl}}" mode="aspectFill" class="exchange_bg"></image>
+      <view class="base">
+        <image src="../../image/pin.png" class="pin"></image>
+        <view class="exchange_title">获取一封信件</view>
+        <view class="title_english">Get a letter</view>
+        <view class="password_box {{passwordError?'shaky':''}}">
+          <image src="../../image/lock.png" class="lock" wx:if="{{!focusing}}"></image>
+          <view class="input_holder"  wx:if="{{!focusing}}">点击此处获取信件…</view>
+          <input class="input " style="{{passwordCode === 1?'color:red; transition: 0.3s;':''}} {{passwordCode === 2?'color:#3dee63; transition: 0.3s;':''}}" bindfocus="password_focus"  bindblur="password_blur" maxlength="8" cursor-spacing="62rpx" bindinput="password_input"></input>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="mark_layer" wx:if="{{markShow}}" animation="{{layani}}">
+    <view  class="explain_content" animation="{{markAni}}">
+        <image src="../../image/content_bg.png" class="content_bg"></image>
+        <view class="content_title">{{explain.title}}</view>
+        <view class="content_annotation">{{explain.annotation}}</view>
+        <view class="paragraph_1">{{explain.paragraph_1}}</view>
+        <view class="paragraph_2">{{explain.paragraph_2}}</view>
+        <view class="paragraph_3">{{explain.paragraph_3}}</view>
+        <view class="paragraph_4">{{explain.paragraph_4}}</view>
+        <button class="i_see" bindtap="iSee">我知道了</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,57 @@
+<view class="about" >
+  <image src="../../image/login_bg.png" class="bg"></image>
+  <view class="base">
+    <view class="left_title" style="top:{{statusBarHeight}}px">
+      <image src="../../image/left.png" class="left" bindtap = "goBack"></image>
+      <view class="title">时光与信</view>
+    </view>
+    <view class="logo_box">
+      <image src="../../image/logo.jpg" class="logo"></image>
+      <view class="name">时光与信</view>
+      <view class="versions">1.0.1</view>
+    </view>
+    <view class="option_box">
+      <view class="option">
+      <button open-type="share" class="shareButton"></button>
+        <view class="option_name">分享给朋友</view>
+        <image src="../../image/right.png" class="option_icon"></image>
+      </view>
+      <view class="option">
+        <view class="option_name" bindtap="toUser">关注我们</view>
+        <image src="../../image/right.png" class="option_icon"></image>
+      </view>
+      <view class="option" bindtap="feedbackAni">
+        <view class="option_name">反馈建议</view>
+        <image src="../../image/right.png" class="option_icon"></image>
+      </view>
+      <view class="option" bindtap="moneyAni">
+        <view class="option_name">打赏作者</view>
+        <image src="../../image/right.png" class="option_icon"></image>
+      </view>
+    </view>
+    <image src="../../image/author.png" class="author"></image>
+    <view class="mark_layer" animation="{{baseAni}}" wx:if="{{markShow}}" catchtap="feedbackAniEnd">
+      <view class="feedback_box" animation="{{feedbackAni}}" catchtap="notouch">
+        <textarea class="text" placeholder="您的建议将帮助我们做的更好" placeholder-style="color:#BBBBBB" bindinput="suggest"></textarea>
+        <button class="feedback_button" bindtap = "{{!isClicked?'updateSuggest':''}}">提交反馈</button>
+      </view>
+    </view>
+    <view class="mark_layer" wx:if="{{moneyBoxShow}}" animation = "{{moneyBoxAni}}" catchtap="moneyBoxAniEnd">
+      <view class="reward_box" animation="{{moneyAni}}"catchtap="notouch" > 
+        <view class="loved">喜欢作者</view>
+        <image src="../../image/finger.png" class="finger"></image>
+        <view class="money_box">
+          <view class="money_item {{item.value === moneyValue?'active':''}}" wx:for="{{moneyNumber}}" wx:key="id" bindtap="chooseNumber" data-value="{{item.value}}">
+            <image  src="{{item.value === moneyValue?'../../image/money_active.png':'../../image/money.png'}}" class="money_img"></image>
+            <view class="money_num" >{{item.value}}</view>
+          </view>
+        </view>
+        <button class="money_button" bindtap="buySugar">拿去买糖</button>
+      </view>
+    </view>
+
+
+    <!-- 关注我们跳转到公众号页面 -->
+    <!-- <web-view src="https://mp.weixin.qq.com/s/JXRWCaFcFC5KrJYg96F40g"></web-view> -->
+  </view>
+</view>

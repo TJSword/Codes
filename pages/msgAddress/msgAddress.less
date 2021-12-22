@@ -1,0 +1,132 @@
+Page{
+    height:100%;
+    width:100%;
+    .msgAddress{
+        height:100%;
+        width:100%;
+        background:  radial-gradient(rgba(241,242,242,1) 45%,rgb(219, 231, 234) 100%);
+        overflow: hidden;
+        .left_title{
+            position: absolute;
+            left:32rpx;
+            height:45px;
+            width:202rpx;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .left{
+                height:44rpx;
+                width:24rpx;
+            }
+            .title{
+                font-size:40rpx;
+                color:rgba(43,62,67,1);
+                font-family: pingfang;
+                font-weight: 400;
+            }
+        }
+        .tab_box{
+            height:36%;
+            width:686rpx;
+            position: absolute;
+            top:13%;
+            left:32rpx;
+            .tab_item{
+                width:686rpx;
+                height:21%;
+                background:rgba(255,255,255,1);
+                box-shadow:0rpx 4rpx 40rpx 0rpx rgba(0,0,0,0.02);
+                border-radius:32rpx;
+                margin-bottom: 24rpx;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .tab_title{
+                    margin-left: 36rpx;
+                    font-size:36rpx;
+                    font-weight:400;
+                    color:rgba(43,62,67,1);
+                    width:100%;
+                }
+                .right{
+                    height:36rpx;
+                    width:20rpx;
+                    margin-right: 32rpx;
+                    transition: 0.3s;
+                }
+                .right_active{
+                    transform: rotate(90deg);
+                    transition: 0.3s;
+                }
+            }
+            .picker{
+                width:686rpx;
+                height:21%;
+                box-shadow:0rpx 4rpx 40rpx 0rpx rgba(0,0,0,0.02);
+                border-radius:32rpx;
+                margin-bottom: 24rpx;
+                background:rgba(255,255,255,1);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .picker_box{
+                    background: blue;
+                    height:100%;
+                    width:686rpx;
+                    background:rgba(255,255,255,1);
+                    box-shadow:0rpx 4rpx 40rpx 0rpx rgba(0,0,0,0.02);
+                    border-radius:32rpx;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .tab_title{
+                        margin-left: 36rpx;
+                        font-size:36rpx;
+                        font-weight:400;
+                        color:rgba(43,62,67,1);
+                        
+                    }
+                    .right{
+                        height:36rpx;
+                        width:20rpx;
+                        margin-right: 32rpx;
+                        transition: 0.3s;
+                    }
+                    .right_active{
+                        transform: rotate(90deg);
+                        transition: 0.3s;
+                    }
+                }
+            }
+        }
+        .bg{
+            position: fixed;
+            bottom: 0;
+            width:100%;
+            height:38%;
+        }
+        .allReady{
+            width:268rpx;
+            height:96rpx;
+            background:rgba(39,212,160,1);
+            border-radius:200rpx 0rpx 0rpx 200rpx;
+            position: absolute;
+            right:0;
+            bottom: 19%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .rightHand{
+                height:44rpx;
+                width:42rpx;
+                margin-left:34rpx;
+            }
+            .allReady_text{
+                font-size:36rpx;
+                font-weight:500;
+                color:rgba(255,255,255,1);
+                margin-right: 32rpx;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "sendPhoneMsg2",
+  "version": "1.0.2",
+  "description": "榛子云短信发送短信函数",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

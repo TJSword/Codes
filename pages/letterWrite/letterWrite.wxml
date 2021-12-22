@@ -1,0 +1,21 @@
+
+<view class="write">
+  <image src="../../image/login_bg.png" class="bg"></image>
+  <view class="base">
+    
+    <view class="left_title" style="top:{{statusBarHeight}}px" bindtap = "goBack">
+      <image src="../../image/left.png" class="left" ></image>
+      <view class="title">时光与信</view>
+    </view>
+    <view class="write_box">
+    <image src="../../image/letterWrite_bg.png" class="base_bg"></image>
+     <image src = "{{canSend?'../../image/send_active.png':'../../image/send.png'}}" class="send" catchtap="{{canSend?'send':''}}"></image>
+     <input value = "展信佳" class="title" bindblur="letter_title"></input>
+    <textarea class="textarea" maxlength="-1" bindinput="canSend" cursor-spacing="62rpx">
+      </textarea>
+    
+    </view>
+    <image src="../../image/blackCat.png" class="blackCat"></image>
+    <view class="wordsNumber">{{contentDetail.length}}/1500 {{contentDetail.length>1500?'超过1500字,将收取额外费用:百字/1元':''}}</view>
+  </view>
+</view>
