@@ -1,0 +1,83 @@
+Page{
+    height: 100%;
+    width: 100%;
+}
+.commemoration_wrap{
+    height: 100%;
+    width: 100%;
+    background: #E5E5E5;
+    .commemoration_box{
+        width: calc(~"100% - 64rpx");
+        padding:32rpx 32rpx 0 ;
+        height: calc(~'100% - 150rpx');
+        overflow-y: scroll;
+        overflow-x: hidden;
+        .commemoration_card{
+            padding: 32rpx;
+            background: white;
+            border-radius: 16rpx;
+            margin-bottom: 32rpx;
+            position: relative;
+            transition: all 0.3s ease;
+            .content{
+                font-size: 30rpx;
+                line-height: 48rpx;
+                color:rgba(102, 108, 126, 1);
+                letter-spacing: 0.3rpx;
+            }
+            .days_box{
+                margin-top: 48rpx;
+                display: flex;
+                align-items: flex-end;
+                .days{
+                    color:rgba(51, 51, 66, 1);
+                    font-size: 64rpx;
+                    font-weight: 700;
+                    line-height: 78rpx;
+                }
+                .unit{
+                    color:rgba(51, 51, 66, 1);
+                    font-size: 32rpx;
+                    line-height: 50rpx;
+                }
+            }
+            .date{
+                color:rgba(170, 170, 170, 1);
+                font-size: 24rpx;
+                height: 34rpx;
+                margin-top: 32rpx;
+            }
+            .delete_box{
+                height: 96rpx;
+                width: 96rpx;
+                background: white;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                right: -128rpx;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                .delete_icon{
+                    height: 48rpx;
+                    width: 48rpx;
+                }
+            }
+        }
+        .like_card_active{
+            transform: translateX(-160rpx);
+            transition: all 0.3s ease;
+        }
+        
+    }
+    .total_num{
+        color:rgba(170, 170, 170, 1);
+        width: 100%;
+        text-align: center;
+        position: fixed;
+        bottom: 68rpx;
+        font-size: 24rpx;
+    }
+}

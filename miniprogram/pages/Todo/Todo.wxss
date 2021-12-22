@@ -1,0 +1,79 @@
+Page {
+  height: 100%;
+  width: 100%;
+}
+.todo_wrap {
+  height: 100%;
+  width: 100%;
+  background: #E5E5E5;
+}
+.todo_wrap .todo_box {
+  width: calc(100% - 64rpx);
+  padding: 32rpx 32rpx 0 ;
+  height: calc(100% - 150rpx);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.todo_wrap .todo_box .todo_card {
+  padding: 32rpx;
+  background: white;
+  border-radius: 16rpx;
+  margin-bottom: 32rpx;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.todo_wrap .todo_box .todo_card .content {
+  font-size: 30rpx;
+  line-height: 48rpx;
+  color: #666c7e;
+  letter-spacing: 0.3rpx;
+}
+.todo_wrap .todo_box .todo_card .operation_box {
+  margin-top: 32rpx;
+  display: flex;
+  align-items: center;
+}
+.todo_wrap .todo_box .todo_card .operation_box .done_icon {
+  height: 24rpx;
+  width: 24rpx;
+}
+.todo_wrap .todo_box .todo_card .operation_box .operation_text {
+  color: #ff7a00;
+  font-size: 24rpx;
+  margin-left: 8rpx;
+}
+.todo_wrap .todo_box .todo_card .operation_box .off_icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-left: 16rpx;
+}
+.todo_wrap .todo_box .todo_card .delete_box {
+  height: 96rpx;
+  width: 96rpx;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -128rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.todo_wrap .todo_box .todo_card .delete_box .delete_icon {
+  height: 48rpx;
+  width: 48rpx;
+}
+.todo_wrap .todo_box .like_card_active {
+  transform: translateX(-160rpx);
+  transition: all 0.3s ease;
+}
+.todo_wrap .total_num {
+  color: #aaaaaa;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 68rpx;
+  font-size: 24rpx;
+}

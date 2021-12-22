@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/Commemoration/Commemoration",
+          "pathName": "pages/Commemoration/Commemoration",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Likes/Likes",
+          "pathName": "pages/Likes/Likes",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Todo/Todo",
+          "pathName": "pages/Todo/Todo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Memo/Memo",
+          "pathName": "pages/Memo/Memo",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

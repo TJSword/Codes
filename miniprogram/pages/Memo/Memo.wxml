@@ -1,0 +1,19 @@
+<view class="memo_wrap"  bindtap="recovery">
+  <view class="memo_box">
+    <view class="memo_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{5}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}">
+      <view class="content">🎶"因为你说话时身体微微前倾，所以我选择比平时更近你一步"</view>
+      <view class="image_box">
+        <image src="https://i.bmp.ovh/imgs/2021/12/511717016c12178e.png" class="img_item"></image>
+        <image src="https://i.bmp.ovh/imgs/2021/12/511717016c12178e.png" class="img_item"></image>
+        <image src="https://i.bmp.ovh/imgs/2021/12/511717016c12178e.png" class="img_item"></image>
+      </view>
+      <view class="date_box">
+        <view class="date">2021年12月10日</view>
+      </view>
+      <view class="delete_box">
+        <image src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard"></image>
+      </view>
+    </view>
+  </view>
+  <view class="total_num">累计{{5}}条记录</view>
+</view>

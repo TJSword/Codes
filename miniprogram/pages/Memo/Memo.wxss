@@ -1,0 +1,82 @@
+Page {
+  height: 100%;
+  width: 100%;
+}
+.memo_wrap {
+  height: 100%;
+  width: 100%;
+  background: #E5E5E5;
+}
+.memo_wrap .memo_box {
+  width: calc(100% - 64rpx);
+  padding: 32rpx 32rpx 0 ;
+  height: calc(100% - 150rpx);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.memo_wrap .memo_box .memo_card {
+  padding: 32rpx;
+  background: white;
+  border-radius: 16rpx;
+  margin-bottom: 32rpx;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.memo_wrap .memo_box .memo_card .content {
+  font-size: 30rpx;
+  line-height: 48rpx;
+  color: #666c7e;
+  letter-spacing: 0.3rpx;
+}
+.memo_wrap .memo_box .memo_card .image_box {
+  margin-top: 32rpx;
+  display: flex;
+}
+.memo_wrap .memo_box .memo_card .image_box .img_item {
+  height: 218rpx;
+  width: 218rpx;
+  margin-right: 16rpx;
+}
+.memo_wrap .memo_box .memo_card .image_box .img_item:last-child {
+  margin-right: 0;
+}
+.memo_wrap .memo_box .memo_card .date_box {
+  display: flex;
+  align-items: center;
+  margin-top: 23rpx;
+  height: 34rpx;
+}
+.memo_wrap .memo_box .memo_card .date_box .date {
+  color: #aaaaaa;
+  font-size: 24rpx;
+}
+.memo_wrap .memo_box .memo_card .delete_box {
+  height: 96rpx;
+  width: 96rpx;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -128rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.memo_wrap .memo_box .memo_card .delete_box .delete_icon {
+  height: 48rpx;
+  width: 48rpx;
+}
+.memo_wrap .memo_box .like_card_active {
+  transform: translateX(-160rpx);
+  transition: all 0.3s ease;
+}
+.memo_wrap .total_num {
+  color: #aaaaaa;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 68rpx;
+  font-size: 24rpx;
+}

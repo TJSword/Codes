@@ -1,0 +1,82 @@
+Page {
+  height: 100%;
+  width: 100%;
+}
+.commemoration_wrap {
+  height: 100%;
+  width: 100%;
+  background: #E5E5E5;
+}
+.commemoration_wrap .commemoration_box {
+  width: calc(100% - 64rpx);
+  padding: 32rpx 32rpx 0 ;
+  height: calc(100% - 150rpx);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.commemoration_wrap .commemoration_box .commemoration_card {
+  padding: 32rpx;
+  background: white;
+  border-radius: 16rpx;
+  margin-bottom: 32rpx;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.commemoration_wrap .commemoration_box .commemoration_card .content {
+  font-size: 30rpx;
+  line-height: 48rpx;
+  color: #666c7e;
+  letter-spacing: 0.3rpx;
+}
+.commemoration_wrap .commemoration_box .commemoration_card .days_box {
+  margin-top: 48rpx;
+  display: flex;
+  align-items: flex-end;
+}
+.commemoration_wrap .commemoration_box .commemoration_card .days_box .days {
+  color: #333342;
+  font-size: 64rpx;
+  font-weight: 700;
+  line-height: 78rpx;
+}
+.commemoration_wrap .commemoration_box .commemoration_card .days_box .unit {
+  color: #333342;
+  font-size: 32rpx;
+  line-height: 50rpx;
+}
+.commemoration_wrap .commemoration_box .commemoration_card .date {
+  color: #aaaaaa;
+  font-size: 24rpx;
+  height: 34rpx;
+  margin-top: 32rpx;
+}
+.commemoration_wrap .commemoration_box .commemoration_card .delete_box {
+  height: 96rpx;
+  width: 96rpx;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -128rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.commemoration_wrap .commemoration_box .commemoration_card .delete_box .delete_icon {
+  height: 48rpx;
+  width: 48rpx;
+}
+.commemoration_wrap .commemoration_box .like_card_active {
+  transform: translateX(-160rpx);
+  transition: all 0.3s ease;
+}
+.commemoration_wrap .total_num {
+  color: #aaaaaa;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 68rpx;
+  font-size: 24rpx;
+}

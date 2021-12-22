@@ -1,0 +1,75 @@
+Page {
+  height: 100%;
+  width: 100%;
+}
+.likes_wrap {
+  height: 100%;
+  width: 100%;
+  background: #E5E5E5;
+}
+.likes_wrap .likes_box {
+  width: calc(100% - 64rpx);
+  padding: 32rpx 32rpx 0 ;
+  height: calc(100% - 150rpx);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.likes_wrap .likes_box .likes_card {
+  padding: 32rpx;
+  background: white;
+  border-radius: 16rpx;
+  margin-bottom: 32rpx;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.likes_wrap .likes_box .likes_card .content {
+  font-size: 30rpx;
+  line-height: 48rpx;
+  color: #666c7e;
+  letter-spacing: 0.3rpx;
+}
+.likes_wrap .likes_box .likes_card .date_box {
+  display: flex;
+  align-items: center;
+  margin-top: 32rpx;
+  height: 34rpx;
+}
+.likes_wrap .likes_box .likes_card .date_box .like_icon {
+  height: 24rpx;
+  width: 24rpx;
+}
+.likes_wrap .likes_box .likes_card .date_box .date {
+  color: #aaaaaa;
+  font-size: 24rpx;
+  margin-left: 16rpx;
+}
+.likes_wrap .likes_box .likes_card .delete_box {
+  height: 96rpx;
+  width: 96rpx;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -128rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.likes_wrap .likes_box .likes_card .delete_box .delete_icon {
+  height: 48rpx;
+  width: 48rpx;
+}
+.likes_wrap .likes_box .like_card_active {
+  transform: translateX(-160rpx);
+  transition: all 0.3s ease;
+}
+.likes_wrap .total_num {
+  color: #aaaaaa;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 68rpx;
+  font-size: 24rpx;
+}
