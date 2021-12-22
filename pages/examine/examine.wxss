@@ -1,0 +1,158 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .examine_wrap {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+Page .examine_wrap .bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+Page .examine_wrap .title_box {
+  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200rpx;
+}
+Page .examine_wrap .title_box .title_A {
+  color: white;
+  font-size: 38rpx;
+  font-weight: 700;
+}
+Page .examine_wrap .title_box .title_B {
+  color: #9EA0A0;
+  margin-top: 20rpx;
+}
+Page .examine_wrap .title_box .time {
+  color: white;
+  font-size: 120rpx;
+}
+Page .examine_wrap .text_box {
+  background: transparent;
+  margin-top: 10%;
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.1);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+Page .examine_wrap .text_box .text {
+  border-radius: 15rpx;
+  background: white;
+  height: 78%;
+  width: 78%;
+  padding: 2%;
+}
+Page .examine_wrap .isTouch {
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+Page .examine_wrap .btn {
+  width: 80%;
+  height: 100rpx;
+  overflow: hidden;
+  margin: 18% 10% 0 ;
+  box-shadow: 0rpx 10rpx 30rpx #08080a;
+  border-radius: 15rpx;
+  background: #1B1D1F;
+  color: #9EA0A0;
+  letter-spacing: 4rpx;
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .examine_wrap .mask {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+Page .examine_wrap .trash_box {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #1B1B1E;
+  transform: translateY(-100%);
+  transition: all 0.5s ease;
+}
+Page .examine_wrap .trash_box .trash {
+  height: 120rpx;
+  width: 80rpx;
+}
+Page .examine_wrap .trash_box .msg {
+  margin-top: 30rpx;
+  color: #9EA0A0;
+  font-size: 40rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+}
+Page .examine_wrap .trash_box .nav {
+  color: #767879;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+Page .examine_wrap .isFinished {
+  transform: translateY(0);
+  transition: all 0.5s ease;
+}
+Page .detail_wrap {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+Page .detail_wrap .goback {
+  position: fixed;
+  top: 120rpx;
+  left: 30rpx;
+  font-weight: 700;
+  letter-spacing: 4rpx;
+}
+Page .detail_wrap .title {
+  margin-top: 15%;
+  font-size: 40rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+}
+Page .detail_wrap .img {
+  margin-top: 10%;
+  width: 90%;
+  height: 40%;
+}
+Page .detail_wrap .dsc {
+  margin-top: 10%;
+  width: 90%;
+  text-indent: 72rpx;
+}
+Page .detail_wrap .cuisineInfoTip {
+  margin-top: 10%;
+  color: gray;
+  font-size: 30rpx;
+  letter-spacing: 4rpx;
+}

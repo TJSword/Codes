@@ -1,0 +1,31 @@
+<view class="detail_wrap"  wx:if="{{checkStatus === 0}}">
+  <view class="goback" bindtap="goback">返回</view>
+  <view class="title">菜品详情</view>
+  <image src="{{cuisineInfo.imgSrc}}" class="img"></image>
+  <view class="dsc">{{cuisineInfo.dsc}}</view>
+  <view class="cuisineInfoTip">具体步骤敬请期待~</view>
+</view>
+
+
+<view class="examine_wrap" wx:if="{{checkStatus === 1}}">
+ <block wx:if="{{showAll}}">
+  <image class="bg" src="../../images/bg.png"></image>
+  <view class="title_box">
+    <block wx:if="{{!isTouched}}">
+      <view class="title_A">这是一条加密消息</view>
+      <view class="title_B">在自动销毁前，你有{{second}}秒的时间查看</view>
+    </block>
+    <view class="time" wx:else>{{second}}</view>
+  </view>
+  <view class="text_box {{isTouch?'isTouch':''}}">
+    <text class="text">{{content}}</text>
+  </view>
+  <view class="btn">按住屏幕查看消息</view>
+  <view class="mask" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"></view>
+  <view class="trash_box {{isFinished?'isFinished':''}}">
+    <image src="../../images/trash.png" class="trash"></image>
+    <view class="msg">消息被销毁了</view>
+    <view class="nav" bindtap='skip'>新建加密消息？</view>
+  </view>
+ </block>
+</view>

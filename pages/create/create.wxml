@@ -1,0 +1,42 @@
+<view class="menu_wrap" wx:if="{{checkStatus === 0}}">
+  <view class="title">浣熊菜谱</view>
+  <view class="list">
+    <view class="item" wx:for="{{menu_list}}" bindtap="jumpToListDetail" data-id="{{item.id}}">
+      <image src="{{item.imgSrc}}" class="img"></image>
+      <view class="name">{{item.dsc}}</view>
+    </view>
+  </view>
+</view>
+
+
+
+<view class="create_wrap"  wx:if="{{checkStatus === 1}}">
+  <image src='../../images/bg.png' class="bg"></image>
+  <view class="title">
+    <view class="zh">阅后即焚</view>
+    <view class="en">Burn After Reading</view>
+  </view>
+  <view class="textarea_box">
+     <textarea class="textarea" bindinput="changeContent" placeholder="一则短消息，支持emoji" maxlength="150" value="{{content}}"></textarea>
+  </view>
+  <view class="slider_box">
+     <view class="tips_box">
+      <view class="top">消息显示时间</view>
+      <view class="middle">{{second}}</view>
+      <view class="bottom">秒</view>
+     </view>
+     <view class="slider_view">
+      <slider step="1" bindchanging="sliderChange" class="slider" block-color="#9B9CA0" selected-color="#34373C" backgroundColor="#34373C" 
+      value="{{second}}" max="60" min="1"></slider>
+     </view>
+  </view>
+  <view class="upload_box">
+    <view class="upload {{uploading?'ani':''}}" bindtap='upload'>加密消息</view>
+    <view class="progress {{uploading?'ani':''}}">
+      <view class='proress_de' style="width:{{progress_num}}%"></view>
+      <text>加密{{progress_num}}%</text>
+    </view>
+    <button class="share_btn  {{uploading?'ani':''}}" open-type="share">转发给朋友</button>
+  </view>
+  <view class="tips" wx:if="{{isShowTips}}">转发仅一次有效</view>
+</view>
