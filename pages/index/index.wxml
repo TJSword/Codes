@@ -1,0 +1,86 @@
+<view style="height: 100%; width: 100%; overflow:hidden">
+    <view id="loading_mask" wx:if="{{loading}}">
+        <view class="loading_box">
+          <image src="../../iconfont/loading.svg" class="loading_icon"></image>
+          <view class="loading_text">{{loadingText}}</view>
+        </view>
+    </view>
+    <image id="bg" src="../../image/bg.png"></image>
+    <canvas type="webgl" id="c"  bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" bindtouchcancel="touchCancel" bindlongtap="longTap" bindtap="tap"></canvas>
+    <view class="btn" style="top:{{statusBarHeight + 'px'}}" bindtap="showInfo">
+        <view class="title">
+            <view class="title_text">Remember</view>
+            <image src="../../iconfont/info.png" class="info_icon"></image>
+        </view>
+    </view>
+    <view class="cut" bindtap="cutStar">
+        <image hidden="{{starType === 'world'}}" src="../../iconfont/person.png" class="cut_icon"></image>
+        <image hidden="{{starType === 'person'}}" src="../../iconfont/world.png" class="cut_icon"></image>
+    </view>
+    <view class="stars" bindtap="show_edit">
+        <view class="new {{showNum?'new_active':''}}">创建一个</view>
+        <view class="stars_num {{showNum?'stars_num_active':''}}">累计星球数：{{starType === 'world'?memoryCount:personCount}}</view>
+    </view>
+    <view class="first_box {{showFirstBox?'first_box_active':''}}" >
+        <image src="../../image/first_bg.png" class="first_bg"></image>
+        <view class="first_mask">
+            <image src="../../iconfont/close.png"  class="close_icon" catchtap="closeFirstBox"></image>
+            <view class="first_line">欢迎来到</view>
+            <view class="second_line" bindlongpress="showLove" >Remember</view>
+            <view class="paragraph">Remember是由个人开发的收录记忆的小程序。在这里，你可以上传生活中值得被记住的瞬间，可以是一段文字，又或是一张照片。</view>
+            <view class="paragraph">这份记忆，携裹着你的思绪与感悟，在此凝聚。就像星球的诞生一般，由无数个短暂的瞬间，组成了散落天际的永恒。
+上传你的记忆，我们共同仰望这片永恒星空。</view>
+            <view class="lovePrattle {{showLovePrattle?'lovePrattle_active':''}}">
+                <view class="toHu">To 🐰:</view>
+                <text class="content">May you be safe and happy when I am not around you.</text>
+            </view>
+        </view>
+    </view>
+    <view class="memory_mask" hidden="{{!showRememberBox}}" catchtap="closeRememberBox"></view>
+    <view style="top:{{position.y + 'px'}};left:{{position.x + 'px'}}" class="remember_box {{showRememberBox?'remember_box_active':''}}" >
+        <!-- <image src="../../image/first_bg.png" class="remember_bg"></image> -->
+        <view class="remember_mask">
+            <image src="../../iconfont/close.png"  class="close_icon" catchtap="closeRememberBox"></image>
+            <view class="date">{{memoryInfo.date.year}}年{{memoryInfo.date.month}}月{{memoryInfo.date.day}}日</view>
+            <view class="i-remember">我记得</view>
+            <view class="content_box">
+                <image  mode='widthFix' src="{{memoryInfo.image}}" class="image" data-src="{{memoryInfo.image}}" catchtap="preView" ></image>
+                <text class="paragraph" >{{memoryInfo.memory}}</text>
+            </view>
+            <view class="bottom_box">
+                <view class="writer_box">
+                    <image src="../../iconfont/write.png" class="write_icon"></image>
+                    <view class="writer">{{memoryInfo.author}}</view>
+                </view>
+                <button class="share_btn" open-type="share">分享</button>
+            </view>
+        </view>
+    </view>
+    <view class="establish_mask" hidden="{{!showEditBox}}" catchtap="hide_edit">
+        <view class="edit_box {{showEditBoxAni?'edit_box_active':''}}" catchtap="no_touch">
+        <image src="../../image/edit_bg.png" class="edit_bg"></image>
+            <view class="top_box">
+                <view class="left_box">
+                    <view class="first_line">创建我的</view>
+                    <view class="second_line">记忆的星球</view>
+                </view>
+                <button class="submit_btn" style="color:{{canSubmit?'rgba(255,255,255,0.8)':'rgba(255,255,255,0.3)'}}" bindtap="submit">提交</button>
+            </view>
+            <view class="name_box">
+                <view class="label">记录者（name）</view>
+                <input class="name_input" value="{{name}}" type="text" placeholder="在此填写昵称" bindinput="name_input" maxlength="6" />
+            </view>
+            <view class="memory_box">
+                <view class="label">记忆（memory）</view>
+                <textarea class="memory_input"  value="{{memory}}" type="text" placeholder="在此填写要记述的事..." bindinput="memory_input"  maxlength="200" />
+            </view>
+            <view class="photo_box">
+                <view class="label">照片（photo）</view>
+                <view class="photo_input" type="text" bindtap="chooseImage">
+                    <image src="{{imagePath}}" wx:if="{{imagePath}}" class="image" mode='widthFix' ></image>
+                    <image src="../../iconfont/add.png" class="add_icon" wx:else></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
