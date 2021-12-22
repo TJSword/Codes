@@ -404,7 +404,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0);
   z-index: 30;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .home_wrap .form_mask .form_box {
   width: 100%;
@@ -412,8 +412,7 @@
   background: white;
   border-radius: 24rpx 24rpx 0px 0px;
   overflow: hidden;
-  top: 100%;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .home_wrap .form_mask .form_box .form_header {
   width: calc(100% - 64rpx);
@@ -490,6 +489,7 @@
   margin-right: 16rpx;
   border-radius: 8rpx;
   overflow: hidden;
+  position: relative;
 }
 .home_wrap .form_mask .form_box .image_box .image_item_box:last-child {
   margin-right: 0;
@@ -497,6 +497,21 @@
 .home_wrap .form_mask .form_box .image_box .image_item_box .image_item {
   height: 218rpx;
   width: 218rpx;
+}
+.home_wrap .form_mask .form_box .image_box .image_item_box .delete_mask {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 218rpx;
+  width: 218rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home_wrap .form_mask .form_box .image_box .image_item_box .delete_mask .delete_white {
+  height: 48rpx;
+  width: 48rpx;
 }
 .home_wrap .form_mask .form_box .image_box .add_box {
   height: 218rpx;
@@ -513,5 +528,5 @@
 }
 .home_wrap .form_mask_active {
   background: rgba(0, 0, 0, 0.6);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }

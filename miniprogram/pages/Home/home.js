@@ -65,6 +65,43 @@ Page({
     itemTypeDisabled:false,
     dateDisabled:false,
     photoDisabled:true,
+    content:'',
+    imagePaths:[],
+    imageRemoveIndex:""
+  },
+  contentIpnut(e){
+    this.setData({content:e.detail.value})
+  },
+  submit(){
+    if(this.data.imagePaths.length === 0){
+      this.submitInfo([])
+    }else{
+      let secret = Math.floor(Math.random() * 2821109907455).toString(36).toUpperCase()
+      let imagePaths = this.data.imagePaths
+      this.uploadImg(imagePaths, 0, secret, [])
+    }
+  },
+  submitInfo(imagePaths){
+    console.log(this.data.content)
+    console.log(this.data.chooseKindIndex)
+    console.log(this.data.chooseItemTypeIndex)
+    console.log(this.data.date)
+    wx.cloud.callFunction({
+      name: "submitRecord",
+      data: {
+        kind:this.data.chooseKindIndex,
+        type:this.data.chooseItemTypeIndex,
+        imagePaths,
+        date:this.data.date,
+        content:this.data.content
+      }
+    }).then(res=>{
+      wx.showToast({
+        title: '添加成功 (๑•̀ㅂ•́) ☆',
+        icon:"none"
+      })
+      this.hideAddForm()
+    })
   },
   noTouch(){
     return;
@@ -87,15 +124,24 @@ Page({
     })
   },
   chooseImage(){
-    if(this.data.chooseImage) return;
+    if(this.data.photoDisabled) return;
+    if( this.data.imagePaths.length === 3) return;
     wx.chooseImage({
-      count: 3,
-      sourceType:['album'],
+      count:3 - this.data.imagePaths.length,
       success:res=>{
-        console.log(res)
-        this.setData({
-          imagePath:res.tempFilePaths[0]
-        })
+        console.log(res.tempFilePaths)
+        if(this.data.imagePaths.length === 0){
+          let imagePaths =[]
+          imagePaths = imagePaths.concat(res.tempFilePaths)
+          this.setData({
+            imagePaths
+          })
+        }else{
+          this.setData({
+            imagePaths: this.data.imagePaths.concat(res.tempFilePaths)
+          })
+        }
+        console.log(this.data.imagePaths)
       }
     })
   },
@@ -111,6 +157,55 @@ Page({
       fail (res) {
         console.log(res.errMsg)
       }
+    })
+  },
+  //上传图片
+  uploadImg(imagePaths, i, secret, imageFileID) {
+    wx.showToast({
+      title: '上传图片ing...',
+      icon:'none',
+      mask: true,
+      duration:600000
+    })
+    wx.cloud.uploadFile({
+      cloudPath: `photos/${secret}_${i + 1}.png`,
+      filePath: imagePaths[i],
+      fail:res=>{
+        wx.showToast({
+          title: '服务器崩惹 (^～^;)ゞ',
+          icon:'none'
+        })
+      },
+      success: res => {
+        console.log(res)
+        i = i + 1
+        if (i  === imagePaths.length) {//上传成功
+          imageFileID.push(res.fileID)
+          console.log(imageFileID)
+          this.submitInfo(imageFileID)
+          // return imageFileID
+        } else {//还没上传完毕 继续上传
+          imageFileID.push(res.fileID)
+          this.uploadImg(imagePaths, i, secret, imageFileID);
+        }
+      }
+    })
+  },
+  //显示删除mask
+  showDeleteImgMask(e){
+    wx.vibrateShort()
+    console.log(e.currentTarget.dataset.index)
+    this.setData({
+      imageRemoveIndex: e.currentTarget.dataset.index
+    })
+  },
+  //删除图片
+  imageRemove:function(e){
+    let imagePaths = this.data.imagePaths
+    imagePaths.splice(e.currentTarget.dataset.index, 1)
+    this.setData({
+      imageRemoveIndex: "",
+      imagePaths,
     })
   },
   //记录类型change事件
@@ -132,7 +227,8 @@ Page({
             chooseItemTypeIndex:0,
             itemTypeDisabled:false,
             dateDisabled:true,
-            photoDisabled:true
+            photoDisabled:true,
+            date:''
           })
         }else if(res.tapIndex === 1){
           this.setData({
@@ -147,19 +243,24 @@ Page({
             chooseItemTypeIndex:0,
             itemTypeDisabled:false,
             dateDisabled:false,
-            photoDisabled:true
+            photoDisabled:true,
+            date:this.getNow()
           })
         }else if(res.tapIndex === 2){
           this.setData({
             itemTypeDisabled:true,
             dateDisabled:true,
-            photoDisabled:true
+            photoDisabled:true,
+            chooseItemTypeIndex:'',
+            date:''
           })
         }else if(res.tapIndex === 3){
           this.setData({
             itemTypeDisabled:true,
             dateDisabled:true,
-            photoDisabled:false
+            photoDisabled:false,
+            date:'',
+            chooseItemTypeIndex:''
           })
         }
       },

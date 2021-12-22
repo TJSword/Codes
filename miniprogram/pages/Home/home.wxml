@@ -111,14 +111,14 @@
   </view>
   <image src="../../images/add_btn.png" class="add_btn" bindtap="add"></image>
   <view wx:if="{{animationEnd}}" class="form_mask {{isAdding?'form_mask_active':''}}"  bindtap="hideAddForm">
-    <view class="form_box" style="height:calc(100% - {{statusBarHeight + menuHeight}}px);{{isAdding?'top: ' + (statusBarHeight + menuHeight) + 'px':''}}" catchtap="noTouch">
+    <view class="form_box" style="height:calc(100% - {{statusBarHeight + menuHeight}}px);top:{{isAdding?(statusBarHeight + menuHeight) + 'px':'100%'}}" catchtap="noTouch">
       <view class="form_header">
         <view class="left_button" bindtap="hideAddForm">取消</view>
         <view class="middle_title">添加记录</view>
-        <view class="right_button">确定</view>
+        <view class="right_button" bindtap="submit">确定</view>
       </view>
       <view class="form_input_box">
-        <textarea type="text" placeholder="在此输入内容，支持emoji" class="textarea" auto-height="true"> </textarea>
+        <textarea type="text" bindinput="contentIpnut" placeholder="在此输入内容，支持emoji" class="textarea" auto-height="true"> </textarea>
       </view>
       <view class="select_box" style="margin-top: 10rpx;" catchtap="recordTypeChange">
         <view class="left_box">记录类别</view>
@@ -151,13 +151,15 @@
         </view>
       </view>
       <view class="image_box">
-        <view class="image_item_box" wx:for="{{3}}">
-          <image src="https://i.bmp.ovh/imgs/2021/12/511717016c12178e.png" class="image_item" ></image>
-          <view></view>
+        <view class="image_item_box" wx:for="{{imagePaths}}" wx:key="index" data-index = "{{index}}" bindlongpress="showDeleteImgMask">
+          <image src="{{item}}"  mode="aspectFill"  class="image_item" ></image>
+          <view class="delete_mask" wx:if="{{imageRemoveIndex === index}}" bindtap="imageRemove">
+            <image src="../../images/delete_white.png" class="delete_white"></image>
+          </view>
         </view>
-        <!-- <view class="add_box">
+        <view class="add_box" wx:if="{{ imagePaths.length === 1 || imagePaths.length === 2}}" bindtap="chooseImage"> 
           <image src="../../images/add_img_icon.png" class="add_img_icon"></image>
-        </view> -->
+        </view>
       </view>
     </view>
 

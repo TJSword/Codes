@@ -39,7 +39,7 @@
     "useCompilerPlugins": false
   },
   "appid": "wx98d80f30d88d3d39",
-  "projectname": "关于丨About",
+  "projectname": "%E5%85%B3%E4%BA%8E%E4%B8%A8About",
   "libVersion": "2.14.1",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {

@@ -419,7 +419,6 @@
             background: white;
             border-radius: 24rpx 24rpx 0px 0px;
             overflow: hidden;
-            top: 100%;
             transition: all .3s ease;
             .form_header{
                 width: calc(~"100% - 64rpx");
@@ -495,12 +494,28 @@
                     margin-right: 16rpx;
                     border-radius: 8rpx;
                     overflow: hidden;
+                    position: relative;
                     &:last-child{
                         margin-right: 0;
                     }
                     .image_item{
                         height: 218rpx;
                         width: 218rpx;
+                    }
+                    .delete_mask{
+                        background-color: rgba(0, 0, 0, 0.4);
+                        height: 218rpx;
+                        width: 218rpx;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .delete_white{
+                            height: 48rpx;
+                            width: 48rpx;
+                        }
                     }
                 }
                 .add_box{
