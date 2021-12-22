@@ -1,15 +1,15 @@
 <view class="likes_wrap"  bindtap="recovery">
   <view class="likes_box">
-    <view class="likes_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{6}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}">
-      <view class="content">遇见你的 Figma 桌面应用程序需要更新才能继续工作。 从我们的下载页面获取最新版本。</view>
+    <view class="likes_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{likesData}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id">
+      <view class="content">{{item.content}}</view>
       <view class="date_box">
-        <image class="like_icon" src="../../images/unlike_icon.png"></image>
-        <view class="date">2021年12月10日</view>
+        <image class="like_icon" src="../../images/{{item.type === 0?'like_icon':'unlike_icon'}}.png"></image>
+        <view class="date">{{item.date[0]}}年{{item.date[1]}}月{{item.date[2]}}日</view>
       </view>
       <view class="delete_box">
-        <image src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard"></image>
+        <image src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard" data-id="{{item._id}}"></image>
       </view>
     </view>
   </view>
-  <view class="total_num">累计{{5}}条记录</view>
+  <view class="total_num">累计{{likesData.length}}条记录</view>
 </view>

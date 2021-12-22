@@ -14,8 +14,8 @@ Page({
     keyBoardHeight:0,
     popover_box_top:-1000,
     popover_box_left:0,
-    isAdding:true,
-    animationEnd:true,
+    isAdding:false,
+    animationEnd:false,
     chooseKind:'纪念日',
     chooseKindIndex:1,
     menuBox:[{
@@ -82,10 +82,6 @@ Page({
     }
   },
   submitInfo(imagePaths){
-    console.log(this.data.content)
-    console.log(this.data.chooseKindIndex)
-    console.log(this.data.chooseItemTypeIndex)
-    console.log(this.data.date)
     wx.cloud.callFunction({
       name: "submitRecord",
       data: {

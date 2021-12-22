@@ -1,16 +1,16 @@
 <view class="commemoration_wrap"  bindtap="recovery">
   <view class="commemoration_box">
-    <view class="commemoration_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{5}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}">
-      <view class="content">我们在一起已经</view>
+    <view class="commemoration_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{commemorationData}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id">
+      <view class="content">{{item.type === 0?item.content + '已经':item.content + '还有'}}</view>
       <view class="days_box">
-        <view class="days">845</view>
+        <view class="days">{{item.days}}</view>
         <view class="unit">天</view>
       </view>
-      <view class="date">起始日： 2021年12月10日</view>
+      <view class="date">{{item.type === 0?('起始日：' + item.date):('目标日：' + item.date)}}</view>
       <view class="delete_box">
-        <image src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard"></image>
+        <image src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard" data-id="{{item._id}}"></image>
       </view>
     </view>
   </view>
-  <view class="total_num">累计{{5}}条记录</view>
+  <view class="total_num">累计{{commemorationData.length}}条记录</view>
 </view>
