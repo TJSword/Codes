@@ -42,6 +42,15 @@
   left: 32rpx;
   z-index: 10;
 }
+.home_wrap .header_box .clickArea {
+  position: absolute;
+  width: 64rpx;
+  height: 64rpx;
+  top: 312rpx;
+  left: 208rpx;
+  z-index: 11;
+  opacity: 0;
+}
 .home_wrap .header_box .menu_box {
   Width: 686rpx;
   Height: 344rpx;
@@ -414,7 +423,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0);
   z-index: 30;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 .home_wrap .form_mask .form_box {
   width: 100%;
@@ -422,7 +431,7 @@
   background: white;
   border-radius: 24rpx 24rpx 0px 0px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 .home_wrap .form_mask .form_box .form_header {
   width: calc(100% - 64rpx);
@@ -538,7 +547,7 @@
 }
 .home_wrap .form_mask_active {
   background: rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 .home_wrap .egg_box {
   height: 100%;
@@ -548,6 +557,8 @@
   left: 0;
   z-index: 90;
   background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 .home_wrap .egg_box .petals_box {
   width: 100%;
@@ -575,4 +586,9 @@
   line-height: 48rpx;
   font-size: 32rpx;
   z-index: -99;
+  text-align: left;
+}
+.home_wrap .egg_box_active {
+  opacity: 1;
+  transition: all 0.3s ease;
 }

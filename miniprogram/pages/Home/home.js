@@ -9,7 +9,6 @@ Page({
     statusBarHeight: app.globalData.statusBarHeight,
     menuHeight: app.globalData.menuHeight,
     indexText:app.globalData.indexText,
-    indexDetail:{},
     inputDisabled:true,
     scrollTop:0,
     keyBoardHeight:0,
@@ -69,7 +68,18 @@ Page({
     content:'',
     imagePaths:[],
     imageRemoveIndex:"",
-    showEggs:true
+    eggsHidden:true,
+    eggsAnimation:false,
+    commemorationData:[],
+    likeData:[],
+    memoData:[],
+    photos:'',
+    todoData:[],
+    unlikeData:[],
+    eggContent:'',
+    debounce:false,
+    hideAll:true,
+    inputDisabled:true
   },
   contentIpnut(e){
     this.setData({content:e.detail.value})
@@ -109,7 +119,21 @@ Page({
   },
   //修改主页文字
   updateIndexText(e){
+    if(this.data.debounce) return
+    this.setData({debounce:true})
+    setTimeout(_=>{this.setData({debounce:false})},300)
     console.log(e.detail.value)
+    wx.cloud.callFunction({
+      name:'updateIndexText',
+      data:{
+        indexText:e.detail.value
+      }
+    }).then(res=>{
+      console.log(res)
+      this.setData({
+        inputDisabled:true
+      })
+    })
   },
   dateChange(e){
     console.log(e)
@@ -270,10 +294,18 @@ Page({
       }
     })
   },
-  inputBlur(e){
-    this.setData({
-      putFocus:true,
-    })
+  editInput(e){
+     var thisTime = e.timeStamp;
+     var lastTime = this.data.lastTime;
+     if (lastTime != 0 && thisTime - this.data.lastTime < 300) {
+         this.setData({
+           inputDisabled:false
+         })
+     }
+     // 赋值
+     this.setData({
+       lastTime: thisTime
+     })
   },
   hideAddForm(){
     this.setData({
@@ -303,14 +335,42 @@ Page({
     let now = `${year}-${month}-${day}`
     return now
   },
-  showEggs(){
+  showEggs(e){
+    console.log(e.currentTarget.dataset.content)
     this.setData({
-      showEggs:false
+      eggContent:e.currentTarget.dataset.content,
+      eggsHidden:false
     })
+    setTimeout(_=>{
+      this.setData({
+        eggsAnimation:true
+      })
+    },10)
   },
   hideEggs(){
     this.setData({
-      showEggs:true
+      eggsAnimation:false
+    })
+    setTimeout(_=>{
+      this.setData({
+        eggsHidden:true
+      })
+    },310)
+  },
+  getIndexDetail(){
+    this.setData({hideAll:true})
+    wx.cloud.callFunction({
+      name:'getIndexDetail'
+    }).then(res=>{
+      console.log(res.result)
+      let data = res.result
+      data.commemorationData.forEach(item=>{item.days = getDaysBetween(item.type,item.date)})
+      data.memoData.forEach(item=>item.date = transformDate(item.createTime))
+      this.setData({
+        ...data
+      })
+      setTimeout(_=>{this.setData({hideAll:false})},30)
+      wx.stopPullDownRefresh()
     })
   },
   /**
@@ -325,20 +385,10 @@ Page({
       name:'getUserInfo'
     }).then(res=>{
       this.setData({
-        indexText:res.result
+        ...res.result
       }) 
     })
-    wx.cloud.callFunction({
-      name:'getIndexDetail'
-    }).then(res=>{
-      console.log(res.result)
-      let data = res.result
-      data.commemorationData.forEach(item=>{item.days = getDaysBetween(item.type,item.date)})
-      data.memoData.forEach(item=>item.date = transformDate(item.createTime))
-      this.setData({
-        ...data
-      })
-    })
+    this.getIndexDetail()
   },
 
   /**
@@ -373,12 +423,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    wx.showToast({
-      title: '下拉了',
-    })
-    setTimeout(_=>{
-      wx.stopPullDownRefresh()
-    },1000)
+      this.getIndexDetail()
   },
 
   /**

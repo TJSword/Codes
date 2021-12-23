@@ -40,6 +40,15 @@
             left: 32rpx;
             z-index: 10;
         }
+        .clickArea{
+            position: absolute;
+            width: 64rpx;
+            height: 64rpx;
+            top: 312rpx;
+            left: 208rpx;
+            z-index: 11;
+            opacity: 0;
+        }
         .menu_box{
             Width:686rpx;
             Height:344rpx;
@@ -556,6 +565,8 @@
         left: 0;
         z-index: 90;
         background: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transition: all 0.3s ease;
         .petals_box{
             width: 100%;
             height: fit-content;
@@ -581,7 +592,12 @@
                 line-height: 48rpx;
                 font-size: 32rpx;
                 z-index: -99;
+                text-align: left;
             }
         }
+    }
+    .egg_box_active{
+        opacity: 1;
+        transition: all 0.3s ease;
     }
 }

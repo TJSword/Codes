@@ -5,13 +5,17 @@
       <view class="title" style="top:{{statusBarHeight}}px;height:{{menuHeight}}px" >关于丨About</view>
     </view>
     <image src="../../images/header_img.png" class="header_img"></image>
+    <view class="clickArea" bindlongpress="showEggs" data-content="{{yuText}}"></view>
     <view class="menu_box">
       <view class="input_box" > 
         <input class="input" 
         type="text" 
         value="{{indexText}}" 
-        disabled="{{animationEnd}}"
-        bindblur="updateIndexText"></input>
+        disabled="{{inputDisabled}}"
+        focus="{{!inputDisabled}}"
+        bindblur="updateIndexText"
+        bindconfirm="updateIndexText"
+        bindtap="editInput"></input>
       </view>
       <view class="menu_index">
         <view class="menu_item" wx:for="{{menuBox}}" wx:key="icon">
@@ -25,10 +29,10 @@
       </view>
     </view>
   </view>
-  <!-- <view class="prompt_words_box">
+  <view class="prompt_words_box" wx:if="{{hideAll}}">
     <view style="margin-top:32%;">还没有添加任何内容</view> 
-  </view> -->
-  <view class="main_box">
+  </view>
+  <view class="main_box" wx:else>
     <view class="item item_jnr">
       <view class="info_text">{{commemorationData[0].content}}{{commemorationData[0].type == 0?'还有':'还剩'}}</view>
       <view class="days_box">
@@ -103,7 +107,7 @@
       </view>
     </view>
   </view>
-  <image src="../../images/add_btn.png" class="add_btn" bindtap="add" bindlongpress="showEggs"></image>
+  <image src="../../images/add_btn.png" class="add_btn" bindtap="add" bindlongpress="showEggs" data-content="{{heText}}"></image>
   <view wx:if="{{animationEnd}}" class="form_mask {{isAdding?'form_mask_active':''}}"  bindtap="hideAddForm">
     <view class="form_box" style="height:calc(100% - {{statusBarHeight + menuHeight}}px);top:{{isAdding?(statusBarHeight + menuHeight) + 'px':'100%'}}" catchtap="noTouch">
       <view class="form_header">
@@ -157,10 +161,10 @@
       </view>
     </view>
   </view>
-  <view class="egg_box" hidden="{{showEggs}}" bindtap="hideEggs">
+  <view class="egg_box {{eggsAnimation?'egg_box_active':''}}" hidden="{{eggsHidden}}" bindtap="hideEggs">
     <view class="petals_box">
       <image src="../../images/petals.png" class="petals" mode="widthFix"></image>
-      <view class="egg">我爱你😘永远相信美好的事情即将发生</view>
+      <text class="egg">{{eggContent}}</text>
     </view>
   </view>
 </view>
