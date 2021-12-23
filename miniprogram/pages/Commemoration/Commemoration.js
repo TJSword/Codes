@@ -12,10 +12,15 @@ Page({
   getRecords(){
     getRecords(1).then(res=>{
       let data = res.result.data
+      if(data.length !== 0){
+        wx.setNavigationBarColor({
+          frontColor: '#000000', 
+          backgroundColor: '#F5F5F5',
+        })
+      }
       data.forEach(item=>{
         item.days = getDaysBetween(item.type,item.date)
       })
-      console.log(data)
       this.setData({
         commemorationData:data
       })

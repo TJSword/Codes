@@ -1,19 +1,18 @@
 <view class="memo_wrap"  bindtap="recovery">
-  <view class="memo_box">
-    <view class="memo_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{5}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}">
-      <view class="content">🎶"因为你说话时身体微微前倾，所以我选择比平时更近你一步"</view>
+  <view class="memo_box" wx:if="{{memoList.length != 0}}">
+    <view class="memo_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{memoList}}"  wx:key="_id" bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}">
+      <view class="content">{{item.content}}</view>
       <view class="image_box">
-        <image src="https://i.bmp.ovh/imgs/2021/12/511717016c12178e.png" class="img_item"></image>
-        <image src="https://i.bmp.ovh/imgs/2021/12/511717016c12178e.png" class="img_item"></image>
-        <image src="https://i.bmp.ovh/imgs/2021/12/511717016c12178e.png" class="img_item"></image>
+        <image src="{{item}}" class="img_item" wx:for="{{item.imagePaths}}"></image>
       </view>
       <view class="date_box">
-        <view class="date">2021年12月10日</view>
+        <view class="date">{{item.date[0]}}年{{item.date[1]}}月{{item.date[2]}}日</view>
       </view>
       <view class="delete_box">
-        <image src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard"></image>
+        <image src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard" data-id="{{item._id}}"></image>
       </view>
     </view>
   </view>
-  <view class="total_num">累计{{5}}条记录</view>
+  <view class="tips" wx:else>还没有添加任何内容</view>
+  <view class="total_num" wx:if="{{memoList.length != 0}}">累计{{memoList.length}}条记录</view>
 </view>

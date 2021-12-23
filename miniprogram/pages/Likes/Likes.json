@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "喜欢与厌"
+  "navigationBarTitleText": "喜欢与厌",
+  "navigationBarBackgroundColor": "#FFFFFF"
 }

@@ -1,5 +1,5 @@
 <view class="commemoration_wrap"  bindtap="recovery">
-  <view class="commemoration_box">
+  <view class="commemoration_box"  wx:if="{{commemorationData.length != 0}}">
     <view class="commemoration_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{commemorationData}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id">
       <view class="content">{{item.type === 0?item.content + '已经':item.content + '还有'}}</view>
       <view class="days_box">
@@ -12,5 +12,6 @@
       </view>
     </view>
   </view>
-  <view class="total_num">累计{{commemorationData.length}}条记录</view>
+  <view class="tips" wx:else>还没有添加任何内容</view>
+  <view class="total_num" wx:if="{{commemorationData.length != 0}}">累计{{commemorationData.length}}条记录</view>
 </view>

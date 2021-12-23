@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "纪念日"
+  "navigationBarTitleText": "纪念日",
+  "navigationBarBackgroundColor": "#FFFFFF"
 }

@@ -1,16 +1,17 @@
 <view class="todo_wrap"  bindtap="recovery">
-  <view class="todo_box">
-    <view class="todo_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{2}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}">
-      <view class="content">下个月发了工资陪她去逛街，一起去看电影，去迪士尼哈哈！</view>
-      <view class="operation_box">
+  <view class="todo_box"  wx:if="{{todoList.length != 0}}">
+    <view class="todo_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{todoList}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id">
+      <view class="content">{{item.content}}</view>
+      <view class="operation_box" bindtap="updateTodoState" data-id="{{item._id}}" data-state="{{item.isDone}}">
         <image src="../../images/undone_icon.png" class="done_icon"></image>  
-        <view class="operation_text">未完成</view>
-        <image src="../../images/off_icon.png" class="off_icon"></image>
+        <view class="operation_text" style="color:{{item.isDone?'#AAAAAA':'#FF7A00'}}">{{item.isDone?'已完成':'未完成'}}</view>
+        <image src="../../images/{{item.isDone?'on_icon':'off_icon'}}.png" class="off_icon" ></image>
       </view>
       <view class="delete_box">
-        <image src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard"></image>
+        <image src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard"  data-id="{{item._id}}"></image>
       </view>
     </view>
   </view>
-  <view class="total_num">累计{{5}}条记录</view>
+  <view class="tips" wx:else>还没有添加任何内容</view>
+  <view class="total_num" wx:if="{{todoList.length != 0}}">累计{{todoList.length}}条记录</view>
 </view>

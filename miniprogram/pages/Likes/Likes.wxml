@@ -1,5 +1,5 @@
 <view class="likes_wrap"  bindtap="recovery">
-  <view class="likes_box">
+  <view class="likes_box"  wx:if="{{likesData.length != 0}}">
     <view class="likes_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{likesData}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id">
       <view class="content">{{item.content}}</view>
       <view class="date_box">
@@ -11,5 +11,6 @@
       </view>
     </view>
   </view>
-  <view class="total_num">累计{{likesData.length}}条记录</view>
+  <view class="tips" wx:else>还没有添加任何内容</view>
+  <view class="total_num" wx:if="{{likesData.length != 0}}">累计{{likesData.length}}条记录</view>
 </view>

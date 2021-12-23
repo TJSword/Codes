@@ -10,7 +10,6 @@
         <input class="input" 
         type="text" 
         value="{{indexText}}" 
-        focus
         disabled="{{animationEnd}}"
         bindblur="updateIndexText"></input>
       </view>

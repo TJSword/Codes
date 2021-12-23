@@ -96,6 +96,9 @@ Page({
         title: '添加成功 (๑•̀ㅂ•́) ☆',
         icon:"none"
       })
+      this.setData({
+        imagePaths:[]
+      })
       this.hideAddForm()
     })
   },
@@ -302,7 +305,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('触发了onload')
     this.setData({
       date:this.getNow()
     })
@@ -314,7 +316,14 @@ Page({
         indexText:res.result
       }) 
     })
-    
+    wx.cloud.callFunction({
+      name:'getIndexDetail'
+    }).then(res=>{
+      console.log(res)
+      this.setData({
+        indexDetail:res.result
+      })
+    })
   },
 
   /**

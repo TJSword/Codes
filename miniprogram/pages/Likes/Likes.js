@@ -13,6 +13,12 @@ Page({
   getRecords(){
     getRecords(0).then(res=>{
       let data = res.result.data
+      if(data.length !== 0){
+        wx.setNavigationBarColor({
+          frontColor: '#000000', 
+          backgroundColor: '#F5F5F5',
+        })
+      }
       data.forEach(item=>item.date = transformDate(item.createTime))
       this.setData({
         likesData:data

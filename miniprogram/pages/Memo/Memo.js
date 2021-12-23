@@ -1,4 +1,4 @@
-// pages/Likes/Likes.js
+import {getRecords,transformDate,delteRecords} from "../../utils.js"
 Page({
 
   /**
@@ -6,14 +6,30 @@ Page({
    */
   data: {
     showOpeartion:false,
-    chooseIndex:null
+    chooseIndex:null,
+    memoList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getRecords()
+  },
+  getRecords(){
+    getRecords(3).then(res=>{
+      let data = res.result.data
+      if(data.length !== 0){
+        wx.setNavigationBarColor({
+          frontColor: '#000000', 
+          backgroundColor: '#F5F5F5',
+        })
+      }
+      data.forEach(item=>item.date = transformDate(item.createTime))
+      this.setData({
+        memoList:data
+      })
+    })
   },
   touchStart(e) {
     // console.log(e)
@@ -50,7 +66,29 @@ Page({
   noTouch(){
     return;
   },
-
+  deleteCard(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.showModal({
+      content: '确定要删除该条记录吗？',
+      confirmText:'删除',
+      cancelColor: "#000000",
+      confirmColor: "#576B95",
+      success:res=> {
+        if (res.confirm) {
+          delteRecords(e.currentTarget.dataset.id).then(res=>{
+            wx.showToast({
+              title: '已删除',
+              icon:'none'
+            })
+            this.getRecords()
+            this.recovery()
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

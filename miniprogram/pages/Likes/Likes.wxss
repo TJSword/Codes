@@ -18,7 +18,7 @@ Page {
   padding: 32rpx;
   background: white;
   border-radius: 16rpx;
-  margin-bottom: 32rpx;
+  margin-bottom: 22rpx;
   position: relative;
   transition: all 0.3s ease;
 }
@@ -64,6 +64,16 @@ Page {
 .likes_wrap .likes_box .like_card_active {
   transform: translateX(-160rpx);
   transition: all 0.3s ease;
+}
+.likes_wrap .tips {
+  background: white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #CCCCCC;
+  font-size: 26rpx;
 }
 .likes_wrap .total_num {
   color: #aaaaaa;
