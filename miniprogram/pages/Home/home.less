@@ -170,6 +170,11 @@
                     margin-bottom: 16rpx;
                     color:rgba(102, 108, 126, 1);
                     font-size: 28rpx;
+                    display: flex;
+                    .point_icon{
+                        height: 40rpx;
+                        width: 40rpx;
+                    }
                 }
             }
             .unlike_box{
@@ -258,6 +263,11 @@
                     margin-bottom: 16rpx;
                     color:rgba(102, 108, 126, 1);
                     font-size: 28rpx;
+                    display: flex;
+                    .point_icon{
+                        height: 40rpx;
+                        width: 40rpx;
+                    }
                 }
             }
             .like_box{
@@ -537,5 +547,41 @@
     .form_mask_active{
         background: rgba(0, 0, 0, 0.6);
         transition: all .3s ease;
+    }
+    .egg_box{
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 90;
+        background: rgba(0, 0, 0, 0.6);
+        .petals_box{
+            width: 100%;
+            height: fit-content;
+            position: relative;
+            .petals{
+                width:100%;
+                position: relative;
+                z-index: 999;
+            }
+            .egg{
+                width: 462rpx;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin:auto;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 20rpx 32rpx;
+                height: fit-content;
+                color: white;
+                border-radius: 16rpx;
+                line-height: 48rpx;
+                font-size: 32rpx;
+                z-index: -99;
+            }
+        }
     }
 }

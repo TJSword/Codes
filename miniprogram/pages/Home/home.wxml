@@ -30,20 +30,17 @@
   </view> -->
   <view class="main_box">
     <view class="item item_jnr">
-      <view class="info_text">我们在一起已经</view>
+      <view class="info_text">{{commemorationData[0].content}}{{commemorationData[0].type == 0?'还有':'还剩'}}</view>
       <view class="days_box">
-        <text class="day">845</text>
+        <text class="day">{{commemorationData[0].days}}</text>
         <text class="unit">天</text>
       </view>
     </view>
     <view class=" item item_unlike">
       <view class="detail_box">
-        <view class="unlike_item">· 不喜欢我喝酒</view>
-        <view class="unlike_item">· 不喜欢我喝酒</view>
-        <view class="unlike_item">· 不喜欢我喝酒</view>
-        <view class="unlike_item">· 不喜欢我喝酒</view>
-        <view class="unlike_item">· 不喜欢我喝酒</view>
-        <view class="unlike_item">· 不喜欢我喝酒</view>
+        <view class="unlike_item" wx:for="{{unlikeData}}" wx:key="_id">
+        <image src="../../images/point.png" class="point_icon"></image>
+        {{item.content}}</view>
       </view>
       <view class="unlike_box">
         <view class="unlike_title">
@@ -53,25 +50,23 @@
       </view>
     </view>
     <view class="item item_photo">
-      <image class="detail_img" src="https://i.bmp.ovh/imgs/2021/12/dc9fe9900f004099.png"></image>
+      <image class="detail_img" src="{{photos}}" mode="aspectFill" ></image>
     </view>
     <view class="item item_bwl">
       <view class="bwl_info">
-        <view class="bwl_text">因为你说话时身体微微前倾，所以我选择比平时更近你一步</view>
-        <image src="https://i.bmp.ovh/imgs/2021/12/511717016c12178e.png" mode="widthFix" class="bwl_img"></image>
+        <view class="bwl_text">{{memoData[0].content}}</view>
+        <image src="{{memoData[0].imagePaths[0]}}" mode="widthFix" class="bwl_img"></image>
       </view>
       <view class="date_box">
-        <view class="date">2021年12月10日</view>
+        <view class="date">{{memoData[0].date[0]}}年{{memoData[0].date[1]}}月{{memoData[0].date[2]}}日</view>
       </view>
     </view>
     <view class=" item item_like">
       <view class="detail_box">
-        <view class="like_item">· 喜欢我喝酒</view>
-        <view class="like_item">· 喜欢我喝酒</view>
-        <view class="like_item">· 喜欢我喝酒</view>
-        <view class="like_item">· 喜欢我喝酒</view>
-        <view class="like_item">· 喜欢我喝酒</view>
-        <view class="like_item">· 喜欢我喝酒</view>
+        <view class="like_item" wx:for="{{likeData}}" wx:key="_id">
+        <image src="../../images/point.png" class="point_icon"></image>
+        <text>{{item.content}}</text> 
+      </view>
       </view>
       <view class="like_box">
         <view class="like_title">
@@ -81,15 +76,15 @@
       </view>
     </view>
     <view class="item item_dsr">
-      <view class="info_text">我们计划明年十一去日本旅行，还剩</view>
+      <view class="info_text">{{commemorationData[1].content}}{{commemorationData[1].type == 0?'还有':'还剩'}}</view>
       <view class="days_box">
-        <text class="day">323</text>
+        <text class="day">{{commemorationData[1].days}}</text>
         <text class="unit">天</text>
       </view>
     </view>
     <view class="item item_yzds">
       <view class="yzds_info">
-        <view class="yzds_text">下个月一起去武功山露营⛺️</view>
+        <view class="yzds_text">{{todoData[0].content}}</view>
       </view>
       <view class="operation_box">
         <view class="operation">
@@ -101,14 +96,14 @@
     </view>
     <view class="item item_text">
       <view class="text_info">
-        <view class="text_text">我会不爱你吗?不爱你?不会。爱你就像爱生命。算了。不胡扯</view>
+        <view class="text_text">{{memoData[1].content}}</view>
       </view>
       <view class="date_box">
-        <view class="date">2021年12月10日</view>
+        <view class="date">{{memoData[1].date[0]}}年{{memoData[1].date[1]}}月{{memoData[1].date[2]}}日</view>
       </view>
     </view>
   </view>
-  <image src="../../images/add_btn.png" class="add_btn" bindtap="add"></image>
+  <image src="../../images/add_btn.png" class="add_btn" bindtap="add" bindlongpress="showEggs"></image>
   <view wx:if="{{animationEnd}}" class="form_mask {{isAdding?'form_mask_active':''}}"  bindtap="hideAddForm">
     <view class="form_box" style="height:calc(100% - {{statusBarHeight + menuHeight}}px);top:{{isAdding?(statusBarHeight + menuHeight) + 'px':'100%'}}" catchtap="noTouch">
       <view class="form_header">
@@ -160,6 +155,12 @@
           <image src="../../images/add_img_icon.png" class="add_img_icon"></image>
         </view>
       </view>
+    </view>
+  </view>
+  <view class="egg_box" hidden="{{showEggs}}" bindtap="hideEggs">
+    <view class="petals_box">
+      <image src="../../images/petals.png" class="petals" mode="widthFix"></image>
+      <view class="egg">我爱你😘永远相信美好的事情即将发生</view>
     </view>
   </view>
 </view>

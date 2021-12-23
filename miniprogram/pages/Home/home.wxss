@@ -167,6 +167,11 @@
   margin-bottom: 16rpx;
   color: #666c7e;
   font-size: 28rpx;
+  display: flex;
+}
+.home_wrap .main_box .item_unlike .detail_box .unlike_item .point_icon {
+  height: 40rpx;
+  width: 40rpx;
 }
 .home_wrap .main_box .item_unlike .unlike_box {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.86) 29.69%, #FFFFFF 43.54%);
@@ -254,6 +259,11 @@
   margin-bottom: 16rpx;
   color: #666c7e;
   font-size: 28rpx;
+  display: flex;
+}
+.home_wrap .main_box .item_like .detail_box .like_item .point_icon {
+  height: 40rpx;
+  width: 40rpx;
 }
 .home_wrap .main_box .item_like .like_box {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.86) 29.69%, #FFFFFF 43.54%);
@@ -529,4 +539,40 @@
 .home_wrap .form_mask_active {
   background: rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease;
+}
+.home_wrap .egg_box {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  background: rgba(0, 0, 0, 0.6);
+}
+.home_wrap .egg_box .petals_box {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+}
+.home_wrap .egg_box .petals_box .petals {
+  width: 100%;
+  position: relative;
+  z-index: 999;
+}
+.home_wrap .egg_box .petals_box .egg {
+  width: 462rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20rpx 32rpx;
+  height: fit-content;
+  color: white;
+  border-radius: 16rpx;
+  line-height: 48rpx;
+  font-size: 32rpx;
+  z-index: -99;
 }

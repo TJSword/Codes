@@ -1,4 +1,4 @@
-// miniprogram/pages/Home/home.js
+import {getDaysBetween,transformDate} from "../../utils.js"
 const app = getApp()
 Page({
 
@@ -9,6 +9,7 @@ Page({
     statusBarHeight: app.globalData.statusBarHeight,
     menuHeight: app.globalData.menuHeight,
     indexText:app.globalData.indexText,
+    indexDetail:{},
     inputDisabled:true,
     scrollTop:0,
     keyBoardHeight:0,
@@ -67,7 +68,8 @@ Page({
     photoDisabled:true,
     content:'',
     imagePaths:[],
-    imageRemoveIndex:""
+    imageRemoveIndex:"",
+    showEggs:true
   },
   contentIpnut(e){
     this.setData({content:e.detail.value})
@@ -301,6 +303,16 @@ Page({
     let now = `${year}-${month}-${day}`
     return now
   },
+  showEggs(){
+    this.setData({
+      showEggs:false
+    })
+  },
+  hideEggs(){
+    this.setData({
+      showEggs:true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -319,9 +331,12 @@ Page({
     wx.cloud.callFunction({
       name:'getIndexDetail'
     }).then(res=>{
-      console.log(res)
+      console.log(res.result)
+      let data = res.result
+      data.commemorationData.forEach(item=>{item.days = getDaysBetween(item.type,item.date)})
+      data.memoData.forEach(item=>item.date = transformDate(item.createTime))
       this.setData({
-        indexDetail:res.result
+        ...data
       })
     })
   },

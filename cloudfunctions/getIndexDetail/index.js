@@ -11,7 +11,8 @@ exports.main = async (event, context) => {
     createBy: _.eq(wxContext.OPENID),
     kind:0
   }).orderBy('createTime', 'desc').get()
-  result.likeData = likeRes.data
+  result.likeData = likeRes.data.filter(item=>item.type === 0)
+  result.unlikeData = likeRes.data.filter(item=>item.type === 1)
   //纪念日
   let commemorationData = await cloud.database().collection('records').where({
     createBy: _.eq(wxContext.OPENID),
@@ -20,11 +21,11 @@ exports.main = async (event, context) => {
   
   result.commemorationData = commemorationData.data
   //要做的事
-  let toDoData = await cloud.database().collection('records').where({
+  let todoData = await cloud.database().collection('records').where({
     createBy: _.eq(wxContext.OPENID),
     kind:2
   }).orderBy('createTime', 'desc').limit(1).get()
-  result.toDoData = toDoData.data
+  result.todoData = todoData.data
 
   //备忘录
   let memoData = await cloud.database().collection('records').where({
