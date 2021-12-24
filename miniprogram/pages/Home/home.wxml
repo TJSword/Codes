@@ -33,77 +33,96 @@
     <view style="margin-top:32%;">还没有添加任何内容</view> 
   </view>
   <view class="main_box" wx:else>
-    <view class="item item_jnr">
-      <view class="info_text">{{commemorationData[0].content}}{{commemorationData[0].type == 0?'还有':'还剩'}}</view>
-      <view class="days_box">
-        <text class="day">{{commemorationData[0].days}}</text>
-        <text class="unit">天</text>
-      </view>
-    </view>
-    <view class=" item item_unlike">
-      <view class="detail_box">
-        <view class="unlike_item" wx:for="{{unlikeData}}" wx:key="_id">
-        <image src="../../images/point.png" class="point_icon"></image>
-        {{item.content}}</view>
-      </view>
-      <view class="unlike_box">
-        <view class="unlike_title">
-          <image src="../../images/unlike_icon.png" class="unlike_icon"></image>
-          <text class="unlike_text">TA不喜欢的</text>
+
+    <view class="item_box" wx:if="{{commemorationData[0]}}">
+      <view class="item item_jnr" >
+        <view class="info_text">{{commemorationData[0].content}}{{commemorationData[0].type == 0?'已经':'还有'}}</view>
+        <view class="days_box">
+          <text class="day">{{commemorationData[0].days}}</text>
+          <text class="unit">天</text>
         </view>
       </view>
     </view>
-    <view class="item item_photo">
-      <image class="detail_img" src="{{photos}}" mode="aspectFill" ></image>
+    <view class="item_box"  wx:if="{{unlikeData[0]}}">
+      <view class=" item item_unlike">
+        <view class="detail_box">
+          <view class="unlike_item" wx:for="{{unlikeData}}" wx:key="_id">
+          <image src="../../images/point.png" class="point_icon"></image>
+          {{item.content}}</view>
+        </view>
+        <view class="unlike_box">
+          <view class="unlike_title">
+            <image src="../../images/unlike_icon.png" class="unlike_icon"></image>
+            <text class="unlike_text">TA不喜欢的</text>
+          </view>
+        </view>
+      </view>
     </view>
-    <view class="item item_bwl">
+
+    <view class="item_box" wx:if="{{photos.length != 0}}">
+      <view class="item item_photo" >
+        <image class="detail_img" src="{{photos}}" mode="aspectFill" data-url="{{photos}}" bindtap="previewImage"></image>
+      </view>
+    </view>
+    <view class="item_box" wx:if="{{memoData[0]}}">
+      <view class="item item_bwl" >
       <view class="bwl_info">
         <view class="bwl_text">{{memoData[0].content}}</view>
-        <image src="{{memoData[0].imagePaths[0]}}" mode="widthFix" class="bwl_img"></image>
+        <image src="{{memoData[0].imagePaths[0]}}" class="bwl_img" mode="widthFix"></image>
       </view>
       <view class="date_box">
         <view class="date">{{memoData[0].date[0]}}年{{memoData[0].date[1]}}月{{memoData[0].date[2]}}日</view>
       </view>
     </view>
-    <view class=" item item_like">
-      <view class="detail_box">
-        <view class="like_item" wx:for="{{likeData}}" wx:key="_id">
-        <image src="../../images/point.png" class="point_icon"></image>
-        <text>{{item.content}}</text> 
-      </view>
-      </view>
-      <view class="like_box">
-        <view class="like_title">
-          <image src="../../images/like_icon.png" class="like_icon"></image>
-          <text class="like_text">TA喜欢的</text>
+    </view>
+    <view class="item_box"  wx:if="{{likeData[0]}}">
+      <view class=" item item_like">
+        <view class="detail_box">
+          <view class="like_item" wx:for="{{likeData}}" wx:key="_id">
+          <image src="../../images/point.png" class="point_icon"></image>
+          <text>{{item.content}}</text> 
+        </view>
+        </view>
+        <view class="like_box">
+          <view class="like_title">
+            <image src="../../images/like_icon.png" class="like_icon"></image>
+            <text class="like_text">TA喜欢的</text>
+          </view>
         </view>
       </view>
     </view>
-    <view class="item item_dsr">
-      <view class="info_text">{{commemorationData[1].content}}{{commemorationData[1].type == 0?'还有':'还剩'}}</view>
-      <view class="days_box">
-        <text class="day">{{commemorationData[1].days}}</text>
-        <text class="unit">天</text>
-      </view>
-    </view>
-    <view class="item item_yzds">
-      <view class="yzds_info">
-        <view class="yzds_text">{{todoData[0].content}}</view>
-      </view>
-      <view class="operation_box">
-        <view class="operation">
-          <image src="../../images/undone_icon.png" class="done_icon"></image>  
-          <view class="operation_text">未完成</view>
-          <image src="../../images/off_icon.png" class="off_icon"></image>
+    <view class="item_box" wx:if="{{commemorationData[1]}}">
+      <view class="item item_dsr" >
+        <view class="info_text">{{commemorationData[1].content}}{{commemorationData[1].type == 0?'已经':'还剩'}}</view>
+        <view class="days_box">
+          <text class="day">{{commemorationData[1].days}}</text>
+          <text class="unit">天</text>
         </view>
       </view>
     </view>
-    <view class="item item_text">
-      <view class="text_info">
-        <view class="text_text">{{memoData[1].content}}</view>
+    
+    <view class="item_box" wx:if="{{todoData[0]}}">
+      <view class="item item_yzds" >
+        <view class="yzds_info">
+          <view class="yzds_text">{{todoData[0].content}}</view>
+        </view>
+        <view class="operation_box">
+          <view class="operation" bindtap="updateTodoState"  data-id="{{todoData[0]._id}}" data-state="{{todoData[0].isDone}}">
+            <image src="../../images/undone_icon.png" class="done_icon"></image>  
+            <view class="operation_text" style="color:{{todoData[0].isDone?'#AAAAAA':'#FF7A00'}}">{{todoData[0].isDone?'已完成':'未完成'}}</view>
+            <image src="../../images/{{todoData[0].isDone?'on_icon':'off_icon'}}.png" class="off_icon"></image>
+          </view>
+        </view>
       </view>
-      <view class="date_box">
-        <view class="date">{{memoData[1].date[0]}}年{{memoData[1].date[1]}}月{{memoData[1].date[2]}}日</view>
+    </view>
+    <view class="item_box" wx:if="{{memoData[1]}}">
+      <view class="item item_text"  >
+        <view class="text_info">
+          <view class="text_text">{{memoData[1].content}}</view>
+        </view>
+        <view class="date_box">
+          <view class="date">{{memoData[1].date[0]}}年{{memoData[1].date[1]}}月{{memoData[1].date[2]}}日</view>
+        </view>
       </view>
     </view>
   </view>
@@ -116,7 +135,7 @@
         <view class="right_button" bindtap="submit">确定</view>
       </view>
       <view class="form_input_box">
-        <textarea type="text" bindinput="contentIpnut" placeholder="在此输入内容，支持emoji" class="textarea" auto-height="true"> </textarea>
+        <textarea type="text" bindinput="contentIpnut" placeholder="在此输入内容，支持emoji..." class="textarea" auto-height="true"> </textarea>
       </view>
       <view class="select_box" style="margin-top: 10rpx;" catchtap="recordTypeChange">
         <view class="left_box">记录类别</view>
@@ -132,7 +151,7 @@
           <image src="../../images/right_arrow.png" class="right_arrow_icon"></image>
         </view>
       </view>
-      <picker class="picker_box " mode = "date" bindchange="dateChange" disabled="{{dateDisabled}}">
+      <picker class="picker_box " mode = "date" bindchange="dateChange" disabled="{{dateDisabled}}" start="{{chooseItemTypeIndex===1?rangeDate:''}}" end="{{chooseItemTypeIndex==0?rangeDate:''}}">
         <view class="select_box {{dateDisabled?'select_disabled':''}}">
           <view class="left_box">日期</view>
           <view class="right_box">
@@ -150,7 +169,7 @@
       </view>
       <view class="image_box">
         <view class="image_item_box" wx:for="{{imagePaths}}" wx:key="index" data-index = "{{index}}" bindlongpress="showDeleteImgMask">
-          <image src="{{item}}"  mode="aspectFill"  class="image_item" ></image>
+          <image src="{{item}}"  mode="aspectFill"  class="image_item" bindtap="previewImage" data-url="{{item}}"></image>
           <view class="delete_mask" wx:if="{{imageRemoveIndex === index}}" bindtap="imageRemove">
             <image src="../../images/delete_white.png" class="delete_white"></image>
           </view>

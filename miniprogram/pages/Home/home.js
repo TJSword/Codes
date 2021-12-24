@@ -8,7 +8,7 @@ Page({
   data: {
     statusBarHeight: app.globalData.statusBarHeight,
     menuHeight: app.globalData.menuHeight,
-    indexText:app.globalData.indexText,
+    indexText:'',
     inputDisabled:true,
     scrollTop:0,
     keyBoardHeight:0,
@@ -109,7 +109,8 @@ Page({
         icon:"none"
       })
       this.setData({
-        imagePaths:[]
+        imagePaths:[],
+        content:''
       })
       this.hideAddForm()
     })
@@ -129,14 +130,16 @@ Page({
         indexText:e.detail.value
       }
     }).then(res=>{
-      console.log(res)
       this.setData({
         inputDisabled:true
+      })
+      wx.showToast({
+        title: '保存成功o(≧∇≦)o',
+        icon:'none'
       })
     })
   },
   dateChange(e){
-    console.log(e)
     this.setData({
       date:e.detail.value
     })
@@ -253,6 +256,7 @@ Page({
             itemTypeDisabled:false,
             dateDisabled:true,
             photoDisabled:true,
+            imagePaths:[],
             date:''
           })
         }else if(res.tapIndex === 1){
@@ -269,6 +273,7 @@ Page({
             itemTypeDisabled:false,
             dateDisabled:false,
             photoDisabled:true,
+            imagePaths:[],
             date:this.getNow()
           })
         }else if(res.tapIndex === 2){
@@ -277,6 +282,7 @@ Page({
             dateDisabled:true,
             photoDisabled:true,
             chooseItemTypeIndex:'',
+            imagePaths:[],
             date:''
           })
         }else if(res.tapIndex === 3){
@@ -313,6 +319,26 @@ Page({
     })
     setTimeout(_=>this.setData({animationEnd:false}),310)
   },
+  updateTodoState(e){
+    let dataset = e.currentTarget.dataset
+    console.log(dataset)
+    let data = {
+      id:dataset.id,
+      isDone:dataset.state?0:1
+    }
+    console.log(data)
+    wx.cloud.callFunction({
+      name:'updateTodoState',
+      data:{
+        ...data
+      }
+    }).then(res=>{
+      console.log(res)
+      this.setData({
+        'todoData[0].isDone':dataset.state?0:1
+      })
+    })
+  },
   add(){
     this.setData({
       animationEnd:true,
@@ -325,7 +351,6 @@ Page({
     })
   },
   getNow(){
-    console.log(new Date())
     let date = new Date()
     let year = date.getFullYear()
     let month = date.getMonth() + 1;
@@ -358,6 +383,10 @@ Page({
     },310)
   },
   getIndexDetail(){
+    wx.showToast({
+      title: '正在玩命加载数据...',
+      icon:'none'
+    })
     this.setData({hideAll:true})
     wx.cloud.callFunction({
       name:'getIndexDetail'
@@ -369,8 +398,22 @@ Page({
       this.setData({
         ...data
       })
-      setTimeout(_=>{this.setData({hideAll:false})},30)
+      if(data.commemorationData.length === 0 && data.likeData.length === 0 && data.memoData.length === 0 && data.photos === '' && data.todoData.length === 0 && data.unlikeData.length === 0){
+        wx.stopPullDownRefresh()
+        return
+      }
+      setTimeout(_=>{
+        this.setData({hideAll:false});
+        wx.showToast({
+          title: '加载成功喽~',icon:'none'
+        })},30)
       wx.stopPullDownRefresh()
+    })
+  },
+  previewImage(e){
+    console.log(e.currentTarget.dataset.url)
+    wx.previewImage({
+      urls: [e.currentTarget.dataset.url],
     })
   },
   /**
@@ -378,7 +421,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      date:this.getNow()
+      date:this.getNow(),
+      rangeDate:this.getNow()
     })
     //获取用户信息
     wx.cloud.callFunction({

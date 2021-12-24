@@ -36,6 +36,7 @@ Page {
   height: 218rpx;
   width: 218rpx;
   margin-right: 16rpx;
+  border-radius: 8rpx;
 }
 .memo_wrap .memo_box .memo_card .image_box .img_item:last-child {
   margin-right: 0;

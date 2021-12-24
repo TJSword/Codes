@@ -13,8 +13,8 @@ exports.main = async (event, context) => {
   let result = {
     heText:`亦舒妹妹，本想抄两句优美的情话给你，让你觉得我很用心。
     但转念一想，我的愿望只是想陪在你身边。`,
-    yuText:'我爱你😘永远相信美好的事情即将发生',
-    indexText:''
+    yuText:'遇见你是一件很幸运的事',
+    indexText:'双击修改自定义文字'
   }
   if(res.data.length === 0){
     let now = new Date().getTime()
@@ -22,7 +22,7 @@ exports.main = async (event, context) => {
       data:{
         _openid: wxContext.OPENID,
         meetTime:now,
-        indexText:''
+        indexText:'双击修改自定义文字'
       }
     })
     return result

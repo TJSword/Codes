@@ -1,7 +1,7 @@
 .home_wrap{
     height: 100%;
     width: 100%;
-    background: white;
+    background: #F5F5F5;
     overflow-y: scroll;
     .header_box{
         width: 100%;
@@ -25,10 +25,9 @@
             position: absolute;
             left:32rpx;
             font-size:34rpx;
-            font-weight:400;
             height:50rpx;
             color:rgba(51, 51, 66, 1);
-            font-weight: 500;
+            font-weight: 600;
             display: flex;
             align-items: center;
         }
@@ -128,15 +127,24 @@
         column-count: 2;
         column-gap: 22rpx;
         column-width: 40%;
-        .item{
-            background: white;
-            backdrop-filter: blur(8rpx);
-            border-radius: 16rpx;
+        overflow: hidden;
+        border:1px solid transparent;
+        .item_box{
+           
             break-inside: avoid;
-            margin-bottom: 22rpx;
-            // &:nth-child(even){
-            //     margin-left: 22rpx;
-            // }
+            margin: 0;
+            padding: 0;
+            padding-bottom: 22rpx;
+            .item{
+                background: white;
+                backdrop-filter: blur(8rpx);
+                border-radius: 16rpx;
+                margin: 0;
+                padding: 0;
+                // &:nth-child(even){
+                //     margin-left: 22rpx;
+                // }
+            }
         }
         .item_jnr{
             width: 332rpx;
@@ -226,20 +234,22 @@
         .item_bwl{
             width:332rpx;
             height:416rpx;
-            overflow: hidden;
+            overflow-y: hidden;
             position: relative;
             .bwl_info{
                 margin:32rpx;
-                display: flex;
-                flex-direction: column;
+                overflow-y: scroll;
+                height: 286rpx;
                 .bwl_text{
                     font-size: 28rpx;
                     line-height: 48rpx;
-                    color:rgba(102, 108, 126, 1)
+                    color:rgba(102, 108, 126, 1);
+                    margin-bottom: 16rpx;
                 }
                 .bwl_img{
                     width: 268rpx;
-                    margin-top: 16rpx;
+                    margin-bottom: 16rpx;
+                    border-radius: 8rpx;
                 }
             }
             .date_box{
@@ -391,8 +401,8 @@
             position: relative;
             .text_info{
                 margin:32rpx;
-                display: flex;
-                flex-direction: column;
+                height: 130rpx;
+                overflow-y: scroll;
                 .text_text{
                     font-size: 28rpx;
                     line-height: 48rpx;

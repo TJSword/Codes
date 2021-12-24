@@ -3,13 +3,13 @@
     <view class="memo_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{memoList}}"  wx:key="_id" bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}">
       <view class="content">{{item.content}}</view>
       <view class="image_box">
-        <image src="{{item}}" class="img_item" wx:for="{{item.imagePaths}}"></image>
+        <image src="{{item}}" class="img_item" wx:for="{{item.imagePaths}}" wx:key="key" data-url="{{item}}" bindtap="previewImage"></image>
       </view>
       <view class="date_box">
         <view class="date">{{item.date[0]}}年{{item.date[1]}}月{{item.date[2]}}日</view>
       </view>
       <view class="delete_box">
-        <image src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard" data-id="{{item._id}}"></image>
+        <image  src="../../images/delete_icon.png" class="delete_icon" catchtap="deleteCard" data-id="{{item._id}}" data-images="{{item.imagePaths}}"></image>
       </view>
     </view>
   </view>

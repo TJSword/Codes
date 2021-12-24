@@ -63,9 +63,8 @@ Page({
     this.setData({chooseIndex:null})
   },
   deleteCard(e){
-    console.log(e.currentTarget.dataset.id)
     wx.showModal({
-      content: '确定要删除该条记录吗？',
+      content: '确定删除这条记录吗',
       confirmText:'删除',
       cancelColor: "#000000",
       confirmColor: "#576B95",
@@ -73,7 +72,7 @@ Page({
         if (res.confirm) {
           delteRecords(e.currentTarget.dataset.id).then(res=>{
             wx.showToast({
-              title: '已删除',
+              title: '删除啦~',
               icon:'none'
             })
             this.getRecords()

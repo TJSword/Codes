@@ -26,19 +26,20 @@ Page({
   },
   updateTodoState(e){
     let dataset = e.currentTarget.dataset
-    console.log(dataset)
     let data = {
       id:dataset.id,
       isDone:dataset.state?0:1
     }
-    console.log(data)
+    let todoList = this.data.todoList
+    todoList[dataset.index].isDone = dataset.state?0:1
+    this.setData({todoList})
     wx.cloud.callFunction({
       name:'updateTodoState',
       data:{
         ...data
       }
     }).then(res=>{
-      this.getRecords()
+      
     })
   },
   /**
@@ -79,7 +80,7 @@ Page({
   deleteCard(e){
     console.log(e.currentTarget.dataset.id)
     wx.showModal({
-      content: '确定要删除该条记录吗？',
+      content: '确定删除这条记录吗',
       confirmText:'删除',
       cancelColor: "#000000",
       confirmColor: "#576B95",
@@ -87,7 +88,7 @@ Page({
         if (res.confirm) {
           delteRecords(e.currentTarget.dataset.id).then(res=>{
             wx.showToast({
-              title: '已删除',
+              title: '删除啦~',
               icon:'none'
             })
             this.getRecords()

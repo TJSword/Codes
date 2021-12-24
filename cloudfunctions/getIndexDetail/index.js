@@ -39,6 +39,11 @@ exports.main = async (event, context) => {
     imagePaths:_.neq([]),
     kind:3
   }).orderBy('createTime', 'desc').limit(1).get()
-  result.photos = photos.data[0].imagePaths[0]
+  console.log(photos)
+  if(photos.data.length == 0){
+    result.photos = ''
+  }else{
+    result.photos = photos.data[0].imagePaths[0]
+  }
   return result
 }

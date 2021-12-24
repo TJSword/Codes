@@ -60,16 +60,9 @@ Page({
   recovery(){
     this.setData({chooseIndex:null})
   },
-  deleteCard(){
-    console.log('删除,,,')
-  },
-  noTouch(){
-    return;
-  },
   deleteCard(e){
-    console.log(e.currentTarget.dataset.id)
     wx.showModal({
-      content: '确定要删除该条记录吗？',
+      content: '确定删除这条记录吗',
       confirmText:'删除',
       cancelColor: "#000000",
       confirmColor: "#576B95",
@@ -77,8 +70,15 @@ Page({
         if (res.confirm) {
           delteRecords(e.currentTarget.dataset.id).then(res=>{
             wx.showToast({
-              title: '已删除',
+              title: '删除啦~',
               icon:'none'
+            })
+            wx.cloud.deleteFile({
+              fileList: e.currentTarget.dataset.images,
+              success: res => {
+                console.log(res.fileList)
+              },
+              fail: console.error
             })
             this.getRecords()
             this.recovery()
@@ -88,6 +88,15 @@ Page({
         }
       }
     })
+  },
+  previewImage(e){
+    console.log(e.currentTarget.dataset.url)
+    wx.previewImage({
+      urls: [e.currentTarget.dataset.url],
+    })
+  },
+  noTouch(){
+    return;
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
