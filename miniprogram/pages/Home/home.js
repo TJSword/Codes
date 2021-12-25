@@ -85,6 +85,13 @@ Page({
     this.setData({content:e.detail.value})
   },
   submit(){
+    if(this.data.content === ''){
+      wx.showToast({
+        title: '还请输入文字再提交哦(°▽°)ﾉ',
+        icon:'none'
+      })
+      return
+    }
     if(this.data.imagePaths.length === 0){
       this.submitInfo([])
     }else{
@@ -104,6 +111,13 @@ Page({
         content:this.data.content
       }
     }).then(res=>{
+      if(res.result.code === 500){
+        wx.showToast({
+          title: res.result.msg,
+          icon:'none'
+        })
+        return
+      }
       wx.showToast({
         title: '添加成功 (๑•̀ㅂ•́) ☆',
         icon:"none"

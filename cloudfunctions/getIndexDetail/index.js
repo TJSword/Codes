@@ -38,12 +38,14 @@ exports.main = async (event, context) => {
     createBy: _.eq(wxContext.OPENID),
     imagePaths:_.neq([]),
     kind:3
-  }).orderBy('createTime', 'desc').limit(1).get()
+  }).orderBy('createTime', 'desc').limit(10).get()
   console.log(photos)
-  if(photos.data.length == 0){
+  let length = photos.data.length
+  let randomIndex = parseInt(Math.random() * length)
+  if(length == 0){
     result.photos = ''
   }else{
-    result.photos = photos.data[0].imagePaths[0]
+    result.photos = photos.data[randomIndex].imagePaths[0]
   }
   return result
 }
