@@ -1,6 +1,6 @@
 <view class="commemoration_wrap"  bindtap="recovery">
   <view class="commemoration_box"  wx:if="{{commemorationData.length != 0}}">
-    <view class="commemoration_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{commemorationData}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id">
+    <view class="commemoration_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{commemorationData}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id" bindlongpress="showOperation">
       <view class="content">{{item.type === 0?item.content + '已经':item.content + '还有'}}</view>
       <view class="days_box">
         <view class="days">{{item.days<0?'0':item.days}}</view>

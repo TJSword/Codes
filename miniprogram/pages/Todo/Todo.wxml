@@ -1,6 +1,6 @@
 <view class="todo_wrap"  bindtap="recovery">
   <view class="todo_box"  wx:if="{{todoList.length != 0}}">
-    <view class="todo_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{todoList}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id">
+    <view class="todo_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{todoList}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id" bindlongpress="showOperation">
       <view class="content">{{item.content}}</view>
       <view class="operation_box" bindtap="updateTodoState" data-id="{{item._id}}" data-state="{{item.isDone}}" data-index="{{index}}">
         <image src="../../images/undone_icon.png" class="done_icon"></image>  

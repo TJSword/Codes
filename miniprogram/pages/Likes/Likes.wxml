@@ -1,6 +1,7 @@
 <view class="likes_wrap"  bindtap="recovery">
   <view class="likes_box"  wx:if="{{likesData.length != 0}}">
-    <view class="likes_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{likesData}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id">
+    <view class="likes_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{likesData}}"  bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" wx:key="_id"
+    bindlongpress="showOperation">
       <view class="content">{{item.content}}</view>
       <view class="date_box">
         <image class="like_icon" src="../../images/{{item.type === 0?'like_icon':'unlike_icon'}}.png"></image>

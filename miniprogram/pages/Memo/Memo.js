@@ -9,7 +9,12 @@ Page({
     chooseIndex:null,
     memoList:[]
   },
-
+  showOperation(e){
+    this.setData({
+      showOpeartion:true,
+      chooseIndex:e.currentTarget.dataset.index
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

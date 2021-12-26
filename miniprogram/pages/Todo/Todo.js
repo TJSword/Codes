@@ -9,6 +9,12 @@ Page({
     chooseIndex:null,
     todoList:[]
   },
+  showOperation(e){
+    this.setData({
+      showOpeartion:true,
+      chooseIndex:e.currentTarget.dataset.index
+    })
+  },
   getRecords(){
     getRecords(2).then(res=>{
       let data = res.result.data

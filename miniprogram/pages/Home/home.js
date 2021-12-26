@@ -79,7 +79,7 @@ Page({
     eggContent:'',
     debounce:false,
     hideAll:true,
-    inputDisabled:true
+    inputDisabled:true,
   },
   contentIpnut(e){
     this.setData({content:e.detail.value})
@@ -92,6 +92,11 @@ Page({
       })
       return
     }
+    wx.showToast({
+      title: '正在保存...',
+      icon:'none',
+      mask:true
+    })
     if(this.data.imagePaths.length === 0){
       this.submitInfo([])
     }else{
@@ -119,7 +124,7 @@ Page({
         return
       }
       wx.showToast({
-        title: '添加成功 (๑•̀ㅂ•́) ☆',
+        title: '保存成功o(≧∇≦)o',
         icon:"none"
       })
       this.setData({
@@ -414,6 +419,9 @@ Page({
       })
       if(data.commemorationData.length === 0 && data.likeData.length === 0 && data.memoData.length === 0 && data.photos === '' && data.todoData.length === 0 && data.unlikeData.length === 0){
         wx.stopPullDownRefresh()
+        wx.showToast({
+          title: '加载成功喽~',icon:'none'
+        })
         return
       }
       setTimeout(_=>{

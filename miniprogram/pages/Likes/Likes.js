@@ -60,6 +60,12 @@ Page({
   recovery(){
     this.setData({chooseIndex:null})
   },
+  showOperation(e){
+    this.setData({
+      showOpeartion:true,
+      chooseIndex:e.currentTarget.dataset.index
+    })
+  },
   deleteCard(e){
     console.log(e.currentTarget.dataset.id)
     wx.showModal({
