@@ -1,0 +1,89 @@
+.main_wrap{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  .map_wrap{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    #map,#map_local{
+      width: 100%;
+      height: 100%;
+    }
+    .info_box{
+      position: absolute;
+      z-index: 1;
+      top: 10px;
+      .circle_info{
+        position: absolute;
+        display: none;
+        background: #fff;
+        border-radius: 4px;
+        padding: 10px 15px;
+      }
+    }
+    .my_chart{
+      position: absolute;
+      width: 300px;
+      height: 150px;
+      z-index: 9;
+      right:20px;
+      bottom: 20px;
+      background: #fff;
+    }
+    .control_box{
+      position: absolute;
+      z-index: 1;
+      bottom: 10px;
+      background: #fff;
+      padding: 20px;
+      width: 300px;
+      left: 10px;
+    }
+  }
+  .radius_ok{
+    padding: 5px 10px;
+    background: rgb(47, 94, 245);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+._head{
+  display: flex;
+  height: 33px;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#161616),to(#0A0A0A));
+  background: -webkit-linear-gradient(top,#161616,#0A0A0A);
+  color: #fff;
+  align-items: center;
+  justify-content: space-between;
+  padding:  0 10px;
+  border-top: 1px solid #555555;
+}
+
+//滚动条样式
+//滚动条的宽度
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+//滚动条的滑块
+::-webkit-scrollbar-thumb {
+  background-color: rgba(37,37,37,0.36);
+  border-radius: 3px;
+}
+.icon-svg {
+  width: 1.2em;
+  height: 1.2em;
+  fill: currentColor;
+  vertical-align: middle;
+  overflow: hidden;
+  color:#fff;
+}
+.aui-navbar__menu .el-menu-item .aui-navbar__icon-menu {
+  vertical-align: middle;
+  font-size: 16px;
+}
+.mapboxgl-ctrl-attrib-button{
+  display: none;
+}
