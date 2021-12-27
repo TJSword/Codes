@@ -1,0 +1,76 @@
+body {
+	background-color: #12121d;
+	background: radial-gradient(132.92% 50.04% at 50% 49.96%, #0D162E 0%, #12121D 100%);
+}
+
+.header {
+	background-color: #12121D;
+	/* box-shadow: inset 0px -0.5px 0px rgba(255, 255, 255, 0.15); */
+	border-bottom: 0.5px solid rgba(255,255,255,0.08);
+}
+
+.nav>a {
+	color: #FFFFFF;
+	opacity: 0.7;
+}
+
+.nav>.a-selected {
+	font-weight: bold;
+	color: #FFFFFF;
+	opacity: 1;
+}
+
+.nav>a:hover{
+	/* transform: scale(1.1); */
+	/* font-weight: bold; */
+	color: #C3E2FF;
+	opacity: 1;
+	transition: /* color */0.3s ease-in-out;
+}
+
+#logo {
+	opacity: 1;
+}
+
+.link>a>svg {
+	width: 24px;
+	height: 24px;
+	fill: #FFFFFF;
+	transition: 0.3s ease-in-out;
+}
+
+.link>a>svg:hover {
+	width: 24px;
+	height: 24px;
+	fill: #C3E2FF;
+	transition: 0.3s ease-in-out;
+}
+
+.myprofile>h1 {
+	color: #FFFFFF;
+}
+
+.name_job>.name {
+	color: #FFFFFF;
+}
+
+.footer {
+	/* box-shadow: inset 0px 0.5px 0px rgba(255, 255, 255, 0.15); */
+	border-top: 0.5px solid rgba(255,255,255,0.08);
+}
+
+.footer_nav>a {
+	font-weight: 400;
+	font-size: 16px;
+	color: #FFFFFF;
+	opacity: 0.7;
+}
+
+.footer_nav>a:hover {
+	color: #FFFFFF;
+	opacity: 1;
+}
+
+.suye_logo>svg {
+	fill: #FFFFFF;
+}

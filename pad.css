@@ -1,0 +1,28 @@
+	.audio {
+		margin-bottom: 28px;
+	}
+	
+	.audio_container {
+		margin: 0 -12px;
+		margin-bottom: 24px;
+	}
+	
+	.audio_cover {
+		margin: 0 12px;
+		border-radius: 10px;
+	}
+	.irs--flat{
+		width: 170px;
+		transform: translateY(23px);
+		opacity: 0;
+		transition: all 0.8s ease;
+		margin-top:10px;
+	}
+	
+	.cat {
+		display: none;
+	}
+	
+	.instant_title {
+		opacity: 1;
+	}
