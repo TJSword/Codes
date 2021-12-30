@@ -5,8 +5,9 @@
     overflow-y: scroll;
     .header_box{
         width: 100%;
-        height: 750rpx;
+        height: 762rpx;
         position: relative;
+        overflow: hidden;
         .home_bg{
             width: 750rpx;
             height: 750rpx;
@@ -107,7 +108,7 @@
         }
     }
     .prompt_words_box{
-        height: calc(~ "100% - 750rpx");
+        height: calc(~ "100% - 762rpx");
         width: 100%;
         text-align: center;
         position: absolute;
@@ -115,12 +116,12 @@
         text-transform: uppercase;
         color: #CCCCCC;
         overflow:hidden;
-        background: white;
+        background: #F5F5F5;
     }
     .main_box{
         background: #F5F5F5;
         width: 686rpx;
-        padding: 34rpx 32rpx 50rpx;
+        padding: 22rpx 32rpx 50rpx;
         // display: flex;
         // flex-wrap: wrap;
         // align-content: flex-start;
@@ -130,7 +131,6 @@
         overflow: hidden;
         border:1px solid transparent;
         .item_box{
-           
             break-inside: avoid;
             margin: 0;
             padding: 0;
