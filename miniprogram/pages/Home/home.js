@@ -85,7 +85,7 @@ Page({
     this.setData({content:e.detail.value})
   },
   submit(){
-    if(this.data.content === ''){
+    if(this.data.content === ''&& this.data.imagePaths.length === 0){
       wx.showToast({
         title: '还请输入文字再提交哦(°▽°)ﾉ',
         icon:'none'
@@ -172,7 +172,7 @@ Page({
   },
   chooseImage(){
     if(this.data.photoDisabled) return;
-    if( this.data.imagePaths.length === 3) return;
+    if(this.data.imagePaths.length === 3) return;
     wx.chooseImage({
       count:3 - this.data.imagePaths.length,
       success:res=>{

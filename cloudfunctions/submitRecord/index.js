@@ -10,7 +10,7 @@ exports.main = async (event, context) => {
     "openid": wxContext.OPENID,
     "scene": 4,
     "version": 2,
-    "content": event.content
+    "content": event.content.length !=0? event.content:'填充内容'
   })
   if(result.result.label != 100) return {code:500,msg: '内容违规了 汪:('}
   let now = new Date().getTime()

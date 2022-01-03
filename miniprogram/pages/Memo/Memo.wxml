@@ -3,7 +3,7 @@
     <view class="memo_card {{chooseIndex  === index?'like_card_active':''}}" wx:for="{{memoList}}"  wx:key="_id" bindtouchstart='touchStart' catchtouchend="touchEnd" data-index="{{index}}" bindlongpress="showOperation">
       <view class="content">{{item.content}}</view>
       <view class="image_box">
-        <image src="{{item}}" class="img_item" wx:for="{{item.imagePaths}}" wx:key="key" data-url="{{item}}" bindtap="previewImage"></image>
+        <image src="{{item}}" class="img_item" wx:for="{{item.imagePaths}}" wx:key="key" data-url="{{item}}" bindtap="previewImage" mode="aspectFill"></image>
       </view>
       <view class="date_box">
         <view class="date">{{item.date[0]}}年{{item.date[1]}}月{{item.date[2]}}日</view>
