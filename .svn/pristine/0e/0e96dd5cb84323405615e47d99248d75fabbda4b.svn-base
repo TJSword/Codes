@@ -1,0 +1,185 @@
+<view class="todolist_wrap">
+  <view class="title_box" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="progress_title">客研社</view>
+  </view>
+    <view class="calendar">
+    <view class='tit'>
+      <view class='pre' bindtap='gotoPreMonth'>{{'<'}}</view>
+      <view class='current'>{{currentYear}} 年 {{currentMonth}} 月</view>
+      <view class='next' bindtap='gotoNextMonth'>{{'>'}}</view>
+    </view>
+    <view class='content'>
+      <view class="week">日</view>
+      <view class="week">一</view>
+      <view class="week">二</view>
+      <view class="week">三</view>
+      <view class="week">四</view>
+      <view class="week">五</view>
+      <view class="week">六</view>
+      <view 
+        wx:for="{{allArr}}" 
+        wx:key="index"
+        class="day {{item.month == 'current' ? '' : 'gray'}}"
+      >
+      <view class="date {{item.date === 21?'isYours':''}} {{item.month == 'current'&&item.date == 3?'today':''}}">
+        <text>{{item.date}}</text>
+        <view class="mask_box">
+          <view class="task_0" wx:if="{{item.date == 23}}"></view>
+          <view class="task_1" wx:if="{{item.date == 5}}"></view>
+          <view class="task_2" wx:if="{{item.date == 15}}"></view>
+          <view class="task_3" wx:if="{{item.date == 6}}"></view>
+          <view class="task_4" wx:if="{{item.date == 20}}"></view>
+          <!-- <view class="event" wx:if="{{item.date == 23}}"></view> -->
+        </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="container">
+    <!-- <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+    <view class="legend_box">
+      <view class="item" wx:for="{{4}}">
+        <view class="block"></view>
+        <view class="label">来访参观 × 10</view>
+      </view>
+    </view> -->
+    <swiper class="swiper_box"  >
+      <swiper-item>
+        <view class="swiper-item">
+          <swiper class="swiper"  vertical="{{true}}">
+            <block wx:for="{{tq}}" wx:key="*this">
+              <swiper-item>
+                <view class="weather_box">
+                  <image src="../../image/weather_bg.jpg" class="bg"/>
+                  <view class="weather_info">
+                    <image src="../../image/{{item.wea_img}}.png" class="wea_icon"></image>
+                    <view class="title"  wx:if="{{index === 0}}">今天</view>
+                    <view class="title"  wx:if="{{index === 1}}">明天</view>
+                    <view class="title"  wx:if="{{index === 2}}">后天</view>
+                    <view class="middle_box">
+                      <view class="tem">{{item.tem}}°</view>
+                      <view class="weathers">
+                        <view class="wea">{{item.wea_day}}</view>
+                        <view class="wea">{{item.tem1}}/{{item.tem2}}℃</view>
+                      </view>
+                      <view class="air">
+                        <view class="icon"></view>
+                        <view>{{item.air_level}}</view>
+                      </view>
+                    </view>
+                    <view class="day_wea_box">
+                      <view class="day_wea_item" wx:for="{{item.hoursArr}}">
+                        <view class="day_wea_time">{{item.hours}}</view>
+                        <image src="../../image/{{item.wea_img}}.png" class="day_wea_icon"></image>
+                        <view class="day_wea_tem">{{item.tem}}</view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item">
+          <swiper class="swiper"  vertical="{{true}}">
+            <block wx:for="{{hl}}" wx:key="*this">
+              <swiper-item>
+                <view class="huangli_box">
+                  <image src="../../image/huangli.jpg" class="bg"></image>
+                  <view class="title"  wx:if="{{index === 0}}">今天</view>
+                  <view class="title"  wx:if="{{index === 1}}">明天</view>
+                  <view class="title"  wx:if="{{index === 2}}">后天</view>
+                  <view class="bottom_box">
+                    <view class="bottom_left_box">
+                      <view class="nongli_box">
+                        <view class="nongli_day">{{item.newslist[0].lunarday}}</view>
+                        <view class="nongli_year_month">
+                          <view class="nongli_year">{{item.newslist[0].tiangandizhiyear}}年</view>
+                          <view class="nongli_month">{{item.newslist[0].lubarmonth}}</view>
+                        </view>
+                      </view>
+                      <view class="chong_box">{{item.newslist[0].chongsha}}</view>
+                    </view>
+                    <view class="bottom_right_box">
+                      <view class="yi_box">
+                        <view class="yi">宜</view>
+                        <view class="yi_item" wx:for="{{item.newslist[0].yiArr}}">{{item}}</view>
+                       
+                      </view>
+                      <view class="ji_box">
+                        <view class="ji">忌</view>
+                        <view class="ji_item" wx:for="{{item.newslist[0].jiArr}}" >{{item}}</view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item">
+          <swiper class="swiper"   vertical="{{true}}">
+            <block wx:for="{{xz}}" wx:key="*this">
+              <swiper-item>
+                <view class="xingzuo_box">
+                  <image src="../../image/xingzuo.jpg" class="bg"></image>
+                  <view class="title"  wx:if="{{index === 0}}">今天</view>
+                  <view class="title"  wx:if="{{index === 1}}">明天</view>
+                  <view class="title"  wx:if="{{index === 2}}">后天</view>
+                  <view class="middle_box">
+                   <view class="icon_name">
+                    <view class="icon_box">
+                      <view class="iconfont icon-tiancheng"  wx:if="{{item.constellation == 'libra'}}"></view>
+                      <view class="iconfont icon-chunv"  wx:if="{{item.constellation == 'virgo'}}"></view>
+                      <view class="iconfont icon-juxie"  wx:if="{{item.constellation == 'cancer'}}"></view>
+                      <view class="iconfont icon-baiyang"  wx:if="{{item.constellation == 'aries'}}"></view>
+                      <view class="iconfont icon-icon-mojie"  wx:if="{{item.constellation == 'capricorn'}}"></view>
+                      <view class="iconfont icon-icon-sheshou"  wx:if="{{item.constellation == 'sagittarius'}}"></view>
+                      <view class="iconfont icon-shizi"  wx:if="{{item.constellation == 'leo'}}"></view>
+                      <view class="iconfont icon-shuangyu"  wx:if="{{item.constellation == 'pisces'}}"></view>
+                      <view class="iconfont icon-shuangzi"  wx:if="{{item.constellation == 'gemini'}}"></view>
+                      <view class="iconfont icon-shuiping"  wx:if="{{item.constellation == 'aquarius'}}"></view>
+                      <view class="iconfont icon-tianxie1"  wx:if="{{item.constellation == 'scorpio'}}"></view>
+                      <view class="iconfont icon-jinniu"  wx:if="{{item.constellation == 'taurus'}}"></view>
+                    </view>
+                    <view class="name">{{item.xzname}}</view>
+                   </view>
+                   <view class="xingzuo_date">{{item.dueTime}}</view>
+                  </view>
+                  <view class="bottom_box">
+                      <view class="xingzuo_item" >
+                        <view class="item_name" style="margin-right:18rpx">综合运势</view>
+                        <view class="iconfont icon-xing" wx:for="{{item.star}}"></view>
+                        <view class="iconfont icon-banxing" wx:if="{{item.hasHalfStar === 1}}"></view>
+                      </view>
+                      <view class="xingzuo_item"  >
+                        <view class="item_name">幸运颜色</view>
+                        <view class="iconfont icon-sijiaoxing"></view>
+                        <view class="item_val">{{item.newslist[5].content}}</view>
+                      </view>
+                      <view class="xingzuo_item">
+                        <view class="item_name">幸运数字</view>
+                        <view class="iconfont icon-sijiaoxing"></view>
+                        <view class="item_val">{{item.newslist[6].content}}</view>
+                      </view>
+                      <view class="xingzuo_item">
+                        <view class="item_name">速配星座</view>
+                        <view class="iconfont icon-sijiaoxing"></view>
+                        <view class="item_val">{{item.newslist[7].content}}</view>
+                      </view>
+                  </view>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+      </swiper-item>
+      
+    </swiper>
+  </view>
+  <view class="btn" bindtap="jumpToIndex">进入首页</view>
+</view>

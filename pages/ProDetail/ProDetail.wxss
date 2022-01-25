@@ -1,0 +1,256 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .prodetail_wrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to top, #304352, #d7d2cc);
+}
+Page .prodetail_wrap .detailBox {
+  padding: 0 32rpx;
+  height: 88.8%;
+  overflow: hidden;
+}
+Page .prodetail_wrap .detailBox .title {
+  width: 100%;
+  text-align: center;
+  font-size: 44rpx;
+  font-weight: 700;
+  margin-top: 10rpx;
+}
+Page .prodetail_wrap .detailBox .pm_rp_box {
+  display: flex;
+  padding: 0 30rpx;
+  align-items: center;
+  margin-top: 30rpx;
+}
+Page .prodetail_wrap .detailBox .pm_rp_box .pm_box {
+  display: flex;
+  align-items: center;
+  width: 65%;
+}
+Page .prodetail_wrap .detailBox .pm_rp_box .pm_box .pm_icon {
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 12rpx;
+  background: #2980b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20rpx;
+}
+Page .prodetail_wrap .detailBox .pm_rp_box .pm_box .pm_avator {
+  margin-left: 20rpx;
+  height: 70rpx;
+  width: 70rpx;
+  border-radius: 50%;
+}
+Page .prodetail_wrap .detailBox .pm_rp_box .pm_box .pm_name {
+  margin-left: 20rpx;
+}
+Page .prodetail_wrap .detailBox .pm_rp_box .skip_box {
+  display: flex;
+}
+Page .prodetail_wrap .detailBox .pm_rp_box .skip_box .icon-wenjian_pdf {
+  color: #da2a2adc;
+  font-size: 50rpx;
+}
+Page .prodetail_wrap .detailBox .pm_rp_box .skip_box .icon-feiji {
+  color: #0099CC;
+  font-size: 50rpx;
+  margin-left: 56rpx;
+}
+Page .prodetail_wrap .detailBox .rp_commission {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+Page .prodetail_wrap .detailBox .rp_commission .rp_box {
+  display: flex;
+  align-items: center;
+  width: 65%;
+}
+Page .prodetail_wrap .detailBox .rp_commission .rp_box .rp_icon {
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 12rpx;
+  background: #2980b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20rpx;
+}
+Page .prodetail_wrap .detailBox .rp_commission .rp_box .rp_num {
+  margin-left: 20rpx;
+}
+Page .prodetail_wrap .detailBox .rp_commission .commission_box {
+  display: flex;
+  align-items: center;
+  width: 35%;
+}
+Page .prodetail_wrap .detailBox .rp_commission .commission_box .commission_icon {
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 12rpx;
+  background: #2980b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 30rpx;
+}
+Page .prodetail_wrap .detailBox .rp_commission .commission_box .commission_num {
+  margin-left: 20rpx;
+}
+Page .prodetail_wrap .detailBox .content_box {
+  display: block;
+  padding: 0 30rpx;
+  color: #2f3e46;
+  font-size: 28rpx;
+}
+Page .prodetail_wrap .detailBox .classify_box {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+Page .prodetail_wrap .detailBox .classify_box .type_box {
+  display: flex;
+  align-items: center;
+  width: 65%;
+}
+Page .prodetail_wrap .detailBox .classify_box .type_box .icon-xiangmuleixing {
+  color: #206b9c;
+  font-size: 52rpx;
+}
+Page .prodetail_wrap .detailBox .classify_box .type_box .type {
+  margin-left: 20rpx;
+}
+Page .prodetail_wrap .detailBox .classify_box .complexity_box {
+  width: 35%;
+  display: flex;
+  align-items: center;
+}
+Page .prodetail_wrap .detailBox .classify_box .complexity_box .icon-nanyichengdu {
+  color: #206b9c;
+  font-size: 50rpx;
+}
+Page .prodetail_wrap .detailBox .classify_box .complexity_box .complexity {
+  margin-left: 20rpx;
+}
+Page .prodetail_wrap .detailBox .time_box {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+Page .prodetail_wrap .detailBox .time_box .icon-lipeishijian {
+  color: #206b9c;
+  font-size: 50rpx;
+}
+Page .prodetail_wrap .detailBox .time_box .time_state {
+  display: flex;
+  margin-left: 20rpx;
+  color: #212020;
+  align-items: center;
+}
+Page .prodetail_wrap .detailBox .time_box .time_state .state {
+  padding-right: 15rpx;
+  border-right: 1rpx solid #212020;
+  white-space: nowrap;
+}
+Page .prodetail_wrap .detailBox .time_box .time_state .time {
+  margin-left: 15rpx;
+  white-space: nowrap;
+}
+Page .prodetail_wrap .detailBox .tip {
+  width: 100%;
+  text-align: center;
+  color: #2f3e46;
+  font-size: 28rpx;
+}
+Page .prodetail_wrap .detailBox .demand_box {
+  padding: 0rpx 30rpx;
+  overflow-y: scroll;
+  height: 50%;
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item {
+  background: linear-gradient(to top, #969B9D, #BAB9B6);
+  border-radius: 10rpx;
+  padding: 30rpx 20rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+  box-shadow: 0 10rpx 10rpx 0 rgba(0, 0, 0, 0.17);
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item:last-child {
+  margin-bottom: 50rpx;
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item .left_box {
+  width: 60%;
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item .left_box .demand_title {
+  font-size: 32rpx;
+  color: #4a4e69;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item .left_box .demand_time_box {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #4a4e69;
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item .left_box .demand_time_box .due {
+  margin-left: 25rpx;
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item .middle_box {
+  width: 20%;
+  font-size: 24rpx;
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item .middle_box .state {
+  border-radius: 5rpx;
+  background: pink;
+  width: fit-content;
+  padding: 10rpx 20rpx;
+  border-radius: 25rpx;
+  border: 1rpx solid rgba(0, 0, 0, 0.17);
+  white-space: nowrap;
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item .right_box {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item .right_box .demand_avator {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+}
+Page .prodetail_wrap .detailBox .demand_box .demand_item .right_box .demand_name {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: #4a4e69;
+}
+Page .prodetail_wrap .detailBox .demand_box .animation {
+  animation-name: slide-bottom;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+@keyframes slide-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(250rpx);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

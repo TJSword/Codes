@@ -1,0 +1,14 @@
+<view class="contractList_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">客户列表</view>
+  </view>
+  <view class="content_box">
+      <view class="card" wx:for="{{clientList}}" bindtap="goDetail" bindlongpress="operateClient" data-phone="{{item.telphone}}" data-id="{{item.id}}">
+          <view class="custom_name">{{item.name}}</view>
+          <view class="contract_name">{{item.company}}</view>
+          <view class="money">{{item.telphone}}</view>
+      </view>
+  </view>
+  <view class="btn" bindtap="addClient">新增客户</view>
+</view>

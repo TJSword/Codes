@@ -1,0 +1,50 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .login_wrap {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+Page .login_wrap .bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+Page .login_wrap .btn_box {
+  height: 300rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+Page .login_wrap .btn_box .login_btn {
+  width: 60%;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2rpx;
+  background: rgba(0, 129, 255, 0.8);
+  color: white;
+}
+Page .login_wrap .btn_box .login_btn:active {
+  opacity: 0.8;
+}
+Page .login_wrap .btn_box .know_btn {
+  background: transparent;
+  color: white;
+  font-weight: 500;
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  text-decoration: underline;
+}

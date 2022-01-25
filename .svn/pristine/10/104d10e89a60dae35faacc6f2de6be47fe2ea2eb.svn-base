@@ -1,0 +1,67 @@
+<view class="demand_wrap">
+    <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+      <view class="iconfont icon-fanhui"></view>
+      <view class="title">客户详情</view>
+    </view>
+    <view class="detailBox">
+      <view class="title">{{clientInfo.name}}</view>
+      <view class="pro_title_box">
+        <view class="iconfont icon-xiangmu"></view>
+        <view class="pro_title">{{clientInfo.company}}</view>
+      </view>
+      <view class="line"></view>
+      <view class="label_rp_box">
+          <view class="label_box">
+            <view class="iconfont icon-xingbie"></view>
+            <view class="label">{{clientInfo.sex}}</view>
+          </view>
+          <view class="commission_box">
+            <view class="commission_icon iconfont icon-dianhua"></view>
+            <view class="commission_num">{{clientInfo.telphone}}</view>
+          </view>
+      </view>
+      <view class="line"></view>
+      <view class="label_rp_box">
+          <view class="label_box">
+            <view class="iconfont icon-nanyichengdu"></view>
+            <view class="label">{{clientInfo.dept}}</view>
+          </view>
+          <view class="commission_box">
+            <view class="commission_icon iconfont icon-shengri1"></view>
+            <view class="commission_num">{{clientInfo.birth}}</view>
+          </view>
+      </view>
+      <view class="line"></view>
+      <view class="label_rp_box">
+          <view class="label_box">
+            <view class="iconfont icon-gongsi"></view>
+            <view class="label">{{clientInfo.corpName}}</view>
+          </view>
+          <view class="commission_box">
+            <view class="commission_icon iconfont icon-pipeizhiwei"></view>
+            <view class="commission_num">{{clientInfo.position}}</view>
+          </view>
+      </view>
+      <view class="line"></view>
+      <view class="payment_box">
+          <view class="payment">
+            <view class="label">邮寄地址：{{clientInfo.address}}</view>
+          </view>
+      </view>
+    </view>
+    <view class="loading" wx:if="{{loading}}">
+      <view class="loader_box">
+         <text class="loader"><text class="loader-inner"></text></text>
+      </view>
+    </view>
+    <view class="model" wx:if="{{showBox}}">
+      <view class="guanbi" bindtap="hideBox">×</view>
+      <textarea name="" id="" bindinput="demand_evaluate" placeholder="请填写超期原因（必填）" cols="30" rows="10" class="textarea"></textarea>
+      <view class="publish_btn" bindtap="submit">确认</view>
+    </view>
+    <view class="model" wx:if="{{showBox_daoshi}}">
+      <view class="guanbi" bindtap="hideBox_daoshi">×</view>
+      <textarea name="" id="" bindinput="demand_evaluate_daoshi" placeholder="导师评价（必填）" cols="30" rows="10" class="textarea"></textarea>
+      <view class="publish_btn" bindtap="submit_daoshi">确认</view>
+    </view>
+  </view>

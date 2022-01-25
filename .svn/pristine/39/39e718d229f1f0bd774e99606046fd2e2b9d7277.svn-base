@@ -1,0 +1,250 @@
+// pages/Label/Label.js
+import { request } from '../../utils/util.js';
+const app = getApp()
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    statusBarHeight: app.globalData.statusBarHeight,
+    isShow:false,
+    label_name:'',
+    loading:false,
+    labelArr:[],
+    isUpdate:false,
+    updateId:''
+  },
+  goBack: function (e) {//点击返回按钮 返回上一层页面
+    wx.redirectTo({
+      url: '../Index/Index',
+    })
+  },
+  showWriteBox(){
+    this.setData({
+      isShow:true
+    })
+  },
+  hideAlterBox(){
+    this.setData({
+      isShow:false
+    })
+    if(this.data.isUpdate){
+      this.setData({
+        isUpdate:false,
+        label_name:''
+      })
+    }
+  },
+  alter_offer(e){
+    this.setData({
+      label_name:e.detail.value
+    })
+  },
+  addLabel(){
+    this.setData({
+      loading:true
+    })
+    console.log(this.data.label_name)
+    if(this.data.isUpdate){
+      request('/tag/update','post',{
+        name:this.data.label_name,
+        id:this.data.updateId
+      }).then(res=>{
+        if(res.code === 0){
+          wx.showToast({
+            title: '更新成功:)',
+            icon:'none'
+          })
+          this.setData({
+            loading:false,
+            isShow:false,
+            isUpdate:false,
+            label_name:""
+          })
+          request('/tag/list','get',{}).then(res=>{
+            console.log(res.searchRst)
+            this.setData({
+              labelArr:res.searchRst
+            })
+          })
+        }else{
+          wx.showToast({
+            title: '未知错误，请联系管理员',
+            icon:'none'
+          })
+          this.setData({
+            loading:false,
+            isShow:false,
+            isUpdate:false,
+            label_name:""
+          })
+        }
+      }).catch(_=>{
+        wx.showToast({
+          title: '未知错误，请联系管理员',
+          icon:'none'
+        })
+        this.setData({
+          loading:false,
+          isShow:false,
+          isUpdate:false,
+          label_name:""
+        })
+      })
+    }else{
+      request('/tag/save','post',{
+        name:this.data.label_name
+      }).then(res=>{
+       if(res.code === 0){
+          wx.showToast({
+            title: '添加成功:)',
+            icon:'none'
+          })
+          this.setData({
+            loading:false,
+            isShow:false,
+            label_name:""
+          })
+          request('/tag/list','get',{}).then(res=>{
+            console.log(res.searchRst)
+            this.setData({
+              labelArr:res.searchRst
+            })
+          })
+        }else{
+          wx.showToast({
+            title: '未知错误，请联系管理员',
+            icon:'none'
+          })
+          this.setData({
+            loading:false,
+            isShow:false,
+            label_name:""
+          })
+        }
+      }).catch(_=>{
+        wx.showToast({
+          title: '未知错误，请联系管理员',
+          icon:'none'
+        })
+        this.setData({
+          loading:false,
+          isShow:false,
+          label_name:""
+        })
+      })
+    }
+  },
+  updateLabel(e){
+    console.log(e.target.dataset.id)
+    this.setData({
+      updateId:e.target.dataset.id,
+      isUpdate:true,
+      label_name:e.target.dataset.name,
+      isShow:true
+    })
+  },
+  deleteLabel(e){
+    this.setData({
+      loading:true
+    })
+    request('/tag/remove','post',{
+      id:e.target.dataset.id
+    }).then(res=>{
+      console.log(res)
+      if(res.code === 0){
+        this.setData({
+          loading:false
+        })
+        wx.showToast({
+          title: '删除成功:）',
+          icon:'none'
+        })
+        request('/tag/list','get',{}).then(res=>{
+          console.log(res.searchRst)
+          this.setData({
+            labelArr:res.searchRst
+          })
+        })
+      }else{
+        wx.showToast({
+          title: '未知错误，请联系管理员',
+          icon:'none'
+        })
+        this.setData({
+          loading:false
+        })
+      }
+    }).catch(_=>{
+      wx.showToast({
+        title: '未知错误，请联系管理员',
+        icon:'none'
+      })
+      this.setData({
+        loading:false
+      })
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    request('/tag/list','get',{}).then(res=>{
+      console.log(res.searchRst)
+      this.setData({
+        labelArr:res.searchRst
+      })
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

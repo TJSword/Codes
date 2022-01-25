@@ -1,0 +1,43 @@
+<view class="shraeDetail_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">课题详情</view>
+  </view>
+  <view class="detail_box">
+    <view class="title">{{shareInfo.title}}</view>
+    <view class="ks_box">
+      <view class="ks_icon">KS</view>
+      <image class='ks_avator' src='{{shareInfo.headUrl}}' ></image>
+      <view class="ks_name">{{shareInfo.name}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="content_box">
+      <text>{{shareInfo.content}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="time_box">
+      <view class="iconfont icon-lipeishijian"></view>
+      <view class="time_state">
+        <view class="state">{{shareInfo.status == 0?'报名中':'已分享'}}</view>
+        <view class="time">{{shareInfo.startDate}} —— {{shareInfo.endDate}}</view>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="joiner_list_box" wx:if="{{joiners.length === 0?false:true}}">
+      <view class="joiner_title_box">
+        <view class="iconfont icon-duoren2"></view>
+        <view class="joiner_title">参与人列表</view>
+      </view>
+      <view class="joiner_detail">
+        <view class="joiner_item" wx:for="{{joiners}}" wx:key='user_id'>
+          <image src='{{item.url}}' class="item_avator"></image>
+          <view class="item_name">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="tips" wx:else>暂无人员参与</view>
+    <view class="join">
+      <view class="join_btn" bindtap="join">我要参与</view>
+    </view>
+  </view>
+</view>

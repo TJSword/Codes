@@ -1,0 +1,134 @@
+Page {
+  height: 100%;
+  width: 100%;
+}
+Page .pro_list_wrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to top, #304352, #d7d2cc);
+}
+Page .condition_box {
+  height: 80rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 35rpx;
+  position: relative;
+}
+Page .condition_box .c_title {
+  font-size: 24rpx;
+}
+Page .condition_box .conditions {
+  display: flex;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  align-items: center;
+}
+Page .condition_box .conditions .item {
+  padding: 10rpx 28rpx;
+  background: #ccc;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+  font-size: 24rpx;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+Page .condition_box .conditions .active {
+  color: white;
+  background: #3399CC;
+  transition: all 0.3s;
+}
+Page .condition_box .pro_btn {
+  font-size: 28rpx;
+  text-decoration: underline;
+  color: #3399CC;
+  position: absolute;
+  right: 40rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+}
+Page .pro_box {
+  overflow-y: scroll;
+  height: 88.8%;
+  padding: 0 32rpx;
+  overflow-x: hidden;
+}
+Page .pro_box .card {
+  height: 340rpx;
+  width: 680rpx;
+  overflow: hidden;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 10rpx 10rpx 0rpx rgba(0, 0, 0, 0.1);
+  margin-top: 20rpx;
+  position: relative;
+}
+Page .pro_box .card:last-child {
+  margin-bottom: 20rpx;
+}
+Page .pro_box .card .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+Page .pro_box .card .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: black;
+  opacity: 0.5;
+}
+Page .pro_box .card .avator_name {
+  display: flex;
+  align-items: center;
+  margin-top: 28rpx;
+  margin-left: 28rpx;
+  position: relative;
+  z-index: 1;
+}
+Page .pro_box .card .avator_name .avator {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 8rpx;
+}
+Page .pro_box .card .avator_name .name {
+  margin-left: 18rpx;
+  color: #cdcdcd;
+  letter-spacing: 2rpx;
+  font-weight: 700;
+}
+Page .pro_box .card .pro_title {
+  margin-top: 34rpx;
+  color: #ffffff;
+  font-size: 36rpx;
+  margin-left: 28rpx;
+  letter-spacing: 2rpx;
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+}
+Page .pro_box .card .pro_dsc {
+  position: relative;
+  z-index: 1;
+  margin-top: 34rpx;
+  width: 620rpx;
+  color: rgba(229, 229, 229, 0.87);
+  font-size: 28rpx;
+  margin-left: 28rpx;
+  letter-spacing: 1rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

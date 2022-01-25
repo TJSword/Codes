@@ -1,0 +1,43 @@
+<view class="vote_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">我要投票</view>
+  </view>
+  <view class="detail_box">
+    <view class="title">{{voteInfo.title}}</view>
+    <view class="content_box">
+      <text>{{voteInfo.content}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="classify_box">
+      <view class="type_box">
+        <view class="iconfont icon-lipeishijian"></view>
+        <view class="type">{{voteInfo.abortDate}}</view>
+      </view>
+      <view class="complexity_box">
+        <view class="iconfont icon-duoren2"></view>
+        <view class="complexity">{{voteInfo.joiner == 1?'全体成员':'仅经营者'}}</view>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="container" wx:if="{{voted}}">
+      <ec-canvas id="mychart-dom-bar"  class='mychart-bar' canvas-id="mychart-bar" ec="{{ ec }}" ></ec-canvas>
+    </view>
+    <view class="options_box" wx:if="{{!voted}}">
+      <checkbox-group wx:if="{{voteInfo.chooseType==2}}" bindchange="checkbox_change">
+        <view class="options_item" wx:for='{{options}}' wx:key="index">
+          <checkbox value="{{item.id}}"></checkbox>
+          <view class="label" > {{item.option}}</view>
+        </view>
+      </checkbox-group>
+      <radio-group wx:else bindchange="raido_change">
+        <view class="options_item" wx:for='{{options}}' wx:key="index">
+            <radio value="{{item.id}}"></radio>
+            <view class="label">{{item.option}}</view>
+        </view>
+      </radio-group>
+    </view>
+    <view class="publish_btn" bindtap = "submit" wx:if="{{!voted}}">确认投票</view>
+    <button class="share_btn" open-type="share" wx:else>分享到群里</button>
+  </view>
+</view>

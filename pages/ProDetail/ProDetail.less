@@ -1,0 +1,264 @@
+Page{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    .prodetail_wrap{
+        height:100%;
+        width:100%;
+        overflow: hidden;
+        background: linear-gradient(to top, #304352, #d7d2cc);
+        .detailBox{
+            padding:0 32rpx;
+            height:88.8%;
+            overflow: hidden;
+            .title{
+                width:100%;
+                text-align: center;
+                // background: pink;
+                font-size:44rpx;
+                font-weight: 700;
+                margin-top:10rpx;
+            }
+            .pm_rp_box{
+                display: flex;
+                padding:0 30rpx;
+                align-items: center;
+                margin-top:30rpx;
+                .pm_box{
+                    display: flex;
+                    align-items: center;
+                    width:65%;
+                    .pm_icon{
+                        height:50rpx;
+                        width:50rpx;
+                        border-radius: 12rpx;
+                        background: #2980b9;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color:white;
+                        font-size:20rpx;
+                    }
+                    .pm_avator{
+                        margin-left:20rpx;
+                        height:70rpx;
+                        width:70rpx;
+                        border-radius: 50%;
+                    }
+                    .pm_name{
+                        margin-left:20rpx;
+                    }
+                }
+                .skip_box{
+                    display: flex;
+                    .icon-wenjian_pdf{
+                        color:#da2a2adc;
+                        font-size:50rpx;
+                    }
+                    .icon-feiji{
+                        color:#0099CC;
+                        font-size:50rpx;
+                        margin-left:56rpx;
+                    }
+                }
+            }
+            .rp_commission{
+                display: flex;
+                align-items: center;
+                padding: 0 30rpx;
+                .rp_box{
+                    display: flex;
+                    align-items: center;
+                    width:65%;
+                    .rp_icon{
+                        height:50rpx;
+                        width:50rpx;
+                        border-radius: 12rpx;
+                        background: #2980b9;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color:white;
+                        font-size:20rpx;
+                    }
+                    .rp_num{
+                        margin-left:20rpx;
+                    }
+                }
+                .commission_box{
+                    display: flex;
+                    align-items: center;
+                    width:35%;
+                    .commission_icon{
+                        height:50rpx;
+                        width:50rpx;
+                        border-radius: 12rpx;
+                        background: #2980b9;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color:white;
+                        font-size:30rpx;
+                    }
+                    .commission_num{
+                        margin-left:20rpx;
+                    }
+                }
+            }
+            .content_box{
+                display: block;
+                padding: 0 30rpx;
+                color:#2f3e46;
+                font-size:28rpx;
+            }
+            .classify_box{
+                display: flex;
+                align-items: center;
+                padding: 0 30rpx;
+                .type_box{
+                    display: flex;
+                    align-items: center;
+                    width:65%;
+                    .icon-xiangmuleixing{
+                        color:#206b9c;
+                        font-size:52rpx;
+                    }
+                    .type{
+                        margin-left:20rpx;
+                    }
+                }
+                .complexity_box{
+                    width:35%;
+                    display: flex;
+                    align-items: center;
+                    .icon-nanyichengdu{
+                        color:#206b9c;
+                        font-size:50rpx;
+                    }
+                    .complexity{
+                        margin-left:20rpx;
+                    }
+                }
+            }
+            .time_box{
+                display: flex;
+                align-items: center;
+                padding:0 30rpx;
+                .icon-lipeishijian{
+                    color:#206b9c;
+                    font-size:50rpx;
+                }
+                .time_state{
+                    display: flex;
+                    margin-left:20rpx;
+                    color: #212020;
+                    align-items: center;
+                    .state{
+                        padding-right: 15rpx;
+                        border-right: 1rpx solid #212020;
+                        white-space:nowrap;
+                    }
+                    .time{
+                        margin-left:15rpx;
+                        white-space:nowrap;
+                    }
+                }
+            }
+            .tip{
+                width: 100%;
+                text-align: center;
+                color:#2f3e46;
+                font-size:28rpx;
+            }
+            .demand_box{
+                padding:0rpx 30rpx;
+                overflow-y: scroll;
+                height:50%;
+                // .icon-renwu3{
+                //     margin-left:30rpx;
+                //     color:#206b9c;
+                //     font-size:58rpx;
+                // }
+                
+                .demand_item{
+                    background: linear-gradient(to top, #969B9D, #BAB9B6);
+                    border-radius: 10rpx;
+                    padding:30rpx 20rpx;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom:16rpx;
+                    box-shadow: 0 10rpx 10rpx 0 rgba(0,0,0,0.17);
+                    &:last-child{
+                        margin-bottom: 50rpx;
+                    }
+                    .left_box{
+                        width:60%;
+                        .demand_title{
+                            font-size:32rpx;
+                            color: #4a4e69;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                        .demand_time_box{
+                            margin-top:20rpx;
+                            display: flex;
+                            align-items: center;
+                            font-size:24rpx;
+                            color:#4a4e69;
+                            .due{
+                                margin-left:25rpx;
+                            }
+                        }
+                    }
+                    .middle_box{
+                        width:20%;
+                        font-size:24rpx;
+                        .state{
+                            border-radius: 5rpx;
+                            background: pink;
+                            width:fit-content;
+                            padding:10rpx 20rpx;
+                            border-radius: 25rpx;
+                            border:1rpx solid rgba(0,0,0,0.17);
+                            white-space: nowrap;
+                        }
+                    }
+                    .right_box{
+                        width: 20%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        .demand_avator{
+                            height:60rpx;
+                            width:60rpx;
+                            border-radius: 50%;
+                        }
+                        .demand_name{
+                            margin-top:6rpx;
+                            font-size:24rpx;
+                            color:#4a4e69;
+                        }
+                    }
+                }
+                .animation{
+                    animation-name: slide-bottom;
+                    animation-duration: .5s;
+                    animation-timing-function: ease-out;
+                    animation-fill-mode: both
+                }
+            }
+        }
+    }
+    @keyframes slide-bottom {
+        0% {
+            opacity: 0;
+            transform: translateY(250rpx)
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+}

@@ -1,0 +1,527 @@
+Page{
+    height: 100%;
+    width: 100%;
+    .todolist_wrap{
+        width:100%;
+        height:100%;
+        background: #FAF9FE;
+        overflow: hidden;
+        .title_box{
+            margin-left:32rpx;
+            height: 45px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .progress_title{
+                font-size: 38rpx;
+                color: #2b3e43;
+                font-family: pingfang;
+                font-weight: 400;
+                letter-spacing: 2rpx;
+            }
+        }
+        .calendar{
+            width: 100%;
+            height:50%;
+            overflow: hidden;
+            .tit{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 36rpx;
+                color: #2A2A2A;
+                padding:3.6% 0;
+                .current{
+                    margin: 0 60rpx;
+                }
+            }
+            .content{
+                display: flex;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+                padding: 0 3.6%;
+                height: 75%;
+                .day{
+                    width: 98.57rpx;
+                    height: 12%;
+                    line-height:12%;
+                    text-align: center;
+                    flex-shrink: 0;
+                    font-size: 32rpx;
+                    color: #14213d;
+                    margin: 1.2% 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    /* background: rgb(224, 199, 199); */
+                    .date{
+                        border-radius: 50%;
+                        // background: #f0efeb;
+                        height: 60rpx;
+                        width: 60rpx;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 32rpx;
+                        position: relative;
+                        .mask_box{
+                            position: absolute;
+                            width: 70%;
+                            height: 10rpx;
+                            bottom: -12rpx;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            .task_0{
+                                height: 16rpx;
+                                width: 16rpx;
+                                background: #FDE8B9;
+                                border-radius: 50%;
+                            }
+                            .task_1{
+                                height: 16rpx;
+                                width: 16rpx;
+                                background: #F9BC51;
+                                border-radius: 50%;
+                            }
+                            .task_2{
+                                height: 16rpx;
+                                width: 16rpx;
+                                background: #F6A23F;
+                                border-radius: 50%;
+                            }
+                            .task_3{
+                                height: 16rpx;
+                                width: 16rpx;
+                                background: #F48029;
+                                border-radius: 50%;
+                            }
+                            .task_4{
+                                height: 16rpx;
+                                width: 16rpx;
+                                background: #E1E1EB;
+                                border-radius: 50%;
+                            }
+                            .event{
+                                height: 16rpx;
+                                width: 16rpx;
+                                background: #97ABFC;
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                    .date_1{
+
+                    }
+                    .isYours{
+                        border:6rpx solid #e76f51
+                    }
+                    .today{
+                        font-weight: 700;
+                        border:4rpx dashed #CC8285
+                    }
+                }
+                .week{
+                    width: 98.57rpx;
+                    height: 80rpx;
+                    line-height: 80rpx;
+                    text-align: center;
+                    flex-shrink: 0;
+                    font-size: 28rpx;
+                    color: #2A2A2A;
+                    margin: 6rpx 0;
+                    font-weight: 700;
+                }
+                .gray{
+                    color: #999;
+                    .date{
+                        // background: #E8E9FD;
+                    }
+                }
+            }
+        }
+        .container{
+            height: 360rpx;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-top:20rpx;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10rpx;
+            overflow: hidden;
+            #mychart-dom-pie{
+                height: 140%;
+                width: 70%;
+            }
+            .legend_box{
+                height: auto;
+                width: 50%;
+                .item{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 16rpx;
+                    .block{
+                        height: 25rpx;
+                        width: 25rpx;
+                        background:#457b9d;
+                        transform: rotate(45deg);
+                        border-radius: 5rpx;
+                    }
+                    .label{
+                        margin-left:20rpx;
+                        font-size:28rpx;
+                    }
+                }
+            }
+            .swiper_box{
+                height: 100%;
+                width: 90%;
+                border-radius: 10rpx;
+                overflow: hidden;
+                .swiper-item{
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 10rpx;
+                    overflow: hidden;
+                    .swiper{
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 10rpx;
+                        overflow: hidden;
+                        .weather_box{
+                            height: 100%;
+                            width: 100%;
+                            border-radius: 10rpx;
+                            position: relative;
+                            border-radius: 10rpx;
+                            overflow: hidden;
+                            .bg{
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                top:0;
+                                left: 0;
+                                z-index: 1;
+                                border-radius: 10rpx;
+                                overflow: hidden;
+                            }
+                            // .bg_glass{
+                            //     position: absolute;
+                            //     height: 100%;
+                            //     width: 100%;
+                            //     top:0;
+                            //     left: 0;
+                            //     background: rgba(0,0,0,0.20);
+                            //     backdrop-filter: blur(4rpx);
+                            //     z-index: 10;
+                            //     border-radius: 10rpx;
+                            //     overflow: hidden;
+                            // }
+                            .weather_info{
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                top:0;
+                                left: 0;
+                                z-index: 100;
+                                border-radius: 10rpx;
+                                overflow: hidden;
+                                .wea_icon{
+                                    position: absolute;
+                                    height: 100rpx;
+                                    width: 100rpx;
+                                    right: 40rpx;
+                                    top:40rpx;
+                                }
+                                .title{
+                                    margin-top: 20rpx;
+                                    margin-left: 26rpx;
+                                    font-size: 28rpx;
+                                    color: white;
+                                }
+                                .middle_box{
+                                    height: 90rpx;
+                                    width: 60%;
+                                    display: flex;
+                                    align-items: center;
+                                    color: white;
+                                    margin-left: 20%;
+                                    .tem{
+                                        font-size: 75rpx;
+                                    }
+                                    .weathers{
+                                        font-size: 28rpx;
+                                        margin-left: 6rpx;
+                                    }
+                                    .air{
+                                        margin-top: 22rpx;
+                                        margin-left: 30rpx;
+                                        background: rgba(38,102,150,0.2);
+                                        width: 90rpx;
+                                        height: 50rpx;
+                                        border-radius: 25rpx;
+                                        line-height: 50rpx;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        font-size: 28rpx;
+                                        .icon{
+                                            height: 20rpx;
+                                            width: 20rpx;
+                                            background: rgba(53,126,170,0.5);
+                                            border-radius: 50%;
+                                            border:4rpx solid white;
+                                            margin-right: 10rpx;
+                                        }
+                                    }
+                                }
+                                .day_wea_box{
+                                    width: 90%;
+                                    margin-left: 5%;
+                                    display: flex;
+                                    margin-top: 30rpx;
+                                    .day_wea_item{
+                                        height:160rpx;
+                                        width: 100rpx;
+                                        display: flex;
+                                        flex-direction: column;
+                                        align-items: center;
+                                        justify-content: space-around;
+                                        .day_wea_time{
+                                            color: rgba(229, 229, 229, 0.9);
+                                            font-size:24rpx;
+                                        }
+                                        .day_wea_icon{
+                                            height: 50rpx;
+                                            width: 50rpx;
+                                        }
+                                        .day_wea_tem{
+                                            color: white;
+                                            font-size:28rpx;
+                                            font-weight: 700;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .huangli_box{
+                            height: 100%;
+                            width: 100%;
+                            border-radius: 10rpx;
+                            position: relative;
+                            border-radius: 10rpx;
+                            overflow: hidden;
+                            .bg{
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                top:0;
+                                left: 0;
+                                z-index: -1;
+                                border-radius: 10rpx;
+                                overflow: hidden;
+                            }
+                            .title{
+                                margin-top: 20rpx;
+                                margin-left: 26rpx;
+                                font-size: 28rpx;
+                                color: white;
+                            }
+                            .bottom_box{
+                                display: flex;
+                                width: 80%;
+                                margin-left:20%;
+                                .bottom_left_box{
+                                    margin-top:40rpx;
+                                    .nongli_box{
+                                        display: flex;
+                                        align-items:center;
+                                        .nongli_day{
+                                            color: rgba(212, 48, 48, 1);
+                                            font-size:60rpx;
+                                            font-weight: 700;
+                                        }
+                                        .nongli_year_month{
+                                            color:white;
+                                            font-size:24rpx;
+                                            margin-left:10rpx;
+                                            height: 70rpx;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: space-between;
+                                        }
+                                    }
+                                    .chong_box{
+                                        color: white;
+                                        margin-top:60rpx;
+                                        font-size:28rpx;
+                                    }
+                                }
+                                .bottom_right_box{
+                                    display: flex;
+                                    margin-left:60rpx;
+                                    .yi_box{
+                                        display: flex;
+                                        flex-direction: column;
+                                        align-items: center;
+                                        width: 64rpx;
+                                        .yi{
+                                            color: rgba(0, 186, 173, 1);
+                                            font-size:40rpx;
+                                            font-weight: 700;
+                                        }
+                                        .yi_item{
+                                            color:white;
+                                            margin-top:10rpx;
+                                            white-space: nowrap;
+                                            text-overflow: ellipsis;
+                                            overflow: hidden;
+                                            width: 64rpx;
+                                        }
+                                    }
+                                    .ji_box{
+                                        display: flex;
+                                        flex-direction: column;
+                                        align-items: center;
+                                        margin-left:60rpx;
+                                        .ji{
+                                            color: rgba(212, 48, 48, 1);
+                                            font-size:40rpx;
+                                            font-weight: 700;
+                                        }
+                                        .ji_item{
+                                            color:white;
+                                            margin-top:10rpx;
+                                            white-space: nowrap;
+                                            text-overflow: ellipsis;
+                                            overflow: hidden;
+                                            width: 64rpx;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .xingzuo_box{
+                            height: 100%;
+                            width: 100%;
+                            border-radius: 10rpx;
+                            position: relative;
+                            border-radius: 10rpx;
+                            overflow: hidden;
+                            .bg{
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                top:0;
+                                left: 0;
+                                z-index: -1;
+                                border-radius: 10rpx;
+                                overflow: hidden;
+                            }
+                            .title{
+                                margin-top: 20rpx;
+                                margin-left: 26rpx;
+                                font-size: 28rpx;
+                                color: white;
+                            }
+                            .middle_box{
+                                display: flex;
+                                margin-left:15%;
+                                margin-top:20rpx;
+                                align-items: center;
+                                justify-content: space-between;
+                                .icon_name{
+                                    display: flex;
+                                    align-items: center;
+                                    .icon_box{
+                                        height: 80rpx;
+                                        width: 80rpx;
+                                        background: rgba(168,136,242,0.6);
+                                        border-radius: 50%;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        .iconfont{
+                                            color:white;
+                                            font-size:50rpx;
+                                        }
+                                    }
+                                    .name{
+                                        color:rgba(255,255,255,0.82);
+                                        letter-spacing: 4rpx;
+                                        font-size: 36rpx;
+                                        margin-left:20rpx;
+                                        font-weight: 550;
+                                    }
+                                }
+                                .xingzuo_date{
+                                    color:white;
+                                    height: 50rpx;
+                                    width: 180rpx;
+                                    background: rgba(143,101,237,0.7);
+                                    line-height: 50rpx;
+                                    font-size:26rpx;
+                                    text-align: center;
+                                    border-radius: 25rpx 0 0 25rpx;
+                                }
+                            }
+                            .bottom_box{
+                                display: flex;
+                                flex-wrap: wrap;
+                                margin-top:42rpx;
+                                .xingzuo_item{
+                                    width: 50%;
+                                    color:white;
+                                    display: flex;
+                                    align-items: center;
+                                    font-size:28rpx;
+                                    margin-bottom: 25rpx;
+                                    .item_name{
+                                        margin-left:80rpx;
+                                        white-space: nowrap;
+                                    }
+                                    .icon-sijiaoxing{
+                                        color: rgba(143,101,237,0.4);
+                                        font-size: 20rpx;
+                                        margin: 0 5rpx;
+                                    }
+                                    .item_val{
+                                        white-space: nowrap;
+                                        
+                                    }
+                                    .icon-xing,.icon-banxing{
+                                        font-size:24rpx;
+                                        color: #E1BC5C;
+                                        margin-left: 2rpx;
+                                    }
+                                    &:nth-child(2n+1){
+                                        width: 45%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .btn{
+            margin:0 auto;
+            margin-top:40rpx;
+            width:50%;
+            height:80rpx;
+            border-radius: 40rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 2rpx;
+            background: rgba(0,129,255,0.8);
+            color:white;
+            &:active{
+                opacity: 0.8;
+            }
+        }
+    }
+}

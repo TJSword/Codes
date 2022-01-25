@@ -1,0 +1,23 @@
+<view class='RecordReportList_wrap'>
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">编写周报</view>
+  </view>
+  <view class="detailBox">
+    <view class="label_box" data-id="0" bindtap="choose_box">
+      <view class="title {{chooseAniBox[0]?'title_on':''}}">标题</view>
+      <input class="label_input" wx:if="{{chooseAniBox[0]}}" focus="true" cursor-spacing="20" bindinput='report_title' bindblur="report_title_blur"></input>
+      <view class="border {{chooseAniBox[0]?'animation':''}}"></view>
+    </view>
+    <view class="label_box label_box_textarea {{chooseAniBox[1]?'textarea':''}}" data-id="1" bindtap="choose_box">
+      <view class="title {{chooseAniBox[1]?'title_on':''}}">内容</view>
+      <textarea class="label_textarea" wx:if="{{chooseAniBox[1]}}" focus="true" cursor-spacing="80" bindinput="report_content" bindblur = 'report_content_blur' focus="true" maxlength="-1" style="line-height: 40rpx;"></textarea>
+    </view>
+  </view>
+  <button class="publish_btn {{isFinished?'active':''}}"  bindtap = "submit" style="font-weight: 400" open-type="{{isFinished?'share':''}}">{{isFinished?'分享至工作群':'保存周报'}}</button>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+</view>

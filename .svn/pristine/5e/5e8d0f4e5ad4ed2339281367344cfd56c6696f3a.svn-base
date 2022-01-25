@@ -1,0 +1,63 @@
+<view class="voteStart_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">发起投票</view>
+  </view>
+  <view class='tips' wx:if='{{hasVoting}}'>存在尚未截止的投票，暂无法发起投票</view>
+  <view class='detailBox' wx:else>
+     <view class="label_box" data-id="0" bindtap="choose_box">
+        <view class="title {{chooseAniBox[0]?'title_on':''}}">标题</view>
+        <input class="label_input" wx:if="{{chooseAniBox[0]}}" focus="true" cursor-spacing="20" bindinput='vote_title' bindblur="vote_title_blur"></input>
+        <view class="border {{chooseAniBox[0]?'animation':''}}"></view>
+      </view>
+      <view class="label_box label_box_textarea {{chooseAniBox[1]?'textarea':''}}" data-id="1" bindtap="choose_box">
+        <view class="title {{chooseAniBox[1]?'title_on':''}}">内容补充</view>
+        <textarea class="label_textarea" wx:if="{{chooseAniBox[1]}}" focus="true" cursor-spacing="80" bindinput="vote_content" bindblur="vote_content_blur" focus="true"></textarea>
+        <!-- <view class="border "></view> -->
+      </view>
+      <view class="label_boxs" >
+        <view class="label_boxs_item" data-id="2" bindtap="choose_box">
+          <view class="title {{chooseAniBox[2]?'title_on':''}}">选择模式</view>
+            <picker bindchange="choosePattern" range="{{choosePatternArr}}" bindcancel="choosePatternCancel" data-id="2"> 
+              <view class="label_input">{{choosePatternArr[choosePatternIndex]}}</view>
+            </picker>
+          <view class="border {{chooseAniBox[2]?'animation':''}}"></view>
+        </view>
+
+        <view class="label_boxs_item" data-id="3" bindtap="choose_box">
+          <view class="title {{chooseAniBox[3]?'title_on':''}}">截止时间</view>
+            <picker mode="date" bindchange="endDate"   bindcancel="endDateCancel" data-id="3" start="{{startDate}}"> 
+              <view class="label_input">{{endDate}}</view>
+            </picker>
+          <view class="border {{chooseAniBox[3]?'animation':''}}"></view>
+        </view>
+      </view>
+    <view class="label_box" data-id="4" bindtap="choose_box">
+        <view class="title {{chooseAniBox[4]?'title_on':''}}">参与人群</view>
+        <picker bindchange="chooseCrowd" range="{{chooseCrowdArr}}" bindcancel="chooseCrowdCancel" data-id="4"> 
+          <view class="label_input">{{chooseCrowdArr[chooseCrowdIndex]}}</view>
+        </picker>
+        <view class="border {{chooseAniBox[4]?'animation':''}}"></view>
+      </view>
+     <view class="options_box">
+        <view class="label_boxs_item" data-id="{{index + 5}}" bindtap="choose_box" wx:for="{{optionsBit}}" wx:key='*this'>
+            <view class="title {{chooseAniBox[index + 5]?'title_on':''}}">选项{{index + 1}}</view>
+            <input class="label_input" wx:if="{{chooseAniBox[index + 5]}}" focus="true" cursor-spacing="20" bindinput='vote_options' bindblur="vote_options_blur" data-index='{{index}}'></input>
+            <view class="jianhao_box" wx:if="{{index>1}}" catchtap='minus'>
+              <view class="iconfont icon-jianhao1" ></view>
+            </view>
+          <view class="border {{chooseAniBox[index + 5]?'animation':''}}"></view>
+        </view>
+        <view class="addIcon" style="{{optionsBit % 2 === 1?'margin-left:10%':''}}" bindtap="addOption">
+          <view class="addText">添加选项</view>
+          <view class='iconfont icon-jiahao'></view>
+        </view>
+     </view> 
+     <view class="publish_btn" bindtap = "submit">确认发起</view>
+  </view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+</view>

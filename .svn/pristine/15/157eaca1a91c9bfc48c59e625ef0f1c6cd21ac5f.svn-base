@@ -1,0 +1,128 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "useMultiFrameRuntime": true,
+    "bundle": false,
+    "useApiHook": true,
+    "useApiHostProcess": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.13.2",
+  "appid": "wx0371d25ef74f1d54",
+  "projectname": "TRS3.0",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/ProList/ProList",
+          "pathName": "pages/ProList/ProList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Chart/Chart",
+          "pathName": "pages/Chart/Chart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ReleaseDemand/ReleaseDemand",
+          "pathName": "pages/ReleaseDemand/ReleaseDemand",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/TravelUpdate/TravelUpdate",
+          "pathName": "pages/TravelUpdate/TravelUpdate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/PublishPro/PublishPro",
+          "pathName": "pages/PublishPro/PublishPro",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/EventAdd/EventAdd",
+          "pathName": "pages/EventAdd/EventAdd",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/DemandDetail/DemandDetail",
+          "pathName": "pages/DemandDetail/DemandDetail",
+          "query": "id=pUsUdxBckhYUE0AU",
+          "scene": null
+        },
+        {
+          "name": "pages/Index/Index",
+          "pathName": "pages/Index/Index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Login/Login",
+          "pathName": "pages/Login/Login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/TravelList/TravelList",
+          "pathName": "pages/TravelList/TravelList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ProList/ProList",
+          "pathName": "pages/ProList/ProList",
+          "query": "id=pUsUdxBckhYUE0AU",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

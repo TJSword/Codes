@@ -1,0 +1,324 @@
+Page{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    .publishPro_wrap{
+        height:100%;
+        width:100%;
+        overflow: hidden;
+        background: linear-gradient(to top, #304352, #d7d2cc);
+        .detailBox{
+            padding:0 32rpx;
+            height:88.8%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .label_box{
+                height:9%;
+                width:90%;
+                // background: pink;
+                position: relative;
+                margin-top:15rpx;
+                overflow: hidden;
+                z-index:50;
+                transition: all 0.3s ease-out;
+                .title{
+                    position: absolute;
+                    bottom: 20rpx;
+                    font-size:36rpx;
+                    left:0;
+                    transition: all 0.3s ease-out;
+                    color:#343a40;
+                }
+                .title_on{
+                    font-size:30rpx;
+                    color:#006494;
+                    transition: all 0.3s ease-out;
+                    transform: translateY(-50rpx);
+                }
+                .label_input{
+                    height:50%;
+                    width:100%;
+                    // background: pink;
+                    position: absolute;
+                    bottom:7%;
+                    z-index:20;
+                    font-size:36rpx;
+                    display: flex;
+                    align-items: center;
+                }
+                .border{
+                    width:100%;
+                    position: absolute;
+                    right:0;
+                    bottom:0;
+                    border-bottom:3rpx solid #343a40;
+                    height:230rpx;
+                    z-index: 0;
+                }
+                .animation{
+                    animation-name: border-left-bottom;
+                    animation-duration: .5s;
+                    animation-timing-function: ease-out;
+                    animation-fill-mode: both;
+                    // animation-delay:1.5s;
+                }
+            }
+            .label_box_textarea{
+                border-bottom:3rpx solid #343a40;
+            }
+            .textarea{
+                height:20%;
+                transition: all 0.3s ease-out;
+                border-bottom:0;
+                .label_textarea{
+                    border:3rpx solid #006494;
+                    border-radius: 10rpx;                    
+                    position: absolute;
+                    width:calc(100% - 26rpx);
+                    bottom:0;
+                    height:160rpx;
+                    font-size:26rpx;
+                    padding:10rpx;
+                }
+                .title_on{
+                    font-size:30rpx;
+                    color:#006494;
+                    transition: all 0.3s ease-out;
+                    transform: translateY(-180rpx);
+                }
+                .border{
+                    border-bottom:3rpx solid #006494;
+                    transition: all 0.3s ease-out;
+                }
+            }
+            .label_boxs{
+                height:9%;
+                width:90%;
+                // background: pink;
+                position: relative;
+                margin-top:15rpx;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                // background: pink;
+                .label_boxs_item{
+                    height:100%;
+                    width:45%;
+                    // background: pink;
+                    position: relative;
+                    overflow: hidden;
+                    z-index:50;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    .title{
+                        position: absolute;
+                        bottom: 20rpx;
+                        font-size:36rpx;
+                        left:0;
+                        transition: all 0.3s ease-out;
+                        color:#343a40;
+                    }
+                    .title_on{
+                        font-size:30rpx;
+                        color:#006494;
+                        transition: all 0.3s ease-out;
+                        transform: translateY(-50rpx);
+                    }
+                    .label_input{
+                        height:50%;
+                        width:100%;
+                        // background: pink;
+                        position: absolute;
+                        bottom:8rpx;
+                        z-index:20;
+                        font-size:36rpx;
+                    }
+                    
+                    .border{
+                        width:100%;
+                        position: absolute;
+                        right:0;
+                        bottom:0;
+                        border-bottom:3rpx solid #343a40;
+                        height:230rpx;
+                        z-index: 0;
+                        // background: pink;
+                    }
+                    .animation{
+                        animation-name: border-left-bottom;
+                        animation-duration: .5s;
+                        animation-timing-function: ease-out;
+                        animation-fill-mode: both;
+                        // animation-delay:1.5s;
+                    }
+                }
+            }
+            .options_box{
+                height:27%;
+                width:90%;
+                // background: pink;
+                position: relative;
+                margin-top:15rpx;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                display: flex;
+                align-items: flex-start;
+                // justify-content: space-between;
+                flex-wrap: wrap;
+                align-content: flex-start;
+                // background: pink;
+                .addIcon{
+                    height:33%;
+                    width:45%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    border-bottom:3rpx solid #343a40;
+                    position: relative;
+                    .icon-jiahao{
+                        position: absolute;
+                        top:50%;
+                        font-size:38rpx;
+                        color:#3399FF;
+                        background: white;
+                        height:30rpx;
+                        width:30rpx;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        right: 5rpx;
+                    }
+                    .addText{
+                        font-size:34rpx;
+                        color:#343a40;
+                        margin-bottom:20rpx;
+                    }
+                }
+                .label_boxs_item{
+                    height:33%;
+                    width:45%;
+                    // background: pink;
+                    position: relative;
+                    overflow: hidden;
+                    z-index:50;
+                    &:nth-child(2n){
+                        margin-left:10%;
+                    }
+                    .jianhao_box{
+                        position: absolute;
+                        right:5rpx;
+                        top:50%;
+                        background: white;
+                        height:30rpx;
+                        width:30rpx;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 9999;
+                        .icon-jianhao1{
+                            font-size:40rpx;
+                        color:#f4a261;
+                        }
+                    }
+                    .title{
+                        position: absolute;
+                        bottom: 20rpx;
+                        font-size:36rpx;
+                        left:0;
+                        transition: all 0.3s ease-out;
+                        color:#343a40;
+                    }
+                    .title_on{
+                        font-size:30rpx;
+                        color:#006494;
+                        transition: all 0.3s ease-out;
+                        transform: translateY(-50rpx);
+                    }
+                    .label_input{
+                        height:50%;
+                        width:100%;
+                        // background: pink;
+                        position: absolute;
+                        bottom:8rpx;
+                        z-index:20;
+                        font-size:36rpx;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        word-break: break-all;
+                        
+                    }
+                    
+                    .border{
+                        width:100%;
+                        position: absolute;
+                        right:0;
+                        bottom:0;
+                        border-bottom:3rpx solid #343a40;
+                        height:230rpx;
+                        z-index: 0;
+                        // background: pink;
+                    }
+                    .animation{
+                        animation-name: border-left-bottom;
+                        animation-duration: .5s;
+                        animation-timing-function: ease-out;
+                        animation-fill-mode: both;
+                        // animation-delay:1.5s;
+                    }
+                }
+            }
+            @keyframes border-left-bottom {
+                0% {
+                    width: 100%;
+                    border-bottom:3rpx solid #343a40;
+                }
+                25%{
+                    width: 93%;
+                    border-bottom-left-radius: 15%;
+                }
+            
+                50% {
+                    width: 86%;
+                    border-bottom-left-radius: 30%;
+                }
+
+                75%{
+                    width: 93%;
+                    border-bottom-left-radius: 15%;
+                }
+                100%{
+                    width: 100%;
+                    border-bottom-left-radius:0;
+                    border-bottom:3rpx solid #006494;
+                }
+            }
+            
+        }
+        .publish_btn{
+            position: fixed;
+            margin:auto;
+            left:0;
+            right:0;
+            bottom: 6%;
+            width:50%;
+            height:80rpx;
+            margin-bottom: 20rpx;
+            border-radius: 40rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 2rpx;
+            background: rgba(0,129,255,0.8);
+            color:white;
+            &:active{
+                opacity: 0.8;
+            }
+        }
+    }
+}

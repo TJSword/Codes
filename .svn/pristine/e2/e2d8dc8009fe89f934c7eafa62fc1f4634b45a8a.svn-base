@@ -1,0 +1,160 @@
+// pages/RecordReportList/RecordReportList.js
+const app = getApp()
+import { saveRequest } from '../../utils/util.js';
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    statusBarHeight: app.globalData.statusBarHeight,
+    chooseAniBox: [false, false],
+  },
+  goBack: function (e) {//点击返回按钮 返回上一层页面
+    wx.redirectTo({
+      url: '../Index/Index',
+    })
+  },
+  choose_box(e) {
+    let aniId = e.currentTarget.dataset.id
+    let arr = this.data.chooseAniBox;
+    arr[aniId] = true;
+    this.setData({
+      chooseAniBox: arr
+    })
+  },
+  report_title(e) {
+    this.setData({
+      reportTitle: e.detail.value
+    })
+  },
+  report_title_blur(e) {
+    if (e.detail.value === "") {
+      let arr = this.data.chooseAniBox;
+      arr[0] = false;
+      this.setData({
+        chooseAniBox: arr
+      })
+    }
+  },
+  report_content(e) {
+    this.setData({
+      reportContent: e.detail.value
+    })
+  },
+  report_content_blur(e) {
+    if (e.detail.value === "") {
+      let arr = this.data.chooseAniBox;
+      arr[1] = false;
+      this.setData({
+        chooseAniBox: arr
+      })
+    }
+  },
+  submit(){
+    if(this.data.reportTitle === undefined || this.data.reportTitle === ''){
+      wx.showToast({
+        title: '请填写周报标题',
+        icon:'none'
+      })
+    }else if(this.data.reportContent === undefined || this.data.reportContent === ''){
+      wx.showToast({
+        title: '请填写周报详情',
+        icon:'none'
+      })
+    }else{
+      if(!this.data.isFinished){
+        this.setData({
+          loading: true
+        })
+        saveRequest('/report/save', 'post', {
+          title: this.data.reportTitle,
+          content: this.data.reportContent
+        }, 'application/json').then(res => {
+          console.log(res)
+          if (res.code === 0) {
+            wx.showToast({
+              title: '保存成功\n点击按钮转发至工作群',
+              icon: 'none',
+              duration: 3000
+            })
+            this.setData({
+              loading: false,
+              isFinished: true
+            })
+          } else {
+            wx.showToast({
+              title: '未知异常，请联系管理员',
+              icon: "none"
+            })
+          }
+        })
+      }
+    }
+    
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    wx.redirectTo({
+      url: '../Index/Index',
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (e) {
+    if (e.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(e.target)
+    }
+    return {
+      title: this.data.reportTitle,
+      path: '/pages/ReportList/ReportList'
+    }
+  }
+})

@@ -1,0 +1,79 @@
+<view class="releaseDemand_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">发布任务</view>
+  </view>
+    <view class="detailBox" >
+      <view class="label_box" data-id="0" bindtap="choose_box">
+        <view class="title {{chooseAniBox[0]?'title_on':''}}">选择项目</view>
+        <picker bindchange="choosePro" range="{{chooseProArr}}" bindcancel="chooseProCancel" data-id="0"> 
+          <view class="label_input">{{chooseProArr[chooseProIndex]}} 
+            <text class="rp_info" wx:if="{{chooseProIndex}}" catchtap = "showProInfo">详情</text>
+          </view>
+        </picker>
+        <view class="border {{chooseAniBox[0]?'animation':''}}"></view>
+      </view>
+      <view class="label_box" data-id="1" bindtap="choose_box">
+        <view class="title {{chooseAniBox[1]?'title_on':''}}">任务名称</view>
+        <input class="label_input" wx:if="{{chooseAniBox[1]}}" focus="true" cursor-spacing="20" bindinput='demand_name' bindblur="demand_name_blur"></input>
+        <view class="border {{chooseAniBox[1]?'animation':''}}"></view>
+      </view>
+      <view class="label_box" data-id="2" bindtap="choose_box">
+        <view class="title {{chooseAniBox[2]?'title_on':''}}">选择标签</view>
+        <picker  mode="multiSelector" bindchange="demand_label" bindcolumnchange="demand_label_column" value="{{rpTypeIndex}}" range="{{demandLabelArr}}" bindcancel="demand_label_cancel" data-id="2"> 
+          <view class="label_input" >{{demandLabelArr[0][rpTypeIndex[0]] }}  {{demandLabelArr[1][rpTypeIndex[1]]}} <text class="tip" wx:if="{{rpTypeIndex[1] === null?false:true}}" catchtap = "showInfo">详情</text></view>
+        </picker>
+        <view class="border {{chooseAniBox[2]?'animation':''}}"></view>
+      </view>
+      <view class="label_boxs" >
+        <view class="label_boxs_item" data-id="8" bindtap="choose_box">
+          <view class="title {{chooseAniBox[8]?'title_on':''}}">任务类型</view>
+           <picker bindchange="rp"  range="{{rpArr}}" bindcancel="rpCancel" data-id="8"> 
+              <view class="label_input">{{rpArr[rpIndex]}}</view>
+            </picker>
+          <view class="border {{chooseAniBox[8]?'animation':''}}"></view>
+        </view>
+        <view class="label_boxs_item" data-id="4" bindtap="choose_box">
+           <view class="title {{chooseAniBox[4]?'title_on':''}}">选择 IO</view>
+            <picker bindchange="io"  range="{{ioArr}}" bindcancel="ioCancel" data-id="4"> 
+              <view class="label_input">{{ioArr[ioIndex]}}</view>
+            </picker>
+          <view class="border {{chooseAniBox[4]?'animation':''}}"></view>
+        </view>
+      </view>
+
+      <view class="label_boxs" >
+        <view class="label_boxs_item" data-id="10" bindtap="choose_box">
+          <view class="title {{chooseAniBox[10]?'title_on':''}}">任务工时</view>
+          <input class="label_input" wx:if="{{chooseAniBox[10]}}" focus="true" cursor-spacing="20" bindinput='task_time' bindblur="task_time_blur"></input>
+          <view class="border {{chooseAniBox[10]?'animation':''}}"></view>
+        </view>
+        <view class="label_boxs_item" data-id="9" bindtap="choose_box">
+          <view class="title {{chooseAniBox[9]?'title_on':''}}">任务难度</view>
+            <picker bindchange="hard_easy_change"  range="{{hard_easy}}" bindcancel="rpCancel" data-id="9"> 
+              <view class="label_input">{{hard_easy_num?hard_easy_num*1+1:''}}</view>
+            </picker>
+          <view class="border {{chooseAniBox[9]?'animation':''}}"></view>
+        </view>
+      </view>
+      
+      <view class="label_box" data-id="6" bindtap="choose_box">
+        <view class="title {{chooseAniBox[6]?'title_on':''}}">结束时间</view>
+            <picker mode="date" bindchange="endDate"   bindcancel="endDateCancel" data-id="6" start="{{startDate}}"> 
+              <view class="label_input">{{endDate}}</view>
+            </picker>
+        <view class="border {{chooseAniBox[6]?'animation':''}}"></view>
+      </view>
+      <view class="label_box label_box_textarea {{chooseAniBox[7]?'textarea':''}}" data-id="7" bindtap="choose_box">
+        <view class="title {{chooseAniBox[7]?'title_on':''}}">任务简介</view>
+        <textarea class="label_textarea" wx:if="{{chooseAniBox[7]}}" focus="true" cursor-spacing="80" bindinput="demand_content" bindblur="demand_content_blur" focus="true"></textarea>
+        <!-- <view class="border "></view> -->
+      </view>
+  </view>
+  <view class="publish_btn" bindtap = "submit">发布任务</view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+</view>

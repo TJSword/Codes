@@ -1,0 +1,85 @@
+<view class="prodetail_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">项目详情</view>
+  </view>
+  <view class="detailBox">
+    <view class="title">{{pro_detail.project_name}}</view>
+    <view class="pm_rp_box">
+      <view class="pm_box">
+        <view class="pm_icon">PM</view>
+        <image src="{{pro_detail.avatar_url}}" class="pm_avator"></image>
+        <view class="pm_name">{{pro_detail.pm_name}}</view>
+      </view>
+      <view class="skip_box" >
+        <view class="iconfont icon-wenjian_pdf"  bindtap="openPDF"></view>
+        <view class="iconfont icon-feiji" bindtap="jumpToTravelList"></view>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="rp_commission">
+      <view class="rp_box">
+        <view class="rp_icon">RP</view>
+        <view class="rp_num">{{pro_detail.offer}}</view>
+      </view>
+      <view class="commission_box">
+        <view class="commission_icon iconfont icon-meiyuanbizhuanyongzhanghu"></view>
+        <view class="commission_num">{{pro_detail.commission}}</view>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="content_box">
+        <text>{{pro_detail.describe}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="classify_box">
+      <view class="type_box">
+        <view class="iconfont icon-xiangmuleixing"></view>
+        <view class="type">{{pro_detail.tag}}</view>
+      </view>
+      <view class="complexity_box">
+        <view class="iconfont icon-nanyichengdu"></view>
+        <view class="complexity">{{pro_detail.difficultChoose}}</view>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="time_box">
+      <view class="iconfont icon-lipeishijian"></view>
+      <view class="time_state">
+        <view class="state">{{pro_detail.state_name}}</view>
+        <view class="time">{{pro_detail.start_date}} —— {{pro_detail.expect_end_date}}</view>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="tip" wx:if="{{demand_list.length === 0}}">该项目尚未发布任务</view>
+    <view class="demand_box" wx:else>
+      <!-- <view class="iconfont icon-renwu3"></view> -->
+      <view class="demand_item animation" wx:for="{{demand_list}}" wx:key="demand_id" style="animation-delay: {{(index+1)*0.12}}s;" bindtap = "jumpToDemandDetail" data-id = "{{item.demand_id}}">
+        <view class="left_box">
+          <view class="demand_title">{{item.title}}</view>
+          <view class="demand_time_box">
+            <view class="time">提交:{{item.expect_end_date}}</view>
+            <view class="due">剩余:{{item.daysDistance}}天</view>
+          </view>
+        </view>
+        <view class="middle_box">
+          <view class="state" style="{{item.state === '0'?'background:#e9c46a;color:#264653':''}}" wx:if="{{item.state === '0'?true:false}}">进行中</view>
+          <view class="state" style="{{item.state === '1'?'background:#2a9d8f;color:#264653':''}}" wx:if="{{item.state === '1'?true:false}}">已完成</view>
+          <view class="state" style="{{item.state === '2'?'background:#e76f51;color:#264653':''}}" wx:if="{{item.state === '2'?true:false}}">已终止</view>
+          <view class="state" style="{{item.state === '3'?'background:#f4a261;color:#264653':''}}" wx:if="{{item.state === '3'?true:false}}">申请中</view>
+        </view>
+        <view class="right_box">
+          <image src="{{item.avatar_url}}" class="demand_avator"></image>
+          <view class="demand_name">{{item.joiner_name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+</view>
+<view>
+</view>

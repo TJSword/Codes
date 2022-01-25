@@ -1,0 +1,56 @@
+<view class="chart_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">数据统计</view>
+  </view>
+  <view class="info_box">
+      <view class="options_box">
+        <view class="title">筛选条件</view>
+        <view class="options">
+                <view class="set_time">
+          <picker mode="date" value="{{startDate}}"  end="{{endDate}}" bindchange="bindStartDateChange">
+                <view class="start_time">{{startDate?startDate:'开始时间'}}</view>
+        </picker>
+          <view class="iconfont icon-sanjiao3"></view>
+        <picker mode="date" value="{{endDate}}" start="{{startDate}}"  end="{{endDate}}" bindchange="bindEndDateChange">
+                <view class="end_time">{{endDate?endDate:'结束时间'}}</view>
+        </picker>
+        </view> 
+        <view class="set_prople" wx:if="{{isCreate == '1'}}">
+          <picker mode="selector"   range = "{{peopleName}}" bindchange="bindPeopleChange">
+              <view class="person">{{peopleIndex?peopleName[peopleIndex]:'选择人员'}}</view>
+        </picker>
+        </view>
+        
+        </view>
+    </view>
+  
+    <view class="fabric">
+      <view class="title_box">
+        <view class="title">任务结构</view>
+        <!-- <view class="rp_commission" bindtap='chooseType'>
+          <view class="rp {{isrp?'active':''}}" data-isRp='{{true}}'>研值</view>
+          <view class="iconfont {{isrp?'icon-RP':'icon-meiyuanbizhuanyongzhanghu'}}"></view>
+       
+          <view class="commission {{isrp?'':'active'}}" data-isRp='{{false}}'>佣金</view>
+        </view> -->
+      </view>
+      <!-- <view class="options_box" bindtap = "choose">
+        <view class="option {{type == '0'?'active':'' }}" data-type = "0">项目类型</view>
+        <view class="option {{type == '1'?'active':'' }}" data-type = "1">项目难度</view>
+        <view class="option {{type == '2'?'active':'' }}" data-type = "2">任务模块</view>
+        <view class="option {{type == '3'?'active':'' }}" data-type = "3" wx:if="{{isCreate == '1'}}">人员统计</view>
+      </view>
+      <view class="noData" style="display:{{pieData.length == 0?'flex':'none'}}">暂无数据..</view> -->
+      <view class="container" >
+        <ec-canvas id="mychart-dom-bar"  class='mychart-bar' canvas-id="mychart-bar" ec="{{ ec }}" ></ec-canvas>
+      </view>
+      <view class="container" wx:if="{{isCreate == '1'}}">
+        <ec-canvas id="mychart-dom-pie_1"   canvas-id="mychart-bar" ec="{{ ec_1 }}" ></ec-canvas>
+      </view>
+      <view class="container" wx:if="{{isCreate == '1'}}">
+        <ec-canvas id="mychart-dom-pie_2"   canvas-id="mychart-bar" ec="{{ ec_2 }}" ></ec-canvas>
+      </view>
+    </view>
+  </view>
+</view>

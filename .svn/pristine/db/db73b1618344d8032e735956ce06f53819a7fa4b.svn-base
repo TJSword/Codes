@@ -1,0 +1,256 @@
+Page{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    .apportioned_wrap{
+        height:100%;
+        width:100%;
+        overflow: hidden;
+        background: linear-gradient(to top, #304352, #d7d2cc);
+        .remind{
+            height:88.8%;
+            width:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:#2f3e46;
+            font-size:30rpx;
+        }
+        .detail_box{
+            padding:0 32rpx;
+            height:88.8%;
+            overflow: hidden;
+            .pro_title_box{
+                display: flex;
+                align-items: center;
+                margin-top:30rpx;
+                padding:0 30rpx;
+                .icon-xiangmu{
+                    color:#2980b9;
+                    font-size:48rpx;
+                }
+                .pro_title{
+                    margin-left: 20rpx;
+                    .icon-down2{
+                        margin-left:6rpx;
+                        font-size:24rpx;
+                    }
+                }
+            }
+            .pm_io_box{
+                display: flex;
+                padding:0 30rpx;
+                align-items: center;
+                margin-top:30rpx;
+                .pm_box{
+                    display: flex;
+                    align-items: center;
+                    width:60%;
+                    .pm_icon{
+                        height:50rpx;
+                        width:50rpx;
+                        border-radius: 12rpx;
+                        background: #2980b9;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color:white;
+                        font-size:20rpx;
+                    }
+                    .pm_avator{
+                        margin-left:20rpx;
+                        height:70rpx;
+                        width:70rpx;
+                        border-radius: 50%;
+                    }
+                    .pm_name{
+                        margin-left:20rpx;
+                    }
+                }
+                .commission_rp{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    width:40%;
+                    .rp_box{
+                        display: flex;
+                        width:100%;
+                        align-items: center;
+                        .rp_icon{
+                            height:50rpx;
+                            width:50rpx;
+                            border-radius: 12rpx;
+                            background: #2980b9;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            color:white;
+                            font-size:20rpx;
+                        }
+                        .rp{
+                            margin-left:20rpx;
+                        }
+                    }
+                    .commission_box{
+                        display: flex;
+                        align-items: center;
+                        width:100%;
+                        .commission_icon{
+                            height:50rpx;
+                            width:50rpx;
+                            border-radius: 12rpx;
+                            background: #2980b9;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            color:white;
+                            font-size:30rpx;
+                        }
+                        .commission_num{
+                            margin-left:20rpx;
+                        }
+                    }
+
+                }
+                
+            }
+            .demand_box{
+                padding:0rpx 30rpx;
+                overflow-y: scroll;
+                height:60%;
+                .demand_item{
+                    background: linear-gradient(to top, #969B9D, #BAB9B6);
+                    border-radius: 10rpx;
+                    padding:30rpx 20rpx;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom:16rpx;
+                    box-shadow: 0 10rpx 10rpx 0 rgba(0,0,0,0.17);
+                    flex-wrap: wrap;
+                    &:last-child{
+                        margin-bottom: 50rpx;
+                    }
+                    .left_box{
+                        width:80%;
+                        .demand_title{
+                            font-size:32rpx;
+                            color: #4a4e69;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                        .demand_time_box{
+                            width:100%;
+                            margin-top:20rpx;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            font-size:24rpx;
+                            color:#4a4e69;
+                            flex-wrap: wrap;
+                            .rp_fanwei{
+                                width:62%;
+                            }
+                            .due{
+                                width:38%;
+                                display: flex;
+                                align-items: center;
+                                white-space: nowrap;
+                                flex-direction: column;
+                                justify-content: flex-start;
+                                .rp{
+                                    display: flex;
+                                    width:100%;
+                                    justify-content: flex-start;
+
+                                }
+                                
+                            }
+                        }
+                    }
+                    .right_box{
+                        width: 20%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        .demand_avator{
+                            height:60rpx;
+                            width:60rpx;
+                            border-radius: 50%;
+                        }
+                        .demand_name{
+                            margin-top:6rpx;
+                            font-size:24rpx;
+                            color:#4a4e69;
+                        }
+                    }
+                    .bottom_box{
+                        width:100%;
+                        height:auto;
+                        margin-top:-12rpx;
+                        overflow: hidden;
+                        .comment_info{
+                            font-size:24rpx;
+                            color:#4a4e69;
+                        }
+                    }
+                    
+                }
+                .animation{
+                    animation-name: slide-bottom;
+                    animation-duration: .5s;
+                    animation-timing-function: ease-out;
+                    animation-fill-mode: both
+                }
+            }
+        }
+        .btn_box{
+            position: fixed;
+            width:100%;
+            bottom: 6%;
+            height:70rpx;
+            margin-bottom: 20rpx;
+            display: flex;
+            justify-content: space-around;
+            .confirm_btn{
+                width:30%;
+                border-radius: 35rpx;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                letter-spacing: 2rpx;
+                background: rgba(0,129,255,0.8);
+                color:white;
+                &:active{
+                    opacity: 0.8;
+                }
+            }
+        }
+        .setback_btn{
+            width:30%;
+            border-radius: 35rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 2rpx;
+            background: #f4a261;
+            color:white;
+            &:active{
+                opacity: 0.8;
+            }
+        }
+        
+    }
+    @keyframes slide-bottom {
+        0% {
+            opacity: 0;
+            transform: translateY(250rpx)
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+}

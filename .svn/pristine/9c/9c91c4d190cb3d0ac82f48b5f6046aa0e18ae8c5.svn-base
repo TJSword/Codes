@@ -1,0 +1,70 @@
+<view class="apportioned_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">分配审核</view>
+  </view>
+  <view class="detail_box" wx:if="{{havePro}}">
+    <view class="pro_title_box">
+      <view class="iconfont icon-xiangmu"></view>
+      <picker range="{{pro_list}}" bindchange="choosePro">
+        <view class="pro_title">{{pro_list[chooseIndex]}}<text class='iconfont icon-down2'></text> </view>
+      </picker>
+    </view>
+    <view class="line"></view>
+    <view class="pm_io_box">
+      <view class="pm_box">
+        <view class="pm_icon">PM</view>
+        <image src="{{pro_list_info[chooseIndex].avatar_url}}" class="pm_avator"></image>
+        <view class="pm_name">{{pro_list_info[chooseIndex].pm_name}}</view>
+      </view>
+      <view class='commission_rp' >
+        <view class="rp_box" wx:if="{{pro_list_info[chooseIndex].offer != 0}}">
+          <view class="rp_icon">RP</view>
+          <view class="rp">{{pro_list_info[chooseIndex].offer}}</view>
+        </view>
+        <view class="commission_box" style="{{pro_list_info[chooseIndex].offer != 0?'margin-top:10rpx':''}}" wx:if="{{pro_list_info[chooseIndex].commission != 0}}">
+          <view class="commission_icon iconfont icon-meiyuanbizhuanyongzhanghu"></view>
+          <view class="commission_num">{{pro_list_info[chooseIndex].commission}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class='demand_box'>
+      <view class="demand_item animation"  style="animation-delay: {{(index+1)*0.12}}s;"  data-id = "{{item.demand_id}}" wx:for="{{demand_list}}" wx:key="demand_id">
+        <view class="left_box">
+          <view class="demand_title">{{item.title}}</view>
+                    <view class='scope_box'>
+            <view class="demand_time_box"  wx:if="{{item.commissionFlag != 0}}">
+              <view class="rp_fanwei">佣金范围：{{item.min_commission}}~{{item.max_commission}}</view>
+                <view class="due">
+                  <view class='rp'>获得佣金：{{item.commission}}
+                  </view>
+              </view>
+            </view>
+            <view class="demand_time_box" wx:if="{{item.offerFlag!=0}}">
+              <view class="rp_fanwei">研值范围：无参考范围</view>
+                <view class="due">
+                  <view class='rp'>获得研值：{{item.offer}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="right_box">
+          <image src="{{item.avatar_url}}" class="demand_avator"></image>
+          <view class="demand_name">{{item.joiner_name}}</view>
+        </view>
+        <view class="line"></view>
+        <view class="bottom_box active">
+          <text class="comment_info">任务评价：{{ item.comment}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+   <view class="remind" wx:else>你还没有需要审核的项目</view>
+  <view class="btn_box" wx:if="{{havePro}}">
+    <view class="setback_btn" bindtap ="setback">退回修改</view>
+    <view class="confirm_btn" bindtap ="confirm">确认完成</view>
+  </view>
+  
+ 
+</view>

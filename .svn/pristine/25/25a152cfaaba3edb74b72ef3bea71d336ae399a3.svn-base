@@ -1,0 +1,154 @@
+Page{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    .shraeDetail_wrap{
+        height:100%;
+        width:100%;
+        background: linear-gradient(to top, #304352, #d7d2cc);
+        overflow: hidden;
+        .detail_box{
+            padding:0 32rpx;
+            height:88.8%;
+            overflow: hidden;
+            .title{
+                width:100%;
+                text-align: center;
+                // background: pink;
+                font-size:44rpx;
+                font-weight: 700;
+                margin-top:10rpx;
+            }
+            .ks_box{
+                display: flex;
+                padding:0 30rpx;
+                align-items: center;
+                margin-top:30rpx;
+                .ks_icon{
+                    height:50rpx;
+                    width:50rpx;
+                    border-radius: 12rpx;
+                    background: #2980b9;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color:white;
+                    font-size:20rpx;
+                }
+                .ks_avator{
+                    margin-left:20rpx;
+                    height:70rpx;
+                    width:70rpx;
+                    border-radius: 50%;
+                }
+                .ks_name{
+                    margin-left:20rpx;
+                }
+            }
+            .content_box{
+                display: block;
+                padding: 0 30rpx;
+                color:#2f3e46;
+                font-size:28rpx;
+            }
+            .time_box{
+                display: flex;
+                align-items: center;
+                padding:0 30rpx;
+                .icon-lipeishijian{
+                    color:#206b9c;
+                    font-size:50rpx;
+                }
+                .time_state{
+                    display: flex;
+                    margin-left:20rpx;
+                    color: #212020;
+                    align-items: center;
+                    .state{
+                        padding-right: 20rpx;
+                        border-right: 1rpx solid #212020;
+                        white-space:nowrap;
+                    }
+                    .time{
+                        margin-left:20rpx;
+                        white-space:nowrap;
+                    }
+                }
+            }
+            .joiner_list_box{
+                display: flex;
+                align-items: flex-start;
+                padding:0 30rpx;
+                flex-direction: column;
+                height:45%;
+                .joiner_title_box{
+                    display: flex;
+                    align-items: center;
+                    .icon-duoren2{
+                        color:#206b9c;
+                        font-size:46rpx;
+                    }
+                    .joiner_title{
+                        margin-left:22rpx;
+                    }
+                }
+                .joiner_detail{
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-top:20rpx;
+                    padding:20rpx 0;
+                    overflow-y: scroll;
+                    max-height:88%;
+                    width:100%;
+                    .joiner_item{
+                        width:25%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin-bottom:20rpx;
+                        .item_avator{
+                            height:70rpx;
+                            width:70rpx;
+                            border-radius: 50%;
+                        }
+                        .item_name{
+                            margin-top:10rpx;
+                        }
+                    }
+                }
+            }
+            .tips{
+                padding: 0 30rpx;
+                color:#2f3e46;
+                font-size:28rpx;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding:0 30rpx;
+                flex-direction: column;
+                height:45%;
+            }
+            .join{
+                display: flex;
+                justify-content: center;
+                margin-top:30rpx;
+                .join_btn{
+                    width:50%;
+                    height:80rpx;
+                    margin-bottom: 20rpx;
+                    border-radius: 40rpx;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    letter-spacing: 2rpx;
+                    background: rgba(0,129,255,0.8);
+                    color:white;
+                    &:active{
+                        opacity: 0.8;
+                    }
+                }
+            }
+
+        }
+    }
+}

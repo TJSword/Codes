@@ -1,0 +1,83 @@
+<view class="travelAdd_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">新增差旅</view>
+  </view>
+  <view class="detailBox">
+          <view class="label_box" data-id="0" bindtap="choose_box">
+        <view class="title {{chooseAniBox[0]?'title_on':''}}">选择任务</view>
+        <picker bindchange="choosePro" range="{{chooseProArr}}" bindcancel="chooseProCancel" data-id="0"> 
+          <view class="label_input">{{chooseProArr[chooseProIndex]}}</view>
+        </picker>
+        <view class="border {{chooseAniBox[0]?'animation':''}}"></view>
+      </view>
+      <view class="label_boxs" >
+        <view class="label_boxs_item" data-id="1" bindtap="choose_box">
+          <view class="title {{chooseAniBox[1]?'title_on':''}}">开始日期</view>
+            <picker mode="date" bindchange="startDate"   bindcancel="startDateCancel" data-id="1" end="{{endDate}}"> 
+              <view class="label_input">{{startDate}}</view>
+            </picker>
+          <view class="border {{chooseAniBox[1]?'animation':''}}"></view>
+        </view>
+
+        <view class="label_boxs_item" data-id="2" bindtap="choose_box">
+          <view class="title {{chooseAniBox[2]?'title_on':''}}">结束日期</view>
+            <picker mode="date" bindchange="endDate"   bindcancel="endDateCancel" data-id="2" start="{{startDate}}"> 
+              <view class="label_input">{{endDate}}</view>
+            </picker>
+          <view class="border {{chooseAniBox[2]?'animation':''}}"></view>
+        </view>
+      </view>
+      <view class="label_box" data-id="3" bindtap="choose_box">
+        <view class="title {{chooseAniBox[3]?'title_on':''}}">出差地点</view>
+        <input class="label_input" wx:if="{{chooseAniBox[3]}}" focus="true" cursor-spacing="20" bindinput='place' bindblur="place_blur"></input>
+        <view class="border {{chooseAniBox[3]?'animation':''}}"></view>
+      </view>
+      <view class="label_box" data-id="4" bindtap="choose_box">
+        <view class="title {{chooseAniBox[4]?'title_on':''}}">参与人</view>
+         <picker bindchange="choosePerson" range="{{personArr}}" bindcancel="choosePersonCancel" data-id="4"> 
+          <view class="label_input">{{people}}</view>
+        </picker>
+        <view class="icon_box">
+          <view class="jianhao_box" catchtap="slicePerson">
+            <view class="iconfont icon-jianhao1"></view>
+          </view>
+          <view class='iconfont icon-jiahao'></view>
+        </view>
+        <view class="border {{chooseAniBox[4]?'animation':''}}"></view>
+      </view>
+      <view class="options_box">
+        <view class="label_boxs_item" data-id="{{5}}" bindtap="choose_box">
+            <view class="title {{chooseAniBox[5]?'title_on':''}}">交通费用</view>
+            <input class="label_input" wx:if="{{chooseAniBox[5]}}" focus="true" cursor-spacing="20" bindinput='traffic' bindblur="traffic_blur" ></input>
+          <view class="border {{chooseAniBox[5]?'animation':''}}"></view>
+        </view>
+         <view class="label_boxs_item" data-id="{{6}}" bindtap="choose_box">
+            <view class="title {{chooseAniBox[6]?'title_on':''}}">餐饮费用</view>
+            <input class="label_input" wx:if="{{chooseAniBox[6]}}" focus="true" cursor-spacing="20" bindinput='repast' bindblur="repast_blur" ></input>
+          <view class="border {{chooseAniBox[6]?'animation':''}}"></view>
+        </view>
+         <view class="label_boxs_item" data-id="{{7}}" bindtap="choose_box">
+            <view class="title {{chooseAniBox[7]?'title_on':''}}">住宿费用</view>
+            <input class="label_input" wx:if="{{chooseAniBox[7]}}" focus="true" cursor-spacing="20" bindinput='stay' bindblur="stay_blur" ></input>
+          <view class="border {{chooseAniBox[7]?'animation':''}}"></view>
+        </view>
+         <view class="label_boxs_item" data-id="{{8}}" bindtap="choose_box">
+            <view class="title {{chooseAniBox[8]?'title_on':''}}">其他费用</view>
+            <input class="label_input" wx:if="{{chooseAniBox[8]}}" focus="true" cursor-spacing="20" bindinput='else' bindblur="else_blur" ></input>
+          <view class="border {{chooseAniBox[8]?'animation':''}}"></view>
+        </view>
+     </view> 
+      <view class="label_box label_box_textarea {{chooseAniBox[9]?'textarea':''}}" data-id="9" bindtap="choose_box">
+        <view class="title {{chooseAniBox[9]?'title_on':''}}">备注</view>
+        <textarea class="label_textarea" wx:if="{{chooseAniBox[9]}}" focus="true" cursor-spacing="80" bindinput="remark" bindblur="remark_blur" focus="true"></textarea>
+        <!-- <view class="border "></view> -->
+      </view>
+  </view>
+  <view class="publish_btn" bindtap = "submit">确定</view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,143 @@
+<view class="index_wrap">
+  <!-- <image src="../../image/center_bg.png" class="bg"></image> -->
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" >
+      <view class="title">任务中心</view>
+  </view>
+  <view class="filter_box">
+    <view class="top_box">
+      <view class="input_box">
+        <view class="iconfont icon-Magnifier"></view>
+        <input class="search" placeholder="Search by name" bindblur="search"></input>
+      </view>
+      <view class="iconfont icon-shoudiantong {{isShowMenu?'icon_active':''}}" bindtap="showMenu"></view>
+  </view>
+    <view class="condition_box" wx:if="{{!hide_menu}}" animation="{{ani}}">
+ <!-- {{isShowMenu?'menu_active':''}} -->
+      <!-- <view class="c_title">列表类别</view>
+      <view class="conditions">
+        <view class="item {{type ===item.value?'active':''}}" wx:for="{{condition_1}}" wx:key ="value" bindtap = "chooseCon_1" data-type="{{item.value}}">{{item.label}}</view>
+      </view> -->
+      <view class="c_title">任务状态</view>
+      <view class="conditions">
+        <view class="item {{state === item.value?'active':''}}" wx:for="{{condition_2}}" wx:key="value" bindtap="chooseCon_2" data-state='{{item.value}}'>{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="card_box" bindtouchstart = "hide_condition_box">
+    <!-- 任务卡片 -->
+    <view class="demand_card animation  {{touchIndex == index?'move':''}}" wx:for="{{list}}" wx:key="demand_id" wx:if="{{domShow === 'demand' || domShow ==='myList'}}" bindtap="jumpToDemandDetail" data-id="{{item.demand_id}}"  style="animation-delay: {{(index+1)*0.12}}s;" bindtouchstart='demandTouchStart' bindtouchend="demandTouchEnd" data-index="{{index}}" data-createBy="{{item.creater}}">
+        <view class="left">
+          <image src="{{item.avatar_url}}" class="avator"></image>
+          <view class="nick_name">{{item.joiner_name}}</view>
+        </view>
+        <view class="right">
+          <view class="demand_title">{{item.title}}{{item.audit?'(申请完成)':""}}</view>
+          <view class="project_title">{{item.project_name}}</view>
+          <view class="demand_detail">{{item.demand}}</view>
+          <view class="time_rp_box">
+          <view class="time_box">
+            <view class="iconfont icon-shijian" style="{{item.daysDistance<0?'color:#e76f51':''}}"></view>
+            <text class="time">{{item.daysDistance}}天</text>
+          </view>
+            <!-- <view class="rp_box" wx:if="{{item.offerFlag === '1'}}">
+              <view class="iconfont icon-RP"></view>
+              <view class="rp_num">{{item.rp_percent?item.rp_percent + '%':'待定'}} 
+                <text style='font-size:21rpx;white-space: nowrap;' wx:if="{{item.rp_percent}}">(项目占比)</text>
+              </view>
+            </view> -->
+            <view class="commission_box" >
+              <view class="iconfont icon-shijian1"></view>
+              <view class="commission_num">{{item.work_time}}工时</view>
+            </view>
+          </view>
+        </view>
+        <view class="iconfont icon-pin" wx:if="{{item.uFlag}}"></view>
+        <view class="operate_box {{touchIndex == index?'come':''}}">
+          <view class="icon-gantanhao_box">
+            <view class="iconfont icon-gantanhao" catchtouchstart="terminationDemand"></view>
+          </view>
+          <view class="icon-lajitong_box">
+            <view class="iconfont icon-lajitong" catchtouchstart="deleteDemand"></view>
+          </view>
+        </view>
+    </view>
+    <!-- 课题分享卡片 -->
+    <!-- <view class="share_card animation"  wx:for="{{list}}" wx:key="id" wx:if="{{domShow === 'share'}}" bindtap="jumpToShareDetail" data-id="{{item.id}}"  style="animation-delay: {{(index+1)*0.12}}s;">
+         <view class="left">
+          <image src="{{item.avatar_url}}" class="avator"></image>
+          <view class="nick_name">{{item.create_by_name}}</view>
+        </view>
+        <view class="right">
+          <view class="share_title">{{item.title}}</view>
+          <view class="share_detail">{{item.content}}</view>
+          <view class="time_rp_box">
+          <view class="time_box">
+            <view class="iconfont icon-shijian" style="{{item.daysDistance<0?'color:#e76f51':''}}"></view>
+            <text class="time">{{item.start_date}}</text>
+          </view>
+          </view>
+        </view>
+    </view> -->
+    <view class="tips" wx:if="{{list.length === 0}}">暂无数据</view>
+  </view>
+  <view class="nav {{isShowNav?'nav_active':''}}" bindtap="hideNav">
+    <view class="hexagon" wx:if="{{showMenuIcon}}">
+      <view class="bar-rotate-right">
+          <view class="bar-rotate-left">
+              <view class="bar-horizontal" catchtap="showNav">
+                <view class="iconfont icon-caidan"></view>
+              </view>
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="menu_ani_box" wx:if="{{!showMenuIcon}}" animation="{{nav_ani}}">
+    <view class="xm_box" bindtap="jumpToPublishPro">
+        <view class="iconfont icon-xiangmu"></view>
+        <view>项目列表</view>
+    </view>
+     <view class="rw_box" bindtap = "jumpToReleaseDemand">
+        <view class="iconfont icon-renwu3"></view>
+        <view>发布任务</view>
+    </view>
+     <view class="fp_box" bindtap = "jumpToApportion">
+        <view class="iconfont icon-anjianfenpei-sel"></view>
+        <view>数据统计</view>
+    </view>
+     <view class="tj_box">
+        <view class="iconfont icon-tongji" bindtap="jumpToChart"></view>
+        <view>新增差旅</view>
+    </view>
+    <view class="fx_box" bindtap='jumpToIssuedShare'>
+      <view class="iconfont icon-hetong2x"></view>
+        <view>客户合同</view>
+    </view>
+     <view class="zb_box" bindtap='jumpToReportList'>
+      <view class="iconfont icon-jilu"></view>
+        <view>新增事件</view>
+    </view>
+    <view class="menu_ani_box_child">
+      <view class="menu_item" bindtap="hideNav">
+        <view class="iconfont icon-down2"></view>
+      </view>
+    </view>
+  </view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+  <view class="alter_rp_box" wx:if="{{isShowAlterBox}}">
+    <view class="mian">
+      <view class="title">请填写修改后的研值</view>
+      <view class="input_box">
+        <input class="input"  bindinput = "alter_offer"></input>
+      </view>
+      <view class="handle_box">
+        <view class="qx_btn" bindtap="hideAlterBox">取消</view>
+        <view class="cut_line"></view>
+        <view class="qr_btn" bindtap="alter_rp">确认</view>
+      </view>
+    </view>
+  </view>
+</view>

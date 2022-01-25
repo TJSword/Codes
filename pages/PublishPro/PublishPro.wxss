@@ -1,0 +1,194 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .publishPro_wrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to top, #304352, #d7d2cc);
+}
+Page .publishPro_wrap .detailBox {
+  padding: 0 32rpx;
+  height: 88.8%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+Page .publishPro_wrap .detailBox .label_box {
+  height: 9%;
+  width: 90%;
+  position: relative;
+  margin-top: 15rpx;
+  overflow: hidden;
+  z-index: 50;
+  transition: all 0.3s ease-out;
+}
+Page .publishPro_wrap .detailBox .label_box .title {
+  position: absolute;
+  bottom: 20rpx;
+  font-size: 36rpx;
+  left: 0;
+  transition: all 0.3s ease-out;
+  color: #343a40;
+}
+Page .publishPro_wrap .detailBox .label_box .title_on {
+  font-size: 30rpx;
+  color: #006494;
+  transition: all 0.3s ease-out;
+  transform: translateY(-50rpx);
+}
+Page .publishPro_wrap .detailBox .label_box .label_input {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  bottom: 7%;
+  z-index: 20;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+}
+Page .publishPro_wrap .detailBox .label_box .border {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-bottom: 3rpx solid #343a40;
+  height: 230rpx;
+  z-index: 0;
+}
+Page .publishPro_wrap .detailBox .label_box .animation {
+  animation-name: border-left-bottom;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+Page .publishPro_wrap .detailBox .label_box_textarea {
+  border-bottom: 3rpx solid #343a40;
+}
+Page .publishPro_wrap .detailBox .textarea {
+  height: 20%;
+  transition: all 0.3s ease-out;
+  border-bottom: 0;
+}
+Page .publishPro_wrap .detailBox .textarea .label_textarea {
+  border: 3rpx solid #006494;
+  border-radius: 10rpx;
+  position: absolute;
+  width: calc(100% - 26rpx);
+  bottom: 0;
+  height: 160rpx;
+  font-size: 26rpx;
+  padding: 10rpx;
+}
+Page .publishPro_wrap .detailBox .textarea .title_on {
+  font-size: 30rpx;
+  color: #006494;
+  transition: all 0.3s ease-out;
+  transform: translateY(-180rpx);
+}
+Page .publishPro_wrap .detailBox .textarea .border {
+  border-bottom: 3rpx solid #006494;
+  transition: all 0.3s ease-out;
+}
+Page .publishPro_wrap .detailBox .label_boxs {
+  height: 9%;
+  width: 90%;
+  position: relative;
+  margin-top: 15rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+Page .publishPro_wrap .detailBox .label_boxs .label_boxs_item {
+  height: 100%;
+  width: 45%;
+  position: relative;
+  overflow: hidden;
+  z-index: 50;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+Page .publishPro_wrap .detailBox .label_boxs .label_boxs_item .title {
+  position: absolute;
+  bottom: 20rpx;
+  font-size: 36rpx;
+  left: 0;
+  transition: all 0.3s ease-out;
+  color: #343a40;
+}
+Page .publishPro_wrap .detailBox .label_boxs .label_boxs_item .title_on {
+  font-size: 30rpx;
+  color: #006494;
+  transition: all 0.3s ease-out;
+  transform: translateY(-50rpx);
+}
+Page .publishPro_wrap .detailBox .label_boxs .label_boxs_item .label_input {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  bottom: 8rpx;
+  z-index: 20;
+  font-size: 36rpx;
+}
+Page .publishPro_wrap .detailBox .label_boxs .label_boxs_item .border {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-bottom: 3rpx solid #343a40;
+  height: 230rpx;
+  z-index: 0;
+}
+Page .publishPro_wrap .detailBox .label_boxs .label_boxs_item .animation {
+  animation-name: border-left-bottom;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+@keyframes border-left-bottom {
+  0% {
+    width: 100%;
+    border-bottom: 3rpx solid #343a40;
+  }
+  25% {
+    width: 93%;
+    border-bottom-left-radius: 15%;
+  }
+  50% {
+    width: 86%;
+    border-bottom-left-radius: 30%;
+  }
+  75% {
+    width: 93%;
+    border-bottom-left-radius: 15%;
+  }
+  100% {
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom: 3rpx solid #006494;
+  }
+}
+Page .publishPro_wrap .publish_btn {
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 6%;
+  width: 50%;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2rpx;
+  background: rgba(0, 129, 255, 0.8);
+  color: white;
+}
+Page .publishPro_wrap .publish_btn:active {
+  opacity: 0.8;
+}

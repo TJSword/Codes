@@ -1,0 +1,106 @@
+<view class="chart_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">统计查询</view>
+  </view>
+  <view class="info_box">
+      <view class="options_box">
+        <view class="title">筛选条件</view>
+        <view class="options">
+                <view class="set_time">
+          <picker mode="date" value="{{startDate}}"  end="{{endDate}}" bindchange="bindStartDateChange">
+                <view class="start_time">{{startDate?startDate:'开始时间'}}</view>
+        </picker>
+          <view class="iconfont icon-sanjiao3"></view>
+        <picker mode="date" value="{{endDate}}" start="{{startDate}}"  end="{{endDate}}" bindchange="bindEndDateChange">
+                <view class="end_time">{{endDate?endDate:'结束时间'}}</view>
+        </picker>
+        </view> 
+        <view class="set_prople" wx:if="{{isCreate == '1'}}">
+          <picker mode="selector"   range = "{{peopleName}}" bindchange="bindPeopleChange">
+              <view class="person">{{peopleIndex?peopleName[peopleIndex]:'选择人员'}}</view>
+        </picker>
+        </view>
+        
+        </view>
+    </view>
+    <view class="contribution">
+      <view class="title">贡献评估</view>
+      <view class="option_task_box">
+          <view class="option_task {{showDemandList?'active':''}}" bindtap = "showDemandList">参与任务</view>
+          <view class="option_task {{showDemandList?'':'active'}}"  bindtap = "showTaskList">参与课题</view>
+      </view>
+
+
+      <view class="table" wx:if="{{showDemandList}}">
+        <view class="table_header">
+          <view class="task_name">任务名称</view>
+          <view class="rp">获得Rp</view>
+          <view class="commission">获得佣金</view>
+        </view>
+        <view class="table_box">
+          <block wx:if="{{contribution.length !== 0}}">
+            <view class="table_item" wx:for="{{contribution}}" wx:key="index">
+              <view class="task">{{item.title}}</view>
+              <view class="rp_num">{{item.offer}}</view>
+              <view class="commission_num">{{item.commission}}</view>
+            </view>
+          </block>
+          <view class="noData" wx:else>暂无数据..</view>
+        </view>
+      </view>
+
+
+    <view class="tables" wx:else>
+      <view class="table_box_item_1">
+        <view class="table_header">
+          <view class="task_name">发起的话题</view>
+        </view>
+        <view class="table_box_item_1_child">
+          <view class="noData" wx:if="{{shareList.length ==0}}">暂无数据..</view>
+          <block wx:else>
+            <view class="table_item_1_child_item" wx:for="{{shareList}}" wx:key="index">{{item.title}} </view>
+          </block>
+        </view>
+      </view>
+
+        <view class="table_box_item_1" >
+        <view class="table_header">
+          <view class="task_name">参与的话题</view>
+        </view>
+        <view class="table_box_item_1_child">
+          <view class="noData" wx:if="{{joinList.length ==0}}">暂无数据..</view>
+          <block wx:else>
+            <view class="table_item" wx:for="{{joinList}}" wx:key="index">
+            <view class="table_item_1_child_item">{{item.title}}</view>
+          </view>
+          </block>
+        </view>
+      </view>
+
+    </view>
+
+    </view>
+    <view class="fabric">
+      <view class="title_box">
+        <view class="title">任务结构</view>
+        <view class="rp_commission" bindtap='chooseType'>
+          <view class="rp {{isrp?'active':''}}" data-isRp='{{true}}'>研值</view>
+          <view class="iconfont {{isrp?'icon-RP':'icon-meiyuanbizhuanyongzhanghu'}}"></view>
+          <!-- icon-meiyuanbizhuanyongzhanghu -->
+          <view class="commission {{isrp?'':'active'}}" data-isRp='{{false}}'>佣金</view>
+        </view>
+      </view>
+      <view class="options_box" bindtap = "choose">
+        <view class="option {{type == '0'?'active':'' }}" data-type = "0">项目类型</view>
+        <view class="option {{type == '1'?'active':'' }}" data-type = "1">项目难度</view>
+        <view class="option {{type == '2'?'active':'' }}" data-type = "2">任务模块</view>
+        <view class="option {{type == '3'?'active':'' }}" data-type = "3" wx:if="{{isCreate == '1'}}">人员统计</view>
+      </view>
+      <view class="noData" style="display:{{pieData.length == 0?'flex':'none'}}">暂无数据..</view>
+      <view class="container" >
+        <ec-canvas id="mychart-dom-bar"  class='mychart-bar' canvas-id="mychart-bar" ec="{{ ec }}" ></ec-canvas>
+      </view>
+    </view>
+  </view>
+</view>

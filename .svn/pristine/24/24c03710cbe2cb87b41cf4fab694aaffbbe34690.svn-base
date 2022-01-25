@@ -1,0 +1,269 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .apportion_wrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to top, #304352, #d7d2cc);
+}
+Page .apportion_wrap .remind {
+  height: 88.8%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2f3e46;
+  font-size: 30rpx;
+}
+Page .apportion_wrap .detail_box {
+  padding: 0 32rpx;
+  height: 88.8%;
+  overflow: hidden;
+}
+Page .apportion_wrap .detail_box .pro_title_box {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  padding: 0 30rpx;
+}
+Page .apportion_wrap .detail_box .pro_title_box .icon-xiangmu {
+  color: #2980b9;
+  font-size: 48rpx;
+}
+Page .apportion_wrap .detail_box .pro_title_box .pro_title {
+  margin-left: 20rpx;
+}
+Page .apportion_wrap .detail_box .pro_title_box .pro_title .icon-down2 {
+  margin-left: 6rpx;
+  font-size: 24rpx;
+}
+Page .apportion_wrap .detail_box .pm_io_box {
+  display: flex;
+  padding: 0 30rpx;
+  align-items: center;
+  margin-top: 30rpx;
+}
+Page .apportion_wrap .detail_box .pm_io_box .pm_box {
+  display: flex;
+  align-items: center;
+  width: 60%;
+}
+Page .apportion_wrap .detail_box .pm_io_box .pm_box .pm_icon {
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 12rpx;
+  background: #2980b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20rpx;
+}
+Page .apportion_wrap .detail_box .pm_io_box .pm_box .pm_avator {
+  margin-left: 20rpx;
+  height: 70rpx;
+  width: 70rpx;
+  border-radius: 50%;
+}
+Page .apportion_wrap .detail_box .pm_io_box .pm_box .pm_name {
+  margin-left: 20rpx;
+}
+Page .apportion_wrap .detail_box .pm_io_box .commission_rp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+}
+Page .apportion_wrap .detail_box .pm_io_box .commission_rp .rp_box {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+Page .apportion_wrap .detail_box .pm_io_box .commission_rp .rp_box .rp_icon {
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 12rpx;
+  background: #2980b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20rpx;
+}
+Page .apportion_wrap .detail_box .pm_io_box .commission_rp .rp_box .rp {
+  margin-left: 20rpx;
+}
+Page .apportion_wrap .detail_box .pm_io_box .commission_rp .commission_box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+Page .apportion_wrap .detail_box .pm_io_box .commission_rp .commission_box .commission_icon {
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 12rpx;
+  background: #2980b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 30rpx;
+}
+Page .apportion_wrap .detail_box .pm_io_box .commission_rp .commission_box .commission_num {
+  margin-left: 20rpx;
+}
+Page .apportion_wrap .detail_box .tip {
+  width: 100%;
+  text-align: center;
+  color: #2f3e46;
+  font-size: 28rpx;
+}
+Page .apportion_wrap .detail_box .demand_box {
+  padding: 0rpx 30rpx;
+  overflow-y: scroll;
+  height: 60%;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item {
+  background: linear-gradient(to top, #969B9D, #BAB9B6);
+  border-radius: 10rpx;
+  padding: 30rpx 20rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+  box-shadow: 0 10rpx 10rpx 0 rgba(0, 0, 0, 0.17);
+  flex-wrap: wrap;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item:last-child {
+  margin-bottom: 50rpx;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .left_box {
+  width: 80%;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .left_box .demand_title {
+  font-size: 32rpx;
+  color: #4a4e69;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .left_box .demand_time_box {
+  width: 100%;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #4a4e69;
+  flex-wrap: wrap;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .left_box .demand_time_box .rp_fanwei {
+  width: 62%;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .left_box .demand_time_box .due {
+  width: 38%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-direction: column;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .left_box .demand_time_box .due .rp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .left_box .demand_time_box .due .rp .rp_input {
+  width: 70rpx;
+  flex-shrink: 0;
+  border-bottom: 2rpx solid #ccc6c0;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .right_box {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .right_box .demand_avator {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .right_box .demand_name {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #4a4e69;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .bottom_box {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  transition: all 0.3s ease-out;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .bottom_box .comment {
+  padding: 10rpx;
+  height: calc(100% - 22rpx);
+  width: calc(100% - 22rpx);
+  border-radius: 10rpx;
+  border: 1rpx solid #ccc6c0;
+  font-size: 24rpx;
+  color: #4a4e69;
+}
+Page .apportion_wrap .detail_box .demand_box .demand_item .active {
+  height: 140rpx;
+  margin-top: 20rpx;
+  transition: all 0.3s ease-out;
+}
+Page .apportion_wrap .detail_box .demand_box .animation {
+  animation-name: slide-bottom;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+@keyframes slide-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(250rpx);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+Page .apportion_wrap .publish_btn {
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 6%;
+  width: 50%;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2rpx;
+  background: rgba(0, 129, 255, 0.8);
+  color: white;
+}
+Page .apportion_wrap .publish_btn:active {
+  opacity: 0.8;
+}
+Page .apportion_wrap .publish_btn-tip {
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: calc(6% - 30rpx);
+  width: 50%;
+  text-align: center;
+  color: white;
+  font-size: 24rpx;
+  text-decoration: underline;
+}

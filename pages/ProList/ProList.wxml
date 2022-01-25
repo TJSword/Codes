@@ -1,0 +1,25 @@
+<view class="pro_list_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">项目列表</view>
+  </view>
+  <view class="condition_box">
+      <view class="c_title">项目状态</view>
+      <view class="conditions">
+        <view class="item {{state === item.value?'active':''}}" wx:for="{{condition}}" wx:key="value" bindtap="chooseCon" data-state='{{item.value}}'>{{item.label}}</view>
+      </view>
+      <view class="pro_btn" bindtap="jumpToIssuePro">发布项目</view>
+    </view>
+  <view class="pro_box">
+    <view class="card" bindtap="goDetail" wx:for="{{list}}" bindlongpress="operatePro" data-id="{{item.project_id}}" data-state ="{{item.state}}" data-pm = "{{item.pm}}">
+    <image src="../../image/pro_bg.jpg" class="bg"></image>
+      <view class="mask"  bindtap="goDetail" data-pm = "{{item.pm}}" data-id="{{item.project_id}}"></view>
+      <view class="avator_name">
+        <image src="{{item.avatar_url}}" class="avator"></image>
+        <view class="name">{{item.pm_name}}</view>
+      </view>
+      <view class="pro_title">{{item.project_name}}</view>
+      <view class="pro_dsc">{{item.describe}}</view>
+    </view>
+  </view>
+</view>

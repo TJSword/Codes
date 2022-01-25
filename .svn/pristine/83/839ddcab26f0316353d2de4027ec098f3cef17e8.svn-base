@@ -1,0 +1,345 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .chart_wrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to top, #304352, #d7d2cc);
+}
+Page .chart_wrap .info_box {
+  height: 88.8%;
+  width: 100%;
+}
+Page .chart_wrap .options_box {
+  height: 160rpx;
+  overflow: hidden;
+}
+Page .chart_wrap .options_box .title {
+  height: 45rpx;
+  width: 158rpx;
+  font-size: 24rpx;
+  background: #206b9c;
+  text-align: center;
+  border-radius: 22.5rpx;
+  line-height: 45rpx;
+  color: white;
+  margin-top: 25rpx;
+  margin-left: 35rpx;
+}
+Page .chart_wrap .options_box .options {
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+Page .chart_wrap .options_box .set_time {
+  display: flex;
+  width: 70%;
+}
+Page .chart_wrap .options_box .set_time .icon-sanjiao3 {
+  font-size: 30rpx;
+  margin: 12rpx 12rpx 0;
+  color: #14213d;
+}
+Page .chart_wrap .options_box .set_time .start_time {
+  margin-left: 50rpx;
+  border: 2rpx solid #E4E4E4;
+  width: 180rpx;
+  text-align: center;
+  font-size: 28rpx;
+  padding: 6rpx 0;
+  border-radius: 15rpx;
+}
+Page .chart_wrap .options_box .set_time .end_time {
+  border: 2rpx solid #E4E4E4;
+  width: 180rpx;
+  text-align: center;
+  font-size: 28rpx;
+  padding: 6rpx 0;
+  border-radius: 15rpx;
+}
+Page .chart_wrap .options_box .set_prople {
+  margin-right: 10rpx;
+  width: 30%;
+}
+Page .chart_wrap .options_box .set_prople .person {
+  border: 2rpx solid #E4E4E4;
+  width: 180rpx;
+  text-align: center;
+  font-size: 28rpx;
+  padding: 6rpx 0;
+  border-radius: 15rpx;
+}
+Page .chart_wrap .contribution {
+  height: 33%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .chart_wrap .contribution .title {
+  height: 45rpx;
+  width: 158rpx;
+  font-size: 24rpx;
+  background: #206b9c;
+  text-align: center;
+  border-radius: 22.5rpx;
+  line-height: 45rpx;
+  color: white;
+  margin-top: 25rpx;
+  margin-left: 35rpx;
+}
+Page .chart_wrap .contribution .option_task_box {
+  height: 50rpx;
+  width: 80%;
+  margin-top: 20rpx;
+  margin-left: 70rpx;
+  display: flex;
+  align-items: center;
+}
+Page .chart_wrap .contribution .option_task_box .option_task {
+  font-size: 28rpx;
+  opacity: 0.6;
+  transition: 0.3s all ease;
+  margin-left: 50rpx;
+}
+Page .chart_wrap .contribution .option_task_box .option_task:first-child {
+  margin-left: 0;
+}
+Page .chart_wrap .contribution .option_task_box .active {
+  opacity: 1;
+  transition: 0.3s all ease;
+  color: #006494;
+}
+Page .chart_wrap .contribution .table {
+  margin-top: 20rpx;
+  max-height: 220rpx;
+  width: 90%;
+  margin-left: 5%;
+  border: 1rpx solid #E4E4E4;
+  border-radius: 10rpx;
+}
+Page .chart_wrap .contribution .table .table_header {
+  height: 55rpx;
+  display: flex;
+}
+Page .chart_wrap .contribution .table .table_header .task_name {
+  width: calc(60% - 1rpx);
+  border: 1rpx solid #E4E4E4;
+  border-left: 0;
+  border-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .chart_wrap .contribution .table .table_header .rp {
+  width: 20%;
+  border-bottom: 1rpx solid #E4E4E4;
+  border-right: 1rpx solid #E4E4E4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .chart_wrap .contribution .table .table_header .commission {
+  width: 20%;
+  border-bottom: 1rpx solid #E4E4E4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .chart_wrap .contribution .table .table_box {
+  max-height: 165rpx;
+  overflow-y: scroll;
+}
+Page .chart_wrap .contribution .table .table_box .noData {
+  color: #14213d;
+  height: 165rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #E4E4E4;
+  border-radius: 10rpx;
+}
+Page .chart_wrap .contribution .table .table_item {
+  height: 55rpx;
+  display: flex;
+}
+Page .chart_wrap .contribution .table .table_item .task {
+  width: calc(60% - 20rpx);
+  border: 1rpx solid #E4E4E4;
+  border-left: 0;
+  border-top: 0;
+  border-bottom-left-radius: 10rpx;
+  line-height: 55rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 10rpx;
+}
+Page .chart_wrap .contribution .table .table_item .rp_num {
+  width: 20%;
+  border-bottom: 1rpx solid #E4E4E4;
+  border-right: 1rpx solid #E4E4E4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .chart_wrap .contribution .table .table_item .commission_num {
+  width: 20%;
+  border-bottom: 1rpx solid #E4E4E4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 10rpx;
+}
+Page .chart_wrap .contribution .tables {
+  margin-top: 20rpx;
+  width: 90%;
+  max-height: 220rpx;
+  margin-left: 5%;
+  border: 1rpx solid #E4E4E4;
+  display: flex;
+  border-radius: 10rpx;
+}
+Page .chart_wrap .contribution .tables .table_box_item_1 {
+  width: 50%;
+}
+Page .chart_wrap .contribution .tables .table_box_item_1:first-child {
+  border-right: 1rpx solid #E4E4E4;
+}
+Page .chart_wrap .contribution .tables .table_box_item_1 .table_header {
+  height: 54rpx;
+  border-bottom: 1rpx solid #E4E4E4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .chart_wrap .contribution .tables .table_box_item_1 .table_box_item_1_child {
+  max-height: 155rpx;
+  overflow-y: scroll;
+}
+Page .chart_wrap .contribution .tables .table_box_item_1 .table_box_item_1_child .table_item_1_child_item {
+  height: 54rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #E4E4E4;
+}
+Page .chart_wrap .contribution .tables .table_box_item_1 .table_box_item_1_child .noData {
+  color: #14213d;
+  height: 155rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #E4E4E4;
+  border-radius: 10rpx;
+}
+Page .chart_wrap .fabric {
+  width: 100%;
+  height: 45%;
+}
+Page .chart_wrap .fabric .title_box {
+  margin-top: 25rpx;
+  margin-left: 35rpx;
+  display: flex;
+  align-items: center;
+}
+Page .chart_wrap .fabric .title_box .title {
+  height: 45rpx;
+  width: 158rpx;
+  font-size: 24rpx;
+  background: #206b9c;
+  text-align: center;
+  border-radius: 22.5rpx;
+  line-height: 45rpx;
+  color: white;
+}
+Page .chart_wrap .fabric .title_box .rp_commission {
+  margin-left: 60rpx;
+  height: 45rpx;
+  width: 200rpx;
+  border-radius: 22.5rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+Page .chart_wrap .fabric .title_box .rp_commission .active {
+  color: #006494;
+  transition: all 0.3s ease;
+}
+Page .chart_wrap .fabric .title_box .rp_commission .iconfont {
+  color: #006494;
+  font-size: 32rpx;
+}
+Page .chart_wrap .fabric .title_box .rp_commission .rp,
+Page .chart_wrap .fabric .title_box .rp_commission .commission,
+Page .chart_wrap .fabric .title_box .rp_commission .icon-RP,
+Page .chart_wrap .fabric .title_box .rp_commission .icon-meiyuanbizhuanyongzhanghu {
+  transition: all 0.3s ease;
+}
+Page .chart_wrap .fabric .options_box {
+  height: 50rpx;
+  width: 80%;
+  margin-top: 20rpx;
+  margin-left: 70rpx;
+  display: flex;
+  align-items: center;
+}
+Page .chart_wrap .fabric .options_box .option {
+  font-size: 28rpx;
+  opacity: 0.6;
+  transition: 0.3s all ease;
+  margin-left: 50rpx;
+}
+Page .chart_wrap .fabric .options_box .option:first-child {
+  margin-left: 0;
+}
+Page .chart_wrap .fabric .options_box .active {
+  opacity: 1;
+  transition: 0.3s all ease;
+  color: #006494;
+}
+Page .chart_wrap .fabric .noData {
+  color: gray;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .chart_wrap .fabric .container {
+  height: 400rpx;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: -20rpx;
+}
+Page .chart_wrap .fabric .container #mychart-dom-pie_1 {
+  height: 35%;
+  width: 100%;
+  margin-top: -50rpx;
+}
+Page .chart_wrap .topic {
+  height: 30%;
+  width: 100%;
+}
+Page .chart_wrap .topic .title {
+  height: 45rpx;
+  width: 158rpx;
+  font-size: 24rpx;
+  background: #206b9c;
+  text-align: center;
+  border-radius: 22.5rpx;
+  line-height: 45rpx;
+  color: white;
+  margin-top: 25rpx;
+  margin-left: 35rpx;
+}

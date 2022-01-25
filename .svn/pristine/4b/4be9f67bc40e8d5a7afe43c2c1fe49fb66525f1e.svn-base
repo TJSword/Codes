@@ -1,0 +1,86 @@
+<view class='apportion_wrap'>
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">研值分配</view>
+  </view>
+  <view class="detail_box" wx:if="{{havePro}}">
+    <view class="pro_title_box">
+      <view class="iconfont icon-xiangmu"></view>
+      <picker range="{{pro_list}}" bindchange="choosePro">
+        <view class="pro_title"> {{pro_list[proIndex]}}<text class='iconfont icon-down2'></text> </view>
+      </picker>
+    </view>
+    <view class="line"></view>
+    <view class="pm_io_box">
+      <view class="pm_box">
+        <view class="pm_icon">PM</view>
+        <image src="{{pro_list_info[proIndex].avatar_url}}" class="pm_avator"></image>
+        <view class="pm_name">{{pro_list_info[proIndex].pm_name}}</view>
+      </view>
+      <view class='commission_rp' >
+        <view class="rp_box" wx:if="{{pro_list_info[chooseIndex].offer != 0}}">
+          <view class="rp_icon">RP</view>
+          <view class="rp">{{rp_num == 0?'无研值':offer}}</view>
+        </view>
+        <view class="commission_box" style="{{pro_list_info[chooseIndex].offer != 0?'margin-top:10rpx':''}}">
+          <view class="commission_icon iconfont icon-meiyuanbizhuanyongzhanghu"></view>
+          <view class="commission_num">{{commission_num==0?'无佣金':commission}}</view>
+        </view>
+      </view>
+      <!-- <view class="rp_box">
+        <view class="rp_icon">RP</view>
+        <view class="rp">{{offer == 0?'无研值':offer}}</view>
+      </view>
+      <view class="commission_box">
+        <view class="commission_icon iconfont icon-meiyuanbizhuanyongzhanghu"></view>
+        <view class="commission_num">{{commission==0?'无佣金':commission}}</view>
+     </view> -->
+    </view>
+    <view class="line"></view>
+    <view class="tip" wx:if="{{demand_list.length == 0}}">该项目尚未发布任务</view>
+    <view class="demand_box" wx:else>
+      <view class="demand_item animation" wx:for="{{demand_list}}" wx:key='demand_id' style="animation-delay: {{(index+1)*0.12}}s;"  data-id = "{{item.demand_id}}">
+        <view class="left_box">
+        
+          <view class="demand_title">{{item.title}}</view>
+          <view class='scope_box'>
+            <view class="demand_time_box"  wx:if="{{commission_num!=0}}">
+              <view class="rp_fanwei">佣金范围:{{item.min_commission}}~{{item.max_commission}}</view>
+                <view class="due">
+                  <view class='rp'>
+                    <text>获得佣金：</text> 
+                    <input class='rp_input' bindfocus="commission_focus" data-index="{{index}}" bindinput="commission_input" bindblur="commission_blur" data-min = "{{item.min_commission}}" data-max = "{{item.max_commission}}"  type="number"  data-id = "{{item.demand_id}}"></input>
+                  </view>
+              </view>
+            </view>
+            <view class="demand_time_box" wx:if="{{rp_num!=0}}">
+              <view class="rp_fanwei">预估研值:{{item.rp_percent}}%(项目占比)</view>
+                <view class="due">
+                  <view class='rp'>
+                    <text>获得研值：</text> 
+                    <input class='rp_input' bindfocus="rp_focus" data-index="{{index}}" bindinput="rp_input" bindblur="rp_blur"  type="number" value='{{item.rp_input_value}}' data-id = "{{item.demand_id}}"></input>
+                  </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <view class="right_box">
+          <image src="{{item.avatar_url}}" class="demand_avator"></image>
+          <view class="demand_name">{{item.joiner_name}}</view>
+        </view>
+        <view class="bottom_box {{choose_i == index?'active':''}}">
+           <textarea class='comment' bindinput="comment" maxlength="-1" placeholder="撰写任务评价.." cursor-spacing="80"  data-id = "{{item.demand_id}}"></textarea>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="publish_btn" bindtap = "submit" wx:if="{{havePro}}">上传导师</view>
+  <view class="publish_btn-tip" bindtap='showTip' wx:if="{{havePro}}">为什么要上传导师?</view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+  <view class="remind" wx:else>你还没有可以分配研值的项目</view>
+</view>

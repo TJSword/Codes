@@ -1,0 +1,188 @@
+// pages/ProDetail/ProDetail.js
+import { request } from '../../utils/util.js';
+const app = getApp()
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    statusBarHeight: app.globalData.statusBarHeight,
+    steps:[{
+      icon:'icon-sanjiaotop',
+      name:'正在进行'
+    },{
+        icon: 'icon-yuanquan',
+        name: '申请完成'
+    },{
+        icon: 'icon-duihao',
+        name: '任务完成'
+    }],
+    step:0,
+    loading: false
+    
+  },
+  goBack: function (e) {//点击返回按钮 返回上一层页面
+    wx.redirectTo({
+      url: '/pages/Index/Index'
+    })
+  },
+  daysDistance(date) { //距离结束日期到当前日期的时间
+    let today = new Date();
+    let str = "";
+    str += today.getFullYear() + "-";
+    let month = today.getMonth() + 1;
+    if (month < 10) {
+      str += "0";
+    }
+    str += month + "-";
+    let day = today.getDate();
+    if (day < 10) {
+      str += "0";
+    }
+    str += day;//计算当前日期
+    date = Date.parse(date);
+    str = Date.parse(str);
+    let ms = date - str;
+    let days = Math.ceil(ms / (24 * 3600 * 1000));
+    return days;
+  },
+  getDemandInfo(id){
+    this.setData({
+      loading:true
+    })
+    request('/demand/view/' + id,'get').then(res=>{
+      console.log(res.searchResult)
+      this.setData({
+        demandInfo: res.searchResult
+      })
+      if (res.searchResult.state === "0"){
+        this.setData({
+          step:0
+        })
+      } else if (res.searchResult.state === "3"){
+        this.setData({
+          step:1
+        })
+      } else if (res.searchResult.state === "1"){
+        this.setData({
+          step:2
+        })
+      }
+      this.setData({
+        loading: false
+      })
+    }).catch(err=>{
+      this.setData({
+        loading: false
+      })
+    })
+    
+  },
+  apply(e){
+    console.log(e.currentTarget.dataset.index)
+    if (e.currentTarget.dataset.index === 1){
+      if (wx.getStorageSync('uid') != this.data.demandInfo.joiner){
+        wx.showToast({
+          title: '这不是你的任务,想啥呢',
+          icon:'none'
+        })
+      } else if (wx.getStorageSync('uid') == this.data.demandInfo.joiner && this.data.step == 1){
+        wx.showToast({
+          title: '已经点了，就不要再点了',
+          icon:'none'
+        })
+      } else if (wx.getStorageSync('uid') == this.data.demandInfo.joiner && this.data.step == 2){
+        wx.showToast({
+          title: '都完成了，还点!(｡ŏ_ŏ)',
+          icon:'none'
+        })
+      } else if (wx.getStorageSync('uid') == this.data.demandInfo.joiner && this.data.step == 0){
+        wx.vibrateLong()
+        wx.showModal({
+          content: '确认申请完成?',
+          success:res=>{
+            if (res.confirm){
+              this.setData({
+                loading: true
+              })
+              request('/demand/operate', 'post', { id: this.data.demandInfo.demand_id, state: '3' }).then(res => {
+                console.log(res.code)
+                if (res.code == 0) {
+                  this.setData({
+                    step: 1,
+                    loading: false
+                  })
+                  wx.showToast({
+                    title: '申请成功',
+                    icon: 'none'
+                  })
+                } else {
+                  wx.showToast({
+                    title: '未知错误，请联系管理员',
+                    icon: 'none'
+                  })
+                }
+              })
+            }
+          }
+        })
+      }
+    }
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getDemandInfo(options.id)
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

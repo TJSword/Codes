@@ -1,0 +1,71 @@
+<view class="releaseDemand_wrap">
+    <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+      <view class="iconfont icon-fanhui"></view>
+      <view class="title">新增客户</view>
+    </view>
+      <view class="detailBox" >
+        <view class="label_box" data-id="1" bindtap="choose_box">
+          <view class="title {{chooseAniBox[1]?'title_on':''}}">客户姓名</view>
+          <input class="label_input" wx:if="{{chooseAniBox[1]}}" focus="true" cursor-spacing="20" bindinput='demand_name' bindblur="demand_name_blur" value="{{name}}"></input>
+          <view class="border {{chooseAniBox[1]?'animation':''}}"></view>
+        </view>
+        <view class="label_box" data-id="2" bindtap="choose_box">
+          <view class="title {{chooseAniBox[2]?'title_on':''}}">公司名称</view>
+          <input class="label_input" wx:if="{{chooseAniBox[2]}}" focus="true" cursor-spacing="20" bindinput='company_name' bindblur="company_name_blur" value="{{company}}"></input>
+          <view class="border {{chooseAniBox[2]?'animation':''}}"></view>
+        </view>
+        <view class="label_boxs" >
+          <view class="label_boxs_item" data-id="8" bindtap="choose_box">
+            <view class="title {{chooseAniBox[8]?'title_on':''}}">性别</view>
+             <picker bindchange="rp"  range="{{rpArr}}" bindcancel="rpCancel" data-id="8"> 
+                <view class="label_input">{{rpArr[sex]}}</view>
+              </picker>
+            <view class="border {{chooseAniBox[8]?'animation':''}}"></view>
+          </view>
+          <view class="label_boxs_item" data-id="4" bindtap="choose_box">
+             <view class="title {{chooseAniBox[4]?'title_on':''}}">企业 ID</view>
+              <picker bindchange="io"  range="{{ioArr}}" bindcancel="ioCancel" data-id="4"> 
+                <view class="label_input">{{ioArr[ioIndex]}}</view>
+              </picker>
+            <view class="border {{chooseAniBox[4]?'animation':''}}"></view>
+          </view>
+        </view>
+        <view class="label_boxs" >
+          <view class="label_boxs_item" data-id="10" bindtap="choose_box">
+            <view class="title {{chooseAniBox[10]?'title_on':''}}">部门</view>
+            <input class="label_input" wx:if="{{chooseAniBox[10]}}" focus="true" cursor-spacing="20" bindinput='dept_name' bindblur="dept_name_blur" value="{{dept}}"></input>
+            <view class="border {{chooseAniBox[10]?'animation':''}}"></view>
+          </view>
+          <view class="label_boxs_item" data-id="9" bindtap="choose_box">
+            <view class="title {{chooseAniBox[9]?'title_on':''}}">职位</view>
+            <input class="label_input" wx:if="{{chooseAniBox[9]}}" focus="true" cursor-spacing="20" bindinput='position_name' bindblur="position_name_blur" value="{{position}}"></input>
+            <view class="border {{chooseAniBox[9]?'animation':''}}"></view>
+          </view>
+        </view>
+        <view class="label_boxs" >
+          <view class="label_boxs_item" data-id="0" bindtap="choose_box">
+            <view class="title {{chooseAniBox[0]?'title_on':''}}">生日</view>
+              <picker mode="date" bindchange="endDate"   bindcancel="endDateCancel" data-id="9" start="{{startDate}}"> 
+                <view class="label_input">{{birth}}</view>
+              </picker>
+            <view class="border {{chooseAniBox[0]?'animation':''}}"></view>
+          </view>
+          <view class="label_boxs_item" data-id="3" bindtap="choose_box">
+            <view class="title {{chooseAniBox[3]?'title_on':''}}">手机</view>
+               <input class="label_input" wx:if="{{chooseAniBox[3]}}" focus="true" cursor-spacing="20" bindinput='tel_name' bindblur="tel_name_blur" value="{{telphone}}"></input>
+            <view class="border {{chooseAniBox[3]?'animation':''}}"></view>
+          </view>
+        </view>
+        <view class="label_box label_box_textarea {{chooseAniBox[7]?'textarea':''}}" data-id="7" bindtap="choose_box">
+          <view class="title {{chooseAniBox[7]?'title_on':''}}">邮寄地址</view>
+          <textarea class="label_textarea" wx:if="{{chooseAniBox[7]}}" focus="true" cursor-spacing="80" bindinput="demand_content" bindblur="demand_content_blur" focus="true" value="{{address}}"></textarea>
+          <!-- <view class="border "></view> -->
+        </view>
+    </view>
+    <view class="publish_btn" bindtap = "submit">{{isUpdate?'修改客户':"新增客户"}}</view>
+    <view class="loading" wx:if="{{loading}}">
+      <view class="loader_box">
+         <text class="loader"><text class="loader-inner"></text></text>
+      </view>
+    </view>
+  </view>

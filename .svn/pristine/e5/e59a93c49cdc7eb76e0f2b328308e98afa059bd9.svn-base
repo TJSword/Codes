@@ -1,0 +1,19 @@
+<view class='progeress_wrap'>
+   <view class="title_box" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="progress_title">DPSL矩阵</view>
+  </view>
+  <view class="canvas_box">
+     <ec-canvas id="canvas" canvas-id="canvas" ec="{{ ec }}" class="canvas"></ec-canvas>
+  </view>
+  <view class="bottom_box">
+    <view class="left_box">
+      <view>纵轴：项目完成度　颜色：项目标签</view>
+      <view>横轴：项目开始时间</view>
+      <view>大小：项目大小(研值+佣金)</view>
+    </view>
+    <view class="right_box" bindtap="toIndex">
+      <view class="btn">进入首页</view>
+    </view>
+  </view>
+</view>
+

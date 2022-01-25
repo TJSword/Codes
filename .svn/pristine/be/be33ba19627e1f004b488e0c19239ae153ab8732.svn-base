@@ -1,0 +1,23 @@
+<view class='reportList_wrap'>
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">周报列表</view>
+  </view>
+  <view class='tips' wx:if='{{!timeLineList}}'>暂无周报，期待上传</view>
+  <view class="detailBox" wx:else>
+    <view class="timeline_item {{choosedIndex===index?'item_active':''}}" wx:for="{{timeLineList}}" wx:key='index' bindtap='chooseItem' data-index='{{index}}'>
+    <view class="vertical_line"></view>
+      <view class="left_box">
+        <view class="month_day">{{item.month_day}}</view>
+        <view class="year">{{item.year}}</view>
+      </view>
+      <view class="middle_box">
+        <image class="avator" src='{{item.avatar_url}}'></image>
+      </view>
+      <view class="right_box {{choosedIndex===index?'active':''}}">
+        <view class="title">{{item.title}}</view>
+        <text class="content {{choosedIndex === index?'content_active':''}}">{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+</view>

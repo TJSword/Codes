@@ -1,0 +1,131 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "useMultiFrameRuntime": true,
+    "bundle": false,
+    "useApiHook": true,
+    "useApiHostProcess": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.13.2",
+  "appid": "wx0371d25ef74f1d54",
+  "projectname": "kysOA2.0",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/PublishPro/PublishPro",
+          "pathName": "pages/PublishPro/PublishPro",
+          "query": "id=oMwpdcddcIF1lk5t",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "pages/TravelList/TravelList",
+          "pathName": "pages/TravelList/TravelList",
+          "query": "id=oMwpdcddcIF1lk5t",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "pages/ProDetail/ProDetail",
+          "pathName": "pages/ProDetail/ProDetail",
+          "query": "id=xxt5ZQJEQxR4xpwV",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "pages/TravelUpdate/TravelUpdate",
+          "pathName": "pages/TravelUpdate/TravelUpdate",
+          "query": "id=Fk589Q0hAghxpI1t",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/ProDetail/ProDetail",
+          "pathName": "pages/ProDetail/ProDetail",
+          "query": "id=ZpUxFkklpxRFIR0c",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/Label/Label",
+          "pathName": "pages/Label/Label",
+          "query": "id=Fk589Q0hAghxpI1t",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/ProDetail/ProDetail",
+          "pathName": "pages/ProDetail/ProDetail",
+          "query": "id=xYRY5pRMARBRoJsw",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/Progress/Progress",
+          "pathName": "pages/Progress/Progress",
+          "query": "id=xxt5ZQJEQxR4xpwV",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/Index/Index",
+          "pathName": "pages/Index/Index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

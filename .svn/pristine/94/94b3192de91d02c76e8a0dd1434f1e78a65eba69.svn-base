@@ -1,0 +1,12 @@
+<view class="login_wrap">
+  <image src="../../image/index_bg.png" class="bg"></image>
+  <view class="btn_box">
+    <button class="login_btn" loading="{{false}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">Sign Up</button>
+    <button class="know_btn" bindtap = "showDetail">什么是TRS?</button>
+  </view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+</view>

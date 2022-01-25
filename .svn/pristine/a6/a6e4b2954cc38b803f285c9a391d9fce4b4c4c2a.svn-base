@@ -1,0 +1,39 @@
+<view class="travelList_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">差旅列表</view>
+  </view>
+  <view class="tips" wx:if="{{list.length === 0}}">该项目无差旅记录</view>
+  <block wx:else>
+    <view class="pro_title">{{list[0].projectName}}</view>
+   <view class='detail_box'>
+    <view class="item  {{touchIndex == index?'move':''}}" wx:for="{{list}}" wx:key="id" bindtouchstart='touchStart' bindtouchend="touchEnd" data-index="{{index}}">
+      <view class="time_address"> 
+      <view  class="time">时间：{{item.startDate}}~{{item.endDate}}</view>
+      <view class="address">地点：{{item.address}}</view>  </view>
+      <view class="joiner">参与人：{{item.joiner}}</view>
+      <view class="detail">
+        <view class="detail_item"> 交通费：{{item.trafficFee}}</view>
+        <view class="detail_item"> 餐饮费：{{item.repastFee}}</view>
+        <view class="detail_item"> 住宿费：{{item.acdFee}}</view>
+        <view class="detail_item"> 其他费用：{{item.otherFee}}</view>
+      </view>
+      <view class="type_1" wx:if="{{item.type==1}}">公</view>
+      <view class="type_2" wx:else>个</view>
+      <view class="operate_box {{touchIndex == index?'come':''}}">
+          <view class="icon-tianxie_box">
+            <view class="iconfont icon-tianxie" catchtouchstart="jumpToUpdate" data-id="{{item.id}}" data-creator="{{item.creator}}"></view>
+          </view>
+          <view class="icon-lajitong_box">
+            <view class="iconfont icon-lajitong" catchtouchstart="deleteItem" data-id="{{item.id}}" data-creator="{{item.creator}}"></view>
+          </view>
+        </view>
+    </view>
+   </view>
+  </block>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+</view>

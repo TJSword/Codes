@@ -1,0 +1,182 @@
+import * as echarts from '../../ec-canvas/echarts';
+import { request } from '../../utils/util.js'
+const app = getApp()
+
+Page({
+  data: {
+    statusBarHeight: app.globalData.statusBarHeight,
+    ec: {
+      // 将 lazyLoad 设为 true 后，需要手动初始化图表
+      lazyLoad: false 
+    },
+  },
+  toIndex(){
+    wx.redirectTo({
+      url: '../Index/Index',
+    })
+  },
+
+  setOption:function(chart) {
+
+  var option = {
+    tooltip: {
+      show: true,
+      formatter: params=>{
+        let data = this.data.dataInfo[params.seriesIndex].projectList[params.dataIndex]
+        wx.showToast({
+          title: `项目名称：${data.project_name}\n项目pm：${data.pm}\n项目开始时间：${data.start_date}\n完成度：${Math.floor(data.ratio * 100)}\n项目大小：${data.value}`,
+          icon:'none'
+        })
+        return false;
+      }
+    },
+    color:  ['#4150d8', '#28bf7e', '#ed7c2f', '#f2a93b', '#f9cf36', '#4a5bdc', '#4cd698', '#f4914e', '#fcb75b', '#ffe180', '#b6c2ff', '#96edc1'],
+    backgroundColor: '#eee',
+    xAxis: {
+      data:this.data.dateArr,
+      type:'category',
+      axisLabel: {
+        textStyle: {
+          color: '#C8C8C8'
+        }
+      },
+      axisTick: {
+        lineStyle: {
+          color: '#fff'
+        }
+      },
+      axisLine: {
+        lineStyle: {
+          color: '#C8C8C8'
+        }
+      },
+      splitLine: {
+        show:true,
+        lineStyle: {
+          color: '#C8C8C8',
+          type: 'solid'
+        }
+      }
+    },
+    yAxis: {
+      axisLabel: {
+        textStyle: {
+          color: '#C8C8C8'
+        }
+      },
+      axisTick: {
+        lineStyle: {
+          color: '#fff'
+        }
+      },
+      axisLine: {
+        lineStyle: {
+          color: '#C8C8C8'
+        }
+      },
+      splitLine: {
+        lineStyle: {
+          color: '#C8C8C8',
+          type: 'solid'
+        }
+      }
+    },
+    legend: {
+      data: this.data.legend,
+      type:'scroll',
+      padding:10,
+      itemWidth:30,
+      left:5
+    },
+    visualMap: {
+      show: false,
+      max: 100,
+      inRange: {
+        symbolSize: [20, 70]
+      }
+    },
+    series: this.data.series
+  };
+    chart.setOption(option);
+  },
+  // 点击按钮后初始化图表
+  init: function () {
+    this.ecComponent.init((canvas, width, height) => {
+      // 获取组件的 canvas、width、height 后的回调函数
+      // 在这里初始化图表
+      const chart = echarts.init(canvas, null, {
+        width: width,
+        height: height
+      });
+      this.setOption(chart);
+      // 注意这里一定要返回 chart 实例，否则会影响事件处理等
+      return chart;
+    });
+  },
+  onLoad:function(){
+   
+  },
+  onReady: function () {
+    request('/project/progress','get',{}).then(res=>{
+      console.log(res.searchRst)
+      let data = res.searchRst
+      let legend = []
+      let series = []
+      let dateArr = []
+      data.forEach(item=>{
+        legend.push(item.name)
+        let arr = []
+        item.projectList.forEach(pro=>{
+          arr.push([
+            pro.start_date,pro.ratio * 100,pro.value / 1000
+          ]),
+          dateArr.push(pro.start_date)
+        })
+        series.push({
+          name:item.name,
+          type:'scatter',
+          data:arr
+        })
+      })
+      //对类目轴 X轴进行数据处理
+      let dateNumArr = []
+      dateArr.forEach(item=>{
+        dateNumArr.push(item.split('-').join('') * 1)
+      })
+      dateNumArr.sort(function (a, b) {
+        return a-b;
+      });
+      let min = dateNumArr[0]
+      let max = dateNumArr[dateNumArr.length - 1]
+      console.log(min,max)
+      let arr = []
+      for(let i = 0; i < 100;i++){
+        arr.push(min);
+        if(min == max){
+          break
+        }
+        if(((min+"")[4] + (min+"")[5]) === '12'){
+          min = min + 89
+        }else{
+          min++;
+        }
+      }
+      let resArr = []
+      arr.forEach(item=>{
+        let resItem = item + ""
+        let newStr = resItem.slice(0,4)+'-'+resItem.slice(4);
+        resArr.push(newStr)
+      })
+      console.log(resArr)
+
+      this.setData({
+        legend,
+        series,
+        dataInfo:res.searchRst,
+        dateArr:resArr
+      })
+      this.ecComponent = this.selectComponent('#canvas');
+      this.init()
+    })
+  },
+});

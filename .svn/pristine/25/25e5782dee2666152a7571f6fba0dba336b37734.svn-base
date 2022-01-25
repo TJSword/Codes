@@ -1,0 +1,53 @@
+<view class="label_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">标签列表</view>
+  </view>
+  <view class="detailBox">
+    <view class="table">
+      <view class="table_header">
+        <view class="creator">创建人</view>
+        <view class="label_name">标签</view>
+        <view class="operation">操作</view>
+      </view>
+      <view class="table_line"></view>
+      <view class="table_detail">
+        <view class="item_box" wx:for="{{labelArr}}" wx:key="index">
+            <view class="item">
+              <view class="item_creator">
+                <image src="{{item.avatarUrl}}" class="avator"></image>
+                <text class="creator_name">{{item.createName}}</text>
+              </view>
+              <view class="item_label">{{item.name}}</view>
+              <view class="item_operation">
+                <view class="icon-tianxie_box">
+                  <view class="iconfont icon-tianxie" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="updateLabel"></view>
+                </view>
+                <view class="icon-lajitong_box">
+                  <view class="iconfont icon-lajitong"   data-id="{{item.id}}" bindtap="deleteLabel"></view>
+                </view>
+              </view>
+          </view>
+          <view class="inner_line"></view>
+        </view>
+      </view>
+    </view>
+    <view class="publish_btn" bindtap="showWriteBox">新建标签</view>
+    <view class="write_box {{isShow?'write_box_active':''}}">
+       <view class="title">请填写标签名称</view>
+      <view class="input_box">
+        <input class="input"  bindinput = "alter_offer" maxlength="10" cursor-spacing="80" value="{{label_name}}"></input>
+      </view>
+      <view class="handle_box">
+        <view class="qx_btn" bindtap="hideAlterBox">取消</view>
+        <view class="cut_line"></view>
+        <view class="qr_btn" bindtap="addLabel">确认</view>
+      </view>
+    </view>
+  </view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+</view>

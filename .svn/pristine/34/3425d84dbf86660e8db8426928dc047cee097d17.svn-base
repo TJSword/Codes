@@ -1,0 +1,132 @@
+<view class="publishPro_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">创建项目</view>
+  </view>
+  <view class="detailBox" >
+    <view class="label_box" data-id="0" bindtap="choose_box">
+      <view class="title {{chooseAniBox[0]?'title_on':''}}">项目名称</view>
+      <input class="label_input" wx:if="{{chooseAniBox[0]}}" focus="true" cursor-spacing="20" bindinput='pro_name' bindblur="pro_name_blur"></input>
+      <view class="border {{chooseAniBox[0]?'animation':''}}"></view>
+    </view>
+      <!-- <view class="label_boxs" >
+      <view class="label_boxs_item" data-id="0" bindtap="choose_box">
+         <view class="title {{chooseAniBox[0]?'title_on':''}}">项目名称</view>
+          <input class="label_input" wx:if="{{chooseAniBox[0]}}" focus="true" cursor-spacing="20" bindinput='pro_name' bindblur="pro_name_blur"></input>
+        <view class="border {{chooseAniBox[0]?'animation':''}}"></view>
+      </view>
+      <view class="label_boxs_item" data-id="10" bindtap="choose_box">
+      <view class="title {{chooseAniBox[10]?'title_on':''}}">项目标签</view>
+         <picker bindchange="proLabel" range="{{xzbq}}" bindcancel="proLabelCancel" data-id="10"> 
+            <view class="label_input">{{xzbq[proLabelIndex]}}</view>
+          </picker>
+        <view class="border {{chooseAniBox[10]?'animation':''}}"></view>
+      </view>
+    </view> -->
+    <view class="label_boxs" >
+      <view class="label_boxs_item" data-id="1" bindtap="choose_box">
+        <view class="title {{chooseAniBox[1]?'title_on':''}}">项目 RP</view>
+         <input class="label_input" wx:if="{{chooseAniBox[1]}}" focus="true" type="number" bindinput="pro_rp" bindblur="pro_rp_blur"></input>
+        <view class="border {{chooseAniBox[1]?'animation':''}}"></view>
+      </view>
+
+      <view class="label_boxs_item" data-id="8" bindtap="choose_box">
+       <view class="title {{chooseAniBox[8]?'title_on':''}}">项目佣金</view>
+         <input class="label_input" wx:if="{{chooseAniBox[8]}}" focus="true" type="number" bindinput="pro_commission" bindblur="pro_commission_blur"></input>
+        <view class="border {{chooseAniBox[8]?'animation':''}}"></view>
+      </view>
+    </view>
+     <view class="label_boxs" >
+      <view class="label_boxs_item" data-id="10" bindtap="choose_box">
+        <!-- <view class="title {{chooseAniBox[2]?'title_on':''}}">项目类型</view>
+         <picker bindchange="proType" range="{{proTypeyArr}}" bindcancel="proTypeCancel" data-id="2"> 
+            <view class="label_input">{{proTypeyArr[proTypeIndex]}}</view>
+          </picker>
+        <view class="border {{chooseAniBox[2]?'animation':''}}"></view>
+      </view> -->
+       <view class="title {{chooseAniBox[10]?'title_on':''}}">项目标签</view>
+         <picker bindchange="proLabel" range="{{xzbq}}" bindcancel="proLabelCancel" data-id="10"> 
+            <view class="label_input">{{xzbq[proLabelIndex]}}</view>
+          </picker>
+        <view class="border {{chooseAniBox[10]?'animation':''}}"></view>
+      </view>
+      <view class="label_boxs_item" data-id="3" bindtap="choose_box">
+       <view class="title {{chooseAniBox[3]?'title_on':''}}">难易程度</view>
+      <picker bindchange="difficulty" range="{{difficultyArr}}" bindcancel="difficultyCancel" data-id="3"> 
+        <view class="label_input">{{difficultyArr[difficultyIndex]}}</view>
+      </picker>
+      <view class="border {{chooseAniBox[3]?'animation':''}}"></view>
+      </view>
+    </view>
+    <!-- <view class="label_box" data-id="1" bindtap="choose_box">
+      <view class="title {{chooseAniBox[1]?'title_on':''}}">项目 RP</view>
+      <input class="label_input" wx:if="{{chooseAniBox[1]}}" focus="true" type="number" bindinput="pro_rp" bindblur="pro_rp_blur"></input>
+      <view class="border {{chooseAniBox[1]?'animation':''}}"></view>
+    </view> -->
+
+    <!-- <view class="label_box" data-id="2" bindtap="choose_box">
+      <view class="title {{chooseAniBox[2]?'title_on':''}}">项目类型</view>
+      <picker bindchange="proType" range="{{proTypeyArr}}" bindcancel="proTypeCancel" data-id="2"> 
+        <view class="label_input">{{proTypeyArr[proTypeIndex]}}</view>
+      </picker>
+      <view class="border {{chooseAniBox[2]?'animation':''}}"></view>
+    </view> -->
+    <!-- <view class="label_box" data-id="3" bindtap="choose_box">
+      <view class="title {{chooseAniBox[3]?'title_on':''}}">难易程度</view>
+      <picker bindchange="difficulty" range="{{difficultyArr}}" bindcancel="difficultyCancel" data-id="3"> 
+        <view class="label_input">{{difficultyArr[difficultyIndex]}}</view>
+      </picker>
+      <view class="border {{chooseAniBox[3]?'animation':''}}"></view>
+    </view> -->
+  <view class="label_boxs" >
+      <view class="label_boxs_item" data-id="4" bindtap="choose_box">
+         <view class="title {{chooseAniBox[4]?'title_on':''}}">选择 PM</view>
+          <picker bindchange="pm"  range="{{pmArr}}" bindcancel="pmCancel" data-id="4"> 
+            <view class="label_input">{{pmArr[pmIndex]}}</view>
+          </picker>
+          <view class="border {{chooseAniBox[4]?'animation':''}}"></view>
+      </view>
+      <view class="label_boxs_item" data-id="9" bindtap="choose_box">
+       <view class="title {{chooseAniBox[9]?'title_on':''}}" >立项文件</view>
+        <view class="label_input" bindtap="chooseFile" >{{fileName}}</view>
+       <view class="border {{chooseAniBox[9]?'animation':''}}"></view>
+      </view>
+    </view>
+
+    <!-- <view class="label_box" data-id="4" bindtap="choose_box">
+      <view class="title {{chooseAniBox[4]?'title_on':''}}">选择 PM</view>
+      <picker bindchange="pm"  range="{{pmArr}}" bindcancel="pmCancel" data-id="4"> 
+        <view class="label_input">{{pmArr[pmIndex]}}</view>
+      </picker>
+      <view class="border {{chooseAniBox[4]?'animation':''}}"></view>
+    </view> -->
+    <view class="label_boxs" >
+      <view class="label_boxs_item" data-id="5" bindtap="choose_box">
+        <view class="title {{chooseAniBox[5]?'title_on':''}}">开始时间</view>
+          <picker mode="date" bindchange="startDate"   bindcancel="startDateCancel" data-id="5" end="{{endDate}}"> 
+            <view class="label_input">{{startDate}}</view>
+          </picker>
+        <view class="border {{chooseAniBox[5]?'animation':''}}"></view>
+      </view>
+
+      <view class="label_boxs_item" data-id="6" bindtap="choose_box">
+        <view class="title {{chooseAniBox[6]?'title_on':''}}">结束时间</view>
+          <picker mode="date" bindchange="endDate"   bindcancel="endDateCancel" data-id="6" start="{{startDate}}"> 
+            <view class="label_input">{{endDate}}</view>
+          </picker>
+        <view class="border {{chooseAniBox[6]?'animation':''}}"></view>
+      </view>
+    </view>
+    <view class="label_box label_box_textarea {{chooseAniBox[7]?'textarea':''}}" data-id="7" bindtap="choose_box">
+      <view class="title {{chooseAniBox[7]?'title_on':''}}">项目简介</view>
+      <textarea class="label_textarea" wx:if="{{chooseAniBox[7]}}" focus="true" cursor-spacing="80" bindinput="pro_content" bindblur = 'pro_content_blur' focus="true"></textarea>
+      <!-- <view class="border "></view> -->
+    </view>
+  </view>
+  <view class="publish_btn" bindtap = "submit">发布项目</view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+</view>

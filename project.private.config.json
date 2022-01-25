@@ -1,0 +1,77 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/ContractList/ContractList",
+          "pathName": "pages/ContractList/ContractList",
+          "query": "id=MlVA0ZwoI4od4wYh",
+          "scene": null
+        },
+        {
+          "name": "pages/AddContract/AddContract",
+          "pathName": "pages/AddContract/AddContract",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ContractDetail/ContractDetail",
+          "pathName": "pages/ContractDetail/ContractDetail",
+          "query": "id=MlVA0ZwoI4od4wYh",
+          "scene": null
+        },
+        {
+          "name": "pages/ClientList/ClientList",
+          "pathName": "pages/ClientList/ClientList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ClientDetail/ClientDetail",
+          "pathName": "pages/ClientDetail/ClientDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/AddClient/AddClient",
+          "pathName": "pages/AddClient/AddClient",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Index/Index",
+          "pathName": "pages/Index/Index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Login/Login",
+          "pathName": "pages/Login/Login",
+          "query": "id=MlVA0ZwoI4od4wYh",
+          "scene": null
+        },
+        {
+          "name": "pages/TaskList/TaskList",
+          "pathName": "pages/TaskList/TaskList",
+          "query": "id=cYwhUdZ1YVdpQs8t",
+          "scene": null
+        },
+        {
+          "name": "pages/TravelAdd/TravelAdd",
+          "pathName": "pages/TravelAdd/TravelAdd",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

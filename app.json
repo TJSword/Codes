@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/ToDoList/ToDoList",
+    "pages/Index/Index",
+    "pages/Login/Login",
+    "pages/ProDetail/ProDetail",
+    "pages/DemandDetail/DemandDetail",
+    "pages/PublishPro/PublishPro",
+    "pages/ReleaseDemand/ReleaseDemand",
+    "pages/Chart/Chart",
+    "pages/TravelList/TravelList",
+    "pages/TravelAdd/TravelAdd",
+    "pages/TravelUpdate/TravelUpdate",
+    "pages/ProList/ProList",
+    "pages/EventAdd/EventAdd",
+    "pages/ContractList/ContractList",
+    "pages/AddContract/AddContract",
+    "pages/ContractDetail/ContractDetail",
+    "pages/ClientList/ClientList",
+    "pages/ClientDetail/ClientDetail",
+    "pages/AddClient/AddClient",
+    "pages/TaskList/TaskList"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

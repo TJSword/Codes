@@ -1,0 +1,33 @@
+<view class="Tasklist_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">任务列表</view>
+  </view>
+  <view class="content_box">
+    <view class="title">
+      <view style="width:40%">任务/结束日期</view>
+      <view style="width:20%">人员</view>
+      <view style="width:20%">难度/工时</view>
+      <view style="width:20%">数值/比例</view>
+    </view>
+    <view class="card" wx:for="{{task_list}}">
+      <view class="box_1">
+        <view class="task_title">{{item.title}}</view>
+        <view class="endDate">结束：{{item.expect_end_date}}</view>
+      </view>
+      <view class="box_2">
+        <image class="avator" src="{{item.url}}"></image>
+        <view class="name">{{item.joiner_name}}</view>
+      </view>
+      <view class="box_3">
+          <input type="text" value="{{item.level}}" data-index="{{index}}" disabled="{{isPm?false:true}}" bindinput="levelChange" class="difficulty" />
+          <input type="text" value="{{item.work_time}}" data-index="{{index}}" disabled="{{isPm?false:true}}"  bindinput="hourChange" class="hour" />
+      </view>
+      <view class="box_4">
+        <view class="num">{{item.level * item.work_time}}</view>
+        <view class="ratio">{{item.ratioVal}}%</view>
+      </view>
+    </view>
+  </view>
+  <view class="publish_btn" bindtap = "submit" wx:if="{{isUpdate}}">确定修改</view>
+</view>

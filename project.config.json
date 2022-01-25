@@ -1,0 +1,119 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": false,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "showES6CompileOption": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.16.0",
+  "appid": "wx0371d25ef74f1d54",
+  "projectname": "TRS3.0",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/ContractList/ContractList",
+          "pathName": "pages/ContractList/ContractList",
+          "query": "id=MlVA0ZwoI4od4wYh",
+          "scene": null
+        },
+        {
+          "name": "pages/AddContract/AddContract",
+          "pathName": "pages/AddContract/AddContract",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ContractDetail/ContractDetail",
+          "pathName": "pages/ContractDetail/ContractDetail",
+          "query": "id=MlVA0ZwoI4od4wYh",
+          "scene": null
+        },
+        {
+          "name": "pages/ClientList/ClientList",
+          "pathName": "pages/ClientList/ClientList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ClientDetail/ClientDetail",
+          "pathName": "pages/ClientDetail/ClientDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/AddClient/AddClient",
+          "pathName": "pages/AddClient/AddClient",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Index/Index",
+          "pathName": "pages/Index/Index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Login/Login",
+          "pathName": "pages/Login/Login",
+          "query": "id=MlVA0ZwoI4od4wYh",
+          "scene": null
+        },
+        {
+          "name": "pages/TaskList/TaskList",
+          "pathName": "pages/TaskList/TaskList",
+          "query": "id=cYwhUdZ1YVdpQs8t",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

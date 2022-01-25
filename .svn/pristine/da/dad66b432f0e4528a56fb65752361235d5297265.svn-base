@@ -1,0 +1,18 @@
+<view class="contractList_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">合同列表</view>
+  </view>
+  <view class="content_box">
+      <view class="card" wx:for="{{contractList}}" bindtap="goDetail" data-id="{{item.id}}">
+          <view class="custom_name">{{item.customName}}</view>
+          <view class="contract_name">{{item.contractName}}</view>
+          <view class="time">
+            <text>起始时间：{{item.startDate}}</text>
+            <text style="margin-left:30rpx;">结束时间：{{item.endDate}}</text>
+          </view>
+          <view class="money">¥ {{item.amount}}</view>
+      </view>
+  </view>
+  <view class="btn" bindtap="jump">录入合同</view>
+</view>

@@ -1,0 +1,171 @@
+Page{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    .RecordReportList_wrap{
+        height:100%;
+        width:100%;
+        background: linear-gradient(to top, #304352, #d7d2cc);
+        overflow: hidden;
+        .detailBox{
+            padding:0 32rpx;
+            height:88.8%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .label_box{
+                height:9%;
+                width:90%;
+                // background: pink;
+                position: relative;
+                margin-top:15rpx;
+                overflow: hidden;
+                z-index:50;
+                transition: all 0.3s ease-out;
+                .title{
+                    position: absolute;
+                    bottom: 20rpx;
+                    font-size:36rpx;
+                    left:0;
+                    transition: all 0.3s ease-out;
+                    color:#343a40;
+                }
+                .title_on{
+                    font-size:30rpx;
+                    color:#006494;
+                    transition: all 0.3s ease-out;
+                    transform: translateY(-50rpx);
+                }
+                .label_input{
+                    height:50%;
+                    width:100%;
+                    // background: pink;
+                    position: absolute;
+                    bottom:7%;
+                    z-index:20;
+                    font-size:36rpx;
+                    display: flex;
+                    align-items: center;
+                }
+                .border{
+                    width:100%;
+                    position: absolute;
+                    right:0;
+                    bottom:0;
+                    border-bottom:3rpx solid #343a40;
+                    height:230rpx;
+                    z-index: 0;
+                }
+                .animation{
+                    animation-name: border-left-bottom;
+                    animation-duration: .5s;
+                    animation-timing-function: ease-out;
+                    animation-fill-mode: both;
+                    // animation-delay:1.5s;
+                }
+            }
+            .label_box_textarea{
+                border-bottom:3rpx solid #343a40;
+            }
+            .textarea{
+                height:750rpx;
+                transition: all 0.3s ease-out;
+                border-bottom:0;
+                .label_textarea{
+                    border:3rpx solid #006494;
+                    border-radius: 10rpx;                    
+                    position: absolute;
+                    width:calc(100% - 26rpx);
+                    bottom:0;
+                    height:620rpx;
+                    font-size:26rpx;
+                    padding:10rpx;
+                }
+                .title_on{
+                    font-size:30rpx;
+                    color:#006494;
+                    transition: all 0.3s ease-out;
+                    transform: translateY(-640rpx);
+                }
+                .border{
+                    border-bottom:3rpx solid #006494;
+                    transition: all 0.3s ease-out;
+                }
+            }
+        }
+        @keyframes border-left-bottom {
+            0% {
+                width: 100%;
+                border-bottom:3rpx solid #343a40;
+            }
+            25%{
+                width: 93%;
+                border-bottom-left-radius: 15%;
+            }
+        
+            50% {
+                width: 86%;
+                border-bottom-left-radius: 30%;
+            }
+
+            75%{
+                width: 93%;
+                border-bottom-left-radius: 15%;
+            }
+            100%{
+                width: 100%;
+                border-bottom-left-radius:0;
+                border-bottom:3rpx solid #006494;
+            }
+        }
+        .publish_btn{
+            position: fixed;
+            margin:auto;
+            left:0;
+            right:0;
+            bottom: 6%;
+            width:50%;
+            height:80rpx;
+            margin-bottom: 20rpx;
+            border-radius: 40rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 2rpx;
+            color:white;
+            box-shadow: 0 0 40rpx 40rpx rgba(0,129,255,0.8) inset, 0 0 0 0 rgba(0,129,255,0.8);
+            &:active{
+                opacity: 0.8;
+            }
+        }
+        .active{
+            animation-name: button-ani;
+            animation-duration:1.5s;
+            animation-iteration-count:100;
+            animation-timing-function: ease-out;
+            animation-fill-mode: both;
+        }
+        @keyframes button-ani{
+            0%{
+                box-shadow: 0 0 40rpx 40rpx rgba(0,129,255,0.8) inset, 0 0 0 0 rgba(0,129,255,0.8);
+               
+            }
+            100%{
+                color:rgba(0,129,255,0.8);
+                 box-shadow: 0 0 10rpx 0 rgba(0,129,255,0.8) inset, 0 0 10rpx 4rpx rgba(0,129,255,0.8);
+            }
+        }
+        .sending_box{
+            position: fixed;
+            left:0;
+            top:0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+    }
+}

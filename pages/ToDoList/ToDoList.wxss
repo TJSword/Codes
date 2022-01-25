@@ -1,0 +1,507 @@
+Page {
+  height: 100%;
+  width: 100%;
+}
+Page .todolist_wrap {
+  width: 100%;
+  height: 100%;
+  background: #FAF9FE;
+  overflow: hidden;
+}
+Page .todolist_wrap .title_box {
+  margin-left: 32rpx;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+Page .todolist_wrap .title_box .progress_title {
+  font-size: 38rpx;
+  color: #2b3e43;
+  font-family: pingfang;
+  font-weight: 400;
+  letter-spacing: 2rpx;
+}
+Page .todolist_wrap .calendar {
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+Page .todolist_wrap .calendar .tit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  color: #2A2A2A;
+  padding: 3.6% 0;
+}
+Page .todolist_wrap .calendar .tit .current {
+  margin: 0 60rpx;
+}
+Page .todolist_wrap .calendar .content {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 0 3.6%;
+  height: 75%;
+}
+Page .todolist_wrap .calendar .content .day {
+  width: 98.57rpx;
+  height: 12%;
+  line-height: 12%;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 32rpx;
+  color: #14213d;
+  margin: 1.2% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: rgb(224, 199, 199); */
+}
+Page .todolist_wrap .calendar .content .day .date {
+  border-radius: 50%;
+  height: 60rpx;
+  width: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  position: relative;
+}
+Page .todolist_wrap .calendar .content .day .date .icon-shengri {
+  color: #EB6049;
+  font-size: 40rpx;
+}
+Page .todolist_wrap .calendar .content .day .date .mask_box {
+  position: absolute;
+  width: 70%;
+  height: 10rpx;
+  bottom: -12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+Page .todolist_wrap .calendar .content .day .date .mask_box .task_0 {
+  height: 16rpx;
+  width: 16rpx;
+  background: #FDE8B9;
+  border-radius: 50%;
+}
+Page .todolist_wrap .calendar .content .day .date .mask_box .task_1 {
+  height: 16rpx;
+  width: 16rpx;
+  background: #F9BC51;
+  border-radius: 50%;
+}
+Page .todolist_wrap .calendar .content .day .date .mask_box .task_2 {
+  height: 16rpx;
+  width: 16rpx;
+  background: #F6A23F;
+  border-radius: 50%;
+}
+Page .todolist_wrap .calendar .content .day .date .mask_box .task_3 {
+  height: 16rpx;
+  width: 16rpx;
+  background: #F48029;
+  border-radius: 50%;
+}
+Page .todolist_wrap .calendar .content .day .date .mask_box .task_4 {
+  height: 16rpx;
+  width: 16rpx;
+  background: #E1E1EB;
+  border-radius: 50%;
+}
+Page .todolist_wrap .calendar .content .day .date .mask_box .event {
+  height: 16rpx;
+  width: 16rpx;
+  background: #97ABFC;
+  border-radius: 50%;
+}
+Page .todolist_wrap .calendar .content .day .isYours {
+  border: 6rpx solid #e76f51;
+}
+Page .todolist_wrap .calendar .content .day .today {
+  font-weight: 700;
+  border: 4rpx dashed #CC8285;
+}
+Page .todolist_wrap .calendar .content .week {
+  width: 98.57rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 28rpx;
+  color: #2A2A2A;
+  margin: 6rpx 0;
+  font-weight: 700;
+}
+Page .todolist_wrap .calendar .content .gray {
+  color: #999;
+}
+Page .todolist_wrap .container {
+  height: 360rpx;
+  width: 100%;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container #mychart-dom-pie {
+  height: 140%;
+  width: 70%;
+}
+Page .todolist_wrap .container .legend_box {
+  height: auto;
+  width: 50%;
+}
+Page .todolist_wrap .container .legend_box .item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+Page .todolist_wrap .container .legend_box .item .block {
+  height: 25rpx;
+  width: 25rpx;
+  background: #457b9d;
+  transform: rotate(45deg);
+  border-radius: 5rpx;
+}
+Page .todolist_wrap .container .legend_box .item .label {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+}
+Page .todolist_wrap .container .swiper_box {
+  height: 100%;
+  width: 90%;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item {
+  height: 100%;
+  width: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper {
+  height: 100%;
+  width: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .wea_icon {
+  position: absolute;
+  height: 100rpx;
+  width: 100rpx;
+  right: 40rpx;
+  top: 40rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .title {
+  margin-top: 20rpx;
+  margin-left: 26rpx;
+  font-size: 28rpx;
+  color: white;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .middle_box {
+  height: 90rpx;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-left: 20%;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .middle_box .tem {
+  font-size: 75rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .middle_box .weathers {
+  font-size: 28rpx;
+  margin-left: 6rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .middle_box .air {
+  margin-top: 22rpx;
+  margin-left: 30rpx;
+  background: rgba(38, 102, 150, 0.2);
+  width: 90rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+  line-height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .middle_box .air .icon {
+  height: 20rpx;
+  width: 20rpx;
+  background: rgba(53, 126, 170, 0.5);
+  border-radius: 50%;
+  border: 4rpx solid white;
+  margin-right: 10rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .day_wea_box {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  margin-top: 30rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .day_wea_box .day_wea_item {
+  height: 160rpx;
+  width: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .day_wea_box .day_wea_item .day_wea_time {
+  color: rgba(229, 229, 229, 0.9);
+  font-size: 24rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .day_wea_box .day_wea_item .day_wea_icon {
+  height: 50rpx;
+  width: 50rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .weather_box .weather_info .day_wea_box .day_wea_item .day_wea_tem {
+  color: white;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .title {
+  margin-top: 20rpx;
+  margin-left: 26rpx;
+  font-size: 28rpx;
+  color: white;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box {
+  display: flex;
+  width: 80%;
+  margin-left: 20%;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_left_box {
+  margin-top: 40rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_left_box .nongli_box {
+  display: flex;
+  align-items: center;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_left_box .nongli_box .nongli_day {
+  color: #d43030;
+  font-size: 60rpx;
+  font-weight: 700;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_left_box .nongli_box .nongli_year_month {
+  color: white;
+  font-size: 24rpx;
+  margin-left: 10rpx;
+  height: 70rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_left_box .chong_box {
+  color: white;
+  margin-top: 60rpx;
+  font-size: 28rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_right_box {
+  display: flex;
+  margin-left: 60rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_right_box .yi_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 64rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_right_box .yi_box .yi {
+  color: #00baad;
+  font-size: 40rpx;
+  font-weight: 700;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_right_box .yi_box .yi_item {
+  color: white;
+  margin-top: 10rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 64rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_right_box .ji_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 60rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_right_box .ji_box .ji {
+  color: #d43030;
+  font-size: 40rpx;
+  font-weight: 700;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .huangli_box .bottom_box .bottom_right_box .ji_box .ji_item {
+  color: white;
+  margin-top: 10rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 64rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .title {
+  margin-top: 20rpx;
+  margin-left: 26rpx;
+  font-size: 28rpx;
+  color: white;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .middle_box {
+  display: flex;
+  margin-left: 15%;
+  margin-top: 20rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .middle_box .icon_name {
+  display: flex;
+  align-items: center;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .middle_box .icon_name .icon_box {
+  height: 80rpx;
+  width: 80rpx;
+  background: rgba(168, 136, 242, 0.6);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .middle_box .icon_name .icon_box .iconfont {
+  color: white;
+  font-size: 50rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .middle_box .icon_name .name {
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 4rpx;
+  font-size: 36rpx;
+  margin-left: 20rpx;
+  font-weight: 550;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .middle_box .xingzuo_date {
+  color: white;
+  height: 50rpx;
+  width: 180rpx;
+  background: rgba(143, 101, 237, 0.7);
+  line-height: 50rpx;
+  font-size: 26rpx;
+  text-align: center;
+  border-radius: 25rpx 0 0 25rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .bottom_box {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 42rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .bottom_box .xingzuo_item {
+  width: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  margin-bottom: 25rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .bottom_box .xingzuo_item .item_name {
+  margin-left: 80rpx;
+  white-space: nowrap;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .bottom_box .xingzuo_item .icon-sijiaoxing {
+  color: rgba(143, 101, 237, 0.4);
+  font-size: 20rpx;
+  margin: 0 5rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .bottom_box .xingzuo_item .item_val {
+  white-space: nowrap;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .bottom_box .xingzuo_item .icon-xing,
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .bottom_box .xingzuo_item .icon-banxing {
+  font-size: 24rpx;
+  color: #E1BC5C;
+  margin-left: 2rpx;
+}
+Page .todolist_wrap .container .swiper_box .swiper-item .swiper .xingzuo_box .bottom_box .xingzuo_item:nth-child(2n+1) {
+  width: 45%;
+}
+Page .todolist_wrap .btn {
+  margin: 0 auto;
+  margin-top: 40rpx;
+  width: 50%;
+  height: 80rpx;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2rpx;
+  background: rgba(0, 129, 255, 0.8);
+  color: white;
+}
+Page .todolist_wrap .btn:active {
+  opacity: 0.8;
+}

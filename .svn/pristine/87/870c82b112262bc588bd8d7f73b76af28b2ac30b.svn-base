@@ -1,0 +1,380 @@
+// pages/Apportion/Apportion.js
+const app = getApp()
+import { request,saveRequest } from '../../utils/util.js';
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    statusBarHeight: app.globalData.statusBarHeight,
+    pro_list:[],
+    proIndex:0,
+    rp_str:0,
+    commission_str:0
+  },
+  goBack: function (e) {//点击返回按钮 返回上一层页面
+    wx.redirectTo({
+      url: '../Index/Index',
+    })
+  },
+  getProList(){
+    request('/project/list','get',{
+      title: "",
+      state: "0",
+      pm: wx.getStorageSync("uid")
+    }).then(res=>{
+      console.log(res.searchResult)
+      let proList = []
+      res.searchResult.forEach(item=>{
+        proList.push(item.project_name)
+      })
+      this.setData({
+        pro_list: proList,
+        pro_list_info: res.searchResult,
+        havePro: proList.length === 0?false:true,
+        offer: res.searchResult[0].offer,
+        rp_num: res.searchResult[0].offer,
+        commission:res.searchResult[0].commission,
+        commission_num:res.searchResult[0].commission
+      })
+      if (this.data.havePro){
+        request('/demand/list','get',{
+          title: "",
+          projectId: this.data.pro_list_info[this.data.proIndex].project_id,
+          state: "0",
+          joiner: ""
+        }).then(res1=>{
+          request('/demand/list','get',{
+            title: "",
+            projectId: this.data.pro_list_info[this.data.proIndex].project_id,
+            state: "3",
+            joiner: ""
+          }).then(res2=>{
+            let arr = res1.searchResult.concat(res2.searchResult)
+            let commentDOList = []
+            if(this.data.pro_list_info[this.data.proIndex].commission === 0){
+              arr.forEach(item=>{
+                commentDOList.push({
+                  demandId: item.demand_id
+                })
+              })
+            }else{
+              arr.forEach(item=>{
+                commentDOList.push({
+                  demandId: item.demand_id,
+                  max: item.max_offer,
+                  min: item.min_offer
+                })
+              })
+            }
+            console.log(commentDOList)
+            this.setData({
+              demand_list:arr,
+              commentDOList
+            })
+          })
+        })
+      }
+    })
+  },
+  choosePro(e){
+    this.setData({
+      proIndex: e.detail.value,
+      offer: this.data.pro_list_info[e.detail.value].offer,
+      rp_num: this.data.pro_list_info[e.detail.value].offer,
+      commission:this.data.pro_list_info[e.detail.value].commission,
+      commission_num:this.data.pro_list_info[e.detail.value].commission
+    })
+    request('/demand/list', 'get', {
+      title: "",
+      projectId: this.data.pro_list_info[this.data.proIndex].project_id,
+      state: "0",
+      joiner: ""
+    }).then(res1 => {
+      request('/demand/list', 'get', {
+        title: "",
+        projectId: this.data.pro_list_info[this.data.proIndex].project_id,
+        state: "3",
+        joiner: ""
+      }).then(res2 => {
+        let arr = res1.searchResult.concat(res2.searchResult)
+        console.log(arr)
+        let commentDOList = []
+        if(this.data.pro_list_info[this.data.proIndex].commission === 0){
+          arr.forEach(item=>{
+            commentDOList.push({
+              demandId: item.demand_id
+            })
+          })
+        }else{
+          arr.forEach(item=>{
+            commentDOList.push({
+              demandId: item.demand_id,
+              max: item.max_commission,
+              min: item.min_commission
+            })
+          })
+        }
+        console.log(commentDOList)
+        this.setData({
+          demand_list: arr,
+          commentDOList
+        })
+      })
+    })
+  },
+  rp_focus(e){
+    console.log(e.currentTarget.dataset.index)
+    this.setData({
+      choose_i: e.currentTarget.dataset.index,
+      rp_str: this.data.rp_str * 1 - e.detail.value * 1
+    })
+  },
+  isNumber(val) {
+    var regPos = /^\d+(\.\d+)?$/; //整数
+    if (regPos.test(val) || "") {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  rp_input(e){
+    let commentDOList = this.data.commentDOList;
+    commentDOList.forEach(item => {
+      if (item.demandId == e.currentTarget.dataset.id) {
+        item.offer = e.detail.value
+      }
+    })
+    this.setData({
+      offer: this.data.rp_num * 1 - this.data.rp_str * 1 - e.detail.value * 1,
+      commentDOList
+    })
+   if(!this.isNumber(e.detail.value)){
+     wx.showToast({
+       title: '请输入数字',
+       icon:'none'
+     })
+   }
+  },
+  rp_blur(e){
+    let str = this.data.rp_str;
+    str = str * 1 + e.detail.value * 1;
+    this.setData({
+      rp_str: str
+    })
+    let data = e.currentTarget.dataset
+    console.log(e.detail.value)
+    // if (e.detail.value < data.min) {
+    //   wx.showToast({
+    //     title: '研值不能小于最小值',
+    //     icon: 'none'
+    //   })
+    // }else if(e.detail.value > data.max){
+    //   wx.showToast({
+    //     title: '研值不能小于最大值',
+    //     icon: 'none'
+    //   })
+    // }
+  },
+  commission_focus(e){
+    console.log(e.currentTarget.dataset.index)
+    console.log(e.detail.value)
+    this.setData({
+      choose_i: e.currentTarget.dataset.index,
+      commission_str: this.data.commission_str * 1 - e.detail.value * 1
+    })
+  },
+  commission_input(e){
+    let commentDOList = this.data.commentDOList;
+    commentDOList.forEach(item => {
+      if (item.demandId == e.currentTarget.dataset.id) {
+        item.commission = e.detail.value
+      }
+    })
+    this.setData({
+      commission: this.data.commission_num * 1 - this.data.commission_str * 1 - e.detail.value * 1,
+      commentDOList
+    })
+   if(!this.isNumber(e.detail.value)){
+     wx.showToast({
+       title: '请输入数字',
+       icon:'none'
+     })
+   }
+  },
+  commission_blur(e){
+    let str = this.data.commission_str;
+    str = str * 1 + e.detail.value * 1;
+    this.setData({
+      commission_str: str
+    })
+    let data = e.currentTarget.dataset
+    console.log(e.detail.value)
+    if (e.detail.value < data.min) {
+      wx.showToast({
+        title: '佣金不能小于最小值',
+        icon: 'none'
+      })
+    }else if(e.detail.value > data.max){
+      wx.showToast({
+        title: '佣金不能大于最大值',
+        icon: 'none'
+      })
+    }
+  },
+  showTip(){
+    wx.showModal({
+      title: '上传导师',
+      content: '当项目PM分配好各个任务的研值和佣金及撰写评价后，需要导师审核，导师审核通过后，研值和佣金才能绑定到每个人的账户上。\n且后续的任务评价会显示在任务详情中',
+      confirmText:'我知道了',
+      showCancel:false
+    })
+  },
+  comment(e){
+    let commentDOList = this.data.commentDOList;
+    commentDOList.forEach(item => {
+      if (item.demandId == e.currentTarget.dataset.id) {
+        item.content = e.detail.value
+      }
+    })
+    this.setData({
+      commentDOList: commentDOList
+    })
+  },
+  submit(e){
+    console.log(this.data.pro_list_info[this.data.proIndex])
+    let commentDOList = this.data.commentDOList
+    let flag = false
+    commentDOList.forEach(item=>{
+      if (this.data.offer != 0 && (item.offer === undefined || item.offer === '')){
+        wx.showToast({
+          title: '请填写全部任务的RP',
+          icon:'none'
+        })
+        flag = false
+        return
+      }else if(this.data.commission != 0 && item.commission === undefined){
+        wx.showToast({
+          title: '请填写全部任务的佣金',
+          icon:'none'
+        })
+        flag = false
+        return
+      }else if(this.data.commission !=0 && (item.commission < item.min || item.commission > item.max)){
+        wx.showToast({
+          title: '填写的佣金不在范围内',
+          icon: 'none'
+        })
+      }else if (item.content === undefined || item.content ===''){
+        wx.showToast({
+          title: '请填写全部任务的评价',
+          icon: 'none'
+        })
+        flag = false
+        return 
+      }else{
+        flag = true;
+      }
+    })
+    if(flag){
+      console.log('表单校验完成')
+      console.log(commentDOList)
+      wx.showModal({
+        content: '确认上传导师?',
+        success:res=>{
+          if(res.confirm){
+            this.setData({
+              loading:true
+            })
+            console.log(commentDOList)
+            commentDOList.forEach(item=>{
+              delete item.max;
+              delete item.min
+            })
+            saveRequest('/notify/tutor','post',{
+              projectId: this.data.pro_list_info[this.data.proIndex].project_id,
+              commentDOList
+            },'application/json').then(res=>{
+              this.setData({
+                loading:false
+              })
+              console.log(res)
+              if(res.code === 0){
+                wx.showToast({
+                  title: '上传成功',
+                  icon:'none'
+                })
+                setTimeout(() => {
+                  wx.redirectTo({
+                    url: '../Index/Index',
+                  })
+                }, 1000)
+              }else{
+                wx.showToast({
+                  title: '上传失败，请联系管理员',
+                  icon: "none"
+                })
+              }
+            })
+          }
+        }
+      })
+    }
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getProList()
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

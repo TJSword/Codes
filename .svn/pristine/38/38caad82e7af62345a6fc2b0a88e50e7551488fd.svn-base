@@ -1,0 +1,116 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .reportList_wrap {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to top, #304352, #d7d2cc);
+  overflow: hidden;
+}
+Page .reportList_wrap .tips {
+  height: 86.8%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2f3e46;
+  font-size: 30rpx;
+}
+Page .reportList_wrap .detailBox {
+  padding: 1% 32rpx;
+  height: 86.8%;
+  overflow: scroll;
+}
+Page .reportList_wrap .detailBox .timeline_item {
+  height: 250rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+Page .reportList_wrap .detailBox .timeline_item .vertical_line {
+  position: absolute;
+  height: 100%;
+  width: 12rpx;
+  background: #FCFCFC;
+  left: calc(27.5% - 6rpx);
+}
+Page .reportList_wrap .detailBox .timeline_item:first-child .vertical_line {
+  border-radius: 6rpx 6rpx 0 0;
+}
+Page .reportList_wrap .detailBox .timeline_item:last-child .vertical_line {
+  border-radius: 0 0 6rpx 6rpx;
+}
+Page .reportList_wrap .detailBox .timeline_item .left_box {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 28rpx;
+}
+Page .reportList_wrap .detailBox .timeline_item .left_box .year {
+  margin-top: 10rpx;
+}
+Page .reportList_wrap .detailBox .timeline_item .middle_box {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+Page .reportList_wrap .detailBox .timeline_item .middle_box .avator {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  position: absolute;
+}
+Page .reportList_wrap .detailBox .timeline_item .right_box {
+  width: calc(65% - 44rpx);
+  padding: 1% 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+}
+Page .reportList_wrap .detailBox .timeline_item .right_box .title {
+  font-size: 34rpx;
+}
+Page .reportList_wrap .detailBox .timeline_item .right_box .content {
+  margin-top: 0rpx;
+  max-height: 0;
+  color: transparent;
+  text-align: justify;
+  word-break: break-word;
+  hyphens: auto;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  line-height: 40rpx;
+}
+Page .reportList_wrap .detailBox .timeline_item .right_box .content_active {
+  margin-top: 12rpx;
+  max-height: 500rpx;
+  color: black;
+  overflow-y: scroll;
+  transition: all 0.3s ease;
+  line-height: 42rpx;
+}
+Page .reportList_wrap .detailBox .timeline_item .active {
+  width: calc(65% - 44rpx);
+  border: 2rpx solid gray;
+  transition: all 0.3s ease;
+}
+Page .reportList_wrap .detailBox .item_active {
+  height: auto;
+  transition: all 0.3s ease;
+}

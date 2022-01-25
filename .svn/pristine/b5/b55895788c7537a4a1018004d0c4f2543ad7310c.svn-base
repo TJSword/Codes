@@ -1,0 +1,99 @@
+Page{
+    height: 100%;
+    width: 100%;
+    .contractList_wrap{
+        height:100%;
+        width:100%;
+        overflow: hidden;
+        background: linear-gradient(to top, #304352, #d7d2cc); 
+        // .input_box{
+        //     width:calc(92% - 60px);
+        //     display: flex;
+        //     background: #e7ebed;
+        //     justify-content: flex-start;
+        //     align-items: center;
+        //     border-radius: 40rpx;
+        //     padding:0 30rpx;
+        //     height:70rpx;
+        //     margin-left: 5%;
+        //     margin-top:16rpx;
+        //     .iconfont{
+        //         font-size:36rpx;
+        //         color:gray
+        //     }
+        //     .search{
+        //         margin-left:10rpx;
+        //     }
+        // }
+        .content_box{
+            height: 88.8%;
+            width: 100%;
+            overflow-y: scroll;
+            .card{
+                width:90%;
+                height: 260rpx;
+                border-radius: 20rpx;
+                box-shadow: 0rpx 1rpx 20rpx 0rpx rgba(0, 0, 0, 0.17);
+                background: white;
+                margin-left: 5%;
+                margin-top: 20rpx;
+                position: relative;
+                &:last-child{
+                    margin-bottom: 40rpx;
+                }
+                .custom_name{
+                    position: absolute;
+                    left: 30rpx;
+                    top:20rpx;
+                    color: #000000;
+                    letter-spacing: 1rpx;
+                    font-size: 30rpx;
+                }
+                .contract_name{
+                    position: absolute;
+                    top:90rpx;
+                    left: 10%;
+                    font-size: 36rpx;
+                    letter-spacing: 0.5rpx;
+                    font-weight: 700;
+                }
+                .time{
+                    position: absolute;
+                    color:#000000;
+                    opacity: 0.6;
+                    font-size: 24rpx;
+                    top:145rpx;
+                    left: 10%;
+                }
+                .money{
+                    position: absolute;
+                    right: 30rpx;
+                    bottom:24rpx;
+                    font-size: 24rpx;
+                    color: #FD5F55;
+                }
+            }
+        }
+        .btn{
+            position: fixed;
+            margin:auto;
+            left:0;
+            right:0;
+            bottom: 6%;
+            width:50%;
+            height:80rpx;
+            margin-bottom: 20rpx;
+            border-radius: 40rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 2rpx;
+            background: linear-gradient(180deg, #479DF8 0%, #0C77DE 100%);
+            box-shadow: 0rpx 1rpx 20rpx 0rpx rgba(0, 0, 0, 0.17);
+            color:white;
+            &:active{
+                opacity: 0.8;
+            }
+        }
+    }
+}

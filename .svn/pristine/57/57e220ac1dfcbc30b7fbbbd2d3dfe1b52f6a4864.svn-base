@@ -1,0 +1,95 @@
+<view class="demand_wrap">
+  <view class="left_title" style="margin-top:{{statusBarHeight}}px" bindtap = "goBack">
+    <view class="iconfont icon-fanhui"></view>
+    <view class="title">任务详情</view>
+  </view>
+  <view class="detailBox">
+    <view class="title">{{demandInfo.title}}</view>
+    <view class="pro_title_box">
+      <view class="iconfont icon-xiangmu"></view>
+      <view class="pro_title">{{demandInfo.project_name}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="label_rp_box">
+        <view class="label_box">
+          <view class="iconfont icon-icon_favorite"></view>
+          <view class="label">{{demandInfo.commission_type_name}}</view>
+        </view>
+        <view class="commission_box">
+          <view class="commission_icon iconfont icon-meiyuanbizhuanyongzhanghu"></view>
+          <view class="commission_num">{{demandInfo.work_time}}工时</view>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="label_rp_box">
+        <view class="label_box">
+          <view class="iconfont icon-nanyichengdu"></view>
+          <view class="label">难度等级{{demandInfo.level}}</view>
+        </view>
+        <view class="commission_box">
+          <view class="commission_icon iconfont icon-renwujieguo"></view>
+          <view class="commission_num">{{demandInfo.demand_type === '1'?'研值任务':'佣金任务'}}</view>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="content_box">
+        <text>{{demandInfo.demand}}
+        </text>
+    </view>
+    <view class="line"></view>
+    <view class="time_box">
+      <view class="iconfont icon-lipeishijian"></view>
+      <view class="time_state">
+        <view class="state">{{demandInfo.state_name}}</view>
+        <view class="time">{{demandInfo.start_date}} —— {{demandInfo.expect_end_date}}</view>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="pm_io_box">
+      <view class="pm_box">
+        <view class="pm_icon">PM</view>
+        <image src="{{demandInfo.pm_avatar_url}}" class="pm_avator"></image>
+        <view class="pm_name">{{demandInfo.pm_name}}</view>
+      </view>
+      <view class="io_box">
+        <view class="io_icon">IO</view>
+        <image src="{{demandInfo.avatar_url}}" class="io_avator"></image>
+        <view class="io_name">{{demandInfo.joiner_name}}</view>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="progress_box">
+      <view class="progress_item {{index<=step?'choose':''}}" wx:for="{{steps}}" wx:key="index">
+        <view class="iconfont {{item.icon}}"></view>
+        <view class="item_name" bindtap='apply' data-index = '{{index}}'>{{item.name}}</view>
+      </view>
+    </view>
+    <!-- <view class="line"></view>
+    <view class="comment_box">
+      <view class="rp_result_box" wx:if="{{step === 2}}">
+        <view class="iconfont icon-shenchajieguo"></view>
+        <view class="rp_result">
+          <text>最终获得研值:{{demandInfo.offer}}； </text>
+          <text>  最终获得佣金:{{demandInfo.commission}}</text>
+        </view>
+      </view>
+      <view class="comment"  wx:if="{{step === 2}}">{{demandInfo.comment}}</view>
+      <view class="comment" wx:else>任务完成后，将得到最终获得的研值佣金及项目经理的点评。</view>
+    </view> -->
+  </view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loader_box">
+       <text class="loader"><text class="loader-inner"></text></text>
+    </view>
+  </view>
+  <view class="model" wx:if="{{showBox}}">
+    <view class="guanbi" bindtap="hideBox">×</view>
+    <textarea name="" id="" bindinput="demand_evaluate" placeholder="请填写超期原因（必填）" cols="30" rows="10" class="textarea"></textarea>
+    <view class="publish_btn" bindtap="submit">确认</view>
+  </view>
+  <view class="model" wx:if="{{showBox_daoshi}}">
+    <view class="guanbi" bindtap="hideBox_daoshi">×</view>
+    <textarea name="" id="" bindinput="demand_evaluate_daoshi" placeholder="导师评价（必填）" cols="30" rows="10" class="textarea"></textarea>
+    <view class="publish_btn" bindtap="submit_daoshi">确认</view>
+  </view>
+</view>

@@ -1,0 +1,177 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .travelList_wrap {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to top, #304352, #d7d2cc);
+  overflow: hidden;
+}
+Page .travelList_wrap .pro_title {
+  width: 100%;
+  text-align: center;
+  font-size: 44rpx;
+  font-weight: 700;
+  margin-top: 10rpx;
+}
+Page .travelList_wrap .tips {
+  height: 84.5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2f3e46;
+  font-size: 30rpx;
+}
+Page .travelList_wrap .detail_box {
+  padding: 0 32rpx;
+  height: 84.5%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+Page .travelList_wrap .detail_box .item {
+  height: 230rpx;
+  width: calc(100% - 60rpx);
+  padding: 10rpx 30rpx;
+  background: white;
+  border: 1rpx solid rgba(0, 0, 0, 0.1);
+  border-radius: 12rpx;
+  display: flex;
+  margin-top: 20rpx;
+  box-shadow: 0rpx 10rpx 10rpx 0rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 0;
+  transition: all 0.15s ease-out;
+  overflow: visible;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 30rpx;
+  flex-shrink: 0;
+}
+Page .travelList_wrap .detail_box .item:last-child {
+  margin-bottom: 50rpx;
+}
+Page .travelList_wrap .detail_box .item .time_address {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+Page .travelList_wrap .detail_box .item .joiner {
+  white-space: nowrap;
+  width: 100%;
+}
+Page .travelList_wrap .detail_box .item .detail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+Page .travelList_wrap .detail_box .item .detail .detail_item {
+  width: 45%;
+}
+Page .travelList_wrap .detail_box .item .detail .detail_item:nth-child(2n) {
+  width: 55%;
+}
+Page .travelList_wrap .detail_box .item .type_1 {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  border: 4rpx solid #f4a261;
+  border-radius: 50%;
+  height: 60rpx;
+  width: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  color: #f4a261;
+}
+Page .travelList_wrap .detail_box .item .type_2 {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  border: 4rpx solid #0D6ED2;
+  border-radius: 50%;
+  height: 60rpx;
+  width: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  color: #0D6ED2;
+}
+Page .travelList_wrap .detail_box .item .operate_box {
+  position: absolute;
+  right: -100rpx;
+  height: 100%;
+  width: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: all 0.3s ease-out 0.05s;
+}
+Page .travelList_wrap .detail_box .item .operate_box .icon-gantanhao_box {
+  background: white;
+  border-radius: 50%;
+  height: 40rpx;
+  width: 40rpx;
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+Page .travelList_wrap .detail_box .item .operate_box .icon-gantanhao_box .icon-gantanhao {
+  font-size: 50rpx;
+  color: #f77f00;
+  margin-top: -5rpx;
+}
+Page .travelList_wrap .detail_box .item .operate_box .icon-tianxie_box {
+  color: white;
+  height: 40rpx;
+  background: white;
+  width: 40rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+Page .travelList_wrap .detail_box .item .operate_box .icon-tianxie_box .icon-tianxie {
+  font-size: 50rpx;
+  color: #409EFF;
+  margin-top: -5rpx;
+}
+Page .travelList_wrap .detail_box .item .operate_box .icon-lajitong_box {
+  color: white;
+  margin-top: 50rpx;
+  height: 54rpx;
+  background: #d62828;
+  width: 54rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+Page .travelList_wrap .detail_box .item .operate_box .icon-lajitong_box .icon-lajitong {
+  font-size: 30rpx;
+  margin-top: 12rpx;
+  margin-left: 2rpx;
+}
+Page .travelList_wrap .detail_box .item .come {
+  right: -100rpx;
+  opacity: 1;
+  transition: all 0.3s ease-out 0.05s;
+}
+Page .travelList_wrap .detail_box .move {
+  position: relative;
+  left: -100rpx;
+  transition: all 0.15s ease-out;
+}

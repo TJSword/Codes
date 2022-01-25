@@ -1,0 +1,125 @@
+Page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+Page .vote_wrap {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to top, #304352, #d7d2cc);
+  overflow: hidden;
+}
+Page .vote_wrap .detail_box {
+  padding: 0 32rpx;
+  height: 88.8%;
+  overflow: hidden;
+}
+Page .vote_wrap .detail_box .title {
+  width: 100%;
+  text-align: center;
+  font-size: 44rpx;
+  font-weight: 700;
+  margin-top: 10rpx;
+}
+Page .vote_wrap .detail_box .content_box {
+  margin-top: 30rpx;
+  display: block;
+  padding: 0 30rpx;
+  color: #2f3e46;
+  font-size: 28rpx;
+  max-height: 12%;
+  overflow-y: scroll;
+}
+Page .vote_wrap .detail_box .classify_box {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+Page .vote_wrap .detail_box .classify_box .type_box {
+  display: flex;
+  align-items: center;
+  width: 65%;
+}
+Page .vote_wrap .detail_box .classify_box .type_box .icon-lipeishijian {
+  color: #206b9c;
+  font-size: 52rpx;
+}
+Page .vote_wrap .detail_box .classify_box .type_box .type {
+  margin-left: 20rpx;
+}
+Page .vote_wrap .detail_box .classify_box .complexity_box {
+  width: 35%;
+  display: flex;
+  align-items: center;
+}
+Page .vote_wrap .detail_box .classify_box .complexity_box .icon-duoren2 {
+  color: #206b9c;
+  font-size: 50rpx;
+}
+Page .vote_wrap .detail_box .classify_box .complexity_box .complexity {
+  margin-left: 20rpx;
+}
+Page .vote_wrap .detail_box .container {
+  height: 50%;
+  width: 100%;
+}
+Page .vote_wrap .detail_box .options_box {
+  height: 40%;
+  width: 100%;
+  overflow-y: scroll;
+}
+Page .vote_wrap .detail_box .options_box .options_item {
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  margin: 60rpx 0;
+}
+Page .vote_wrap .detail_box .options_box .options_item .label {
+  font-size: 30rpx;
+  color: #2f3e46;
+  margin-left: 25rpx;
+}
+Page .vote_wrap .detail_box .options_box .options_item:first-child {
+  margin-top: 7rpx;
+}
+Page .vote_wrap .detail_box .publish_btn {
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 6%;
+  width: 50%;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2rpx;
+  background: rgba(0, 129, 255, 0.8);
+  color: white;
+}
+Page .vote_wrap .detail_box .publish_btn:active {
+  opacity: 0.8;
+}
+Page .vote_wrap .detail_box .share_btn {
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 6%;
+  width: 50%;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2rpx;
+  background: rgba(0, 129, 255, 0.8);
+  color: white;
+  font-weight: 400!important;
+}
+Page .vote_wrap .detail_box .share_btn:active {
+  opacity: 0.8;
+}

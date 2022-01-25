@@ -1,0 +1,126 @@
+Page{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    .reportList_wrap{
+        height:100%;
+        width:100%;
+        background: linear-gradient(to top, #304352, #d7d2cc);
+        overflow: hidden;
+        .tips{
+            height:86.8%;
+            width:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:#2f3e46;
+            font-size:30rpx;
+        }
+        .detailBox{
+            padding:1% 32rpx;
+            height:86.8%;
+            overflow: scroll;
+            // display: flex;
+            .timeline_item{
+                height:250rpx;
+                width:100%;
+                // background: pink;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                position: relative;
+                transition: all 0.3s ease;
+                .vertical_line{
+                    position: absolute;
+                    height:100%;
+                    width:12rpx;
+                    background: #FCFCFC;
+                    left:calc(27.5% - 6rpx);
+                }
+                &:first-child{
+                    .vertical_line{
+                        border-radius: 6rpx 6rpx 0 0;
+                    }
+                }
+                &:last-child{
+                    .vertical_line{
+                        border-radius: 0 0 6rpx 6rpx;
+                    }
+                }
+                .left_box{
+                    width:20%;
+                    height:100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    font-size:28rpx;
+                    // .month_day{
+                    // }
+                    .year{
+                        margin-top:10rpx;
+                    }
+                }
+                .middle_box{
+                    width:15%;
+                    height:100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    .avator{
+                        width:80rpx;
+                        height:80rpx;
+                        border-radius: 50%;
+                        position: absolute;
+                    }
+                }
+                .right_box{
+                    width:calc(65% - 44rpx);
+                    padding:1% 20rpx;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    border-radius: 15rpx;
+                    border:2rpx solid transparent;
+                    transition: all 0.3s ease;
+                    .title{
+                        font-size:34rpx
+                    }
+                    .content{
+                        margin-top:0rpx;
+                        max-height: 0;
+                        color: transparent;
+                        text-align: justify;
+                        word-break: break-word;
+                        hyphens: auto;
+                        overflow: hidden;
+                        transition: all 0.3s ease;
+                        line-height: 40rpx;
+                    }
+                    .content_active{
+                        margin-top:12rpx;
+                        max-height: 500rpx;
+                        color: black;
+                        overflow-y: scroll;
+                        transition: all 0.3s ease;
+                        line-height: 42rpx;
+                    }
+                    
+                }
+                .active{
+                    width:calc(65% - 44rpx);
+                    border:2rpx solid gray;
+                    transition: all 0.3s ease;
+                }
+                
+            }
+            .item_active{
+                height:auto;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+}
